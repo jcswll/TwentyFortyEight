@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		038E321F1C83A632001EF027 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E321E1C83A632001EF027 /* AppDelegate.m */; };
+		038E32221C83A632001EF027 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32211C83A632001EF027 /* main.m */; };
+		038E32251C83A632001EF027 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32241C83A632001EF027 /* GameScene.m */; };
+		038E32271C83A632001EF027 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 038E32261C83A632001EF027 /* GameScene.sks */; };
+		038E32291C83A632001EF027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
+		038E322C1C83A632001EF027 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038E322A1C83A632001EF027 /* MainMenu.xib */; };
+		038E32371C83A632001EF027 /* TwentyFortyEightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32361C83A632001EF027 /* TwentyFortyEightTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		038E32331C83A632001EF027 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 038E32121C83A632001EF027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 038E32191C83A632001EF027;
+			remoteInfo = TwentyFortyEight;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		038E321A1C83A632001EF027 /* TwentyFortyEight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwentyFortyEight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		038E321D1C83A632001EF027 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		038E321E1C83A632001EF027 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		038E32211C83A632001EF027 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		038E32231C83A632001EF027 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		038E32241C83A632001EF027 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		038E32261C83A632001EF027 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		038E32281C83A632001EF027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		038E322B1C83A632001EF027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		038E322D1C83A632001EF027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		038E32321C83A632001EF027 /* TwentyFortyEightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwentyFortyEightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		038E32361C83A632001EF027 /* TwentyFortyEightTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwentyFortyEightTests.m; sourceTree = "<group>"; };
+		038E32381C83A632001EF027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		038E32171C83A632001EF027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		038E322F1C83A632001EF027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		038E32111C83A632001EF027 = {
+			isa = PBXGroup;
+			children = (
+				038E321C1C83A632001EF027 /* TwentyFortyEight */,
+				038E32351C83A632001EF027 /* TwentyFortyEightTests */,
+				038E321B1C83A632001EF027 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		038E321B1C83A632001EF027 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				038E321A1C83A632001EF027 /* TwentyFortyEight.app */,
+				038E32321C83A632001EF027 /* TwentyFortyEightTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		038E321C1C83A632001EF027 /* TwentyFortyEight */ = {
+			isa = PBXGroup;
+			children = (
+				038E321D1C83A632001EF027 /* AppDelegate.h */,
+				038E321E1C83A632001EF027 /* AppDelegate.m */,
+				038E32231C83A632001EF027 /* GameScene.h */,
+				038E32241C83A632001EF027 /* GameScene.m */,
+				038E32261C83A632001EF027 /* GameScene.sks */,
+				038E32281C83A632001EF027 /* Assets.xcassets */,
+				038E322A1C83A632001EF027 /* MainMenu.xib */,
+				038E322D1C83A632001EF027 /* Info.plist */,
+				038E32201C83A632001EF027 /* Supporting Files */,
+			);
+			path = TwentyFortyEight;
+			sourceTree = "<group>";
+		};
+		038E32201C83A632001EF027 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				038E32211C83A632001EF027 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		038E32351C83A632001EF027 /* TwentyFortyEightTests */ = {
+			isa = PBXGroup;
+			children = (
+				038E32361C83A632001EF027 /* TwentyFortyEightTests.m */,
+				038E32381C83A632001EF027 /* Info.plist */,
+			);
+			path = TwentyFortyEightTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		038E32191C83A632001EF027 /* TwentyFortyEight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 038E323B1C83A632001EF027 /* Build configuration list for PBXNativeTarget "TwentyFortyEight" */;
+			buildPhases = (
+				038E32161C83A632001EF027 /* Sources */,
+				038E32171C83A632001EF027 /* Frameworks */,
+				038E32181C83A632001EF027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwentyFortyEight;
+			productName = TwentyFortyEight;
+			productReference = 038E321A1C83A632001EF027 /* TwentyFortyEight.app */;
+			productType = "com.apple.product-type.application";
+		};
+		038E32311C83A632001EF027 /* TwentyFortyEightTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 038E323E1C83A632001EF027 /* Build configuration list for PBXNativeTarget "TwentyFortyEightTests" */;
+			buildPhases = (
+				038E322E1C83A632001EF027 /* Sources */,
+				038E322F1C83A632001EF027 /* Frameworks */,
+				038E32301C83A632001EF027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				038E32341C83A632001EF027 /* PBXTargetDependency */,
+			);
+			name = TwentyFortyEightTests;
+			productName = TwentyFortyEightTests;
+			productReference = 038E32321C83A632001EF027 /* TwentyFortyEightTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		038E32121C83A632001EF027 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Josh Caswell";
+				TargetAttributes = {
+					038E32191C83A632001EF027 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					038E32311C83A632001EF027 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 038E32191C83A632001EF027;
+					};
+				};
+			};
+			buildConfigurationList = 038E32151C83A632001EF027 /* Build configuration list for PBXProject "TwentyFortyEight" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 038E32111C83A632001EF027;
+			productRefGroup = 038E321B1C83A632001EF027 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				038E32191C83A632001EF027 /* TwentyFortyEight */,
+				038E32311C83A632001EF027 /* TwentyFortyEightTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		038E32181C83A632001EF027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038E32291C83A632001EF027 /* Assets.xcassets in Resources */,
+				038E32271C83A632001EF027 /* GameScene.sks in Resources */,
+				038E322C1C83A632001EF027 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		038E32301C83A632001EF027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		038E32161C83A632001EF027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038E32221C83A632001EF027 /* main.m in Sources */,
+				038E32251C83A632001EF027 /* GameScene.m in Sources */,
+				038E321F1C83A632001EF027 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		038E322E1C83A632001EF027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				038E32371C83A632001EF027 /* TwentyFortyEightTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		038E32341C83A632001EF027 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 038E32191C83A632001EF027 /* TwentyFortyEight */;
+			targetProxy = 038E32331C83A632001EF027 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		038E322A1C83A632001EF027 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				038E322B1C83A632001EF027 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		038E32391C83A632001EF027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		038E323A1C83A632001EF027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		038E323C1C83A632001EF027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TwentyFortyEight/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		038E323D1C83A632001EF027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TwentyFortyEight/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		038E323F1C83A632001EF027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = TwentyFortyEightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwentyFortyEight.app/Contents/MacOS/TwentyFortyEight";
+			};
+			name = Debug;
+		};
+		038E32401C83A632001EF027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = TwentyFortyEightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwentyFortyEight.app/Contents/MacOS/TwentyFortyEight";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		038E32151C83A632001EF027 /* Build configuration list for PBXProject "TwentyFortyEight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				038E32391C83A632001EF027 /* Debug */,
+				038E323A1C83A632001EF027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		038E323B1C83A632001EF027 /* Build configuration list for PBXNativeTarget "TwentyFortyEight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				038E323C1C83A632001EF027 /* Debug */,
+				038E323D1C83A632001EF027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		038E323E1C83A632001EF027 /* Build configuration list for PBXNativeTarget "TwentyFortyEightTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				038E323F1C83A632001EF027 /* Debug */,
+				038E32401C83A632001EF027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 038E32121C83A632001EF027 /* Project object */;
+}
