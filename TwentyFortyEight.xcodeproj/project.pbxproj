@@ -3,17 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		038E321F1C83A632001EF027 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E321E1C83A632001EF027 /* AppDelegate.m */; };
 		038E32221C83A632001EF027 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32211C83A632001EF027 /* main.m */; };
-		038E32251C83A632001EF027 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32241C83A632001EF027 /* GameScene.m */; };
-		038E32271C83A632001EF027 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 038E32261C83A632001EF027 /* GameScene.sks */; };
 		038E32291C83A632001EF027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
 		038E322C1C83A632001EF027 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038E322A1C83A632001EF027 /* MainMenu.xib */; };
 		038E32371C83A632001EF027 /* TwentyFortyEightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32361C83A632001EF027 /* TwentyFortyEightTests.m */; };
+		038E32431C83A675001EF027 /* TFEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32421C83A675001EF027 /* TFEAppDelegate.m */; };
+		038E32481C83A746001EF027 /* TFEMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32471C83A746001EF027 /* TFEMainScene.m */; };
+		038E324B1C83D23B001EF027 /* TFENode.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324A1C83D23B001EF027 /* TFENode.m */; };
+		038E324E1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324D1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,18 +29,21 @@
 
 /* Begin PBXFileReference section */
 		038E321A1C83A632001EF027 /* TwentyFortyEight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwentyFortyEight.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		038E321D1C83A632001EF027 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		038E321E1C83A632001EF027 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		038E32211C83A632001EF027 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		038E32231C83A632001EF027 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		038E32241C83A632001EF027 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		038E32261C83A632001EF027 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		038E32281C83A632001EF027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		038E322B1C83A632001EF027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		038E322D1C83A632001EF027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		038E32321C83A632001EF027 /* TwentyFortyEightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwentyFortyEightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		038E32361C83A632001EF027 /* TwentyFortyEightTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwentyFortyEightTests.m; sourceTree = "<group>"; };
 		038E32381C83A632001EF027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		038E32411C83A675001EF027 /* TFEAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFEAppDelegate.h; sourceTree = "<group>"; };
+		038E32421C83A675001EF027 /* TFEAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEAppDelegate.m; sourceTree = "<group>"; };
+		038E32461C83A746001EF027 /* TFEMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFEMainScene.h; sourceTree = "<group>"; };
+		038E32471C83A746001EF027 /* TFEMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEMainScene.m; sourceTree = "<group>"; };
+		038E32491C83D23B001EF027 /* TFENode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFENode.h; sourceTree = "<group>"; };
+		038E324A1C83D23B001EF027 /* TFENode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFENode.m; sourceTree = "<group>"; };
+		038E324C1C83F667001EF027 /* NSIndexSet+TFERandomIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+TFERandomIndex.h"; sourceTree = "<group>"; };
+		038E324D1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+TFERandomIndex.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +85,14 @@
 		038E321C1C83A632001EF027 /* TwentyFortyEight */ = {
 			isa = PBXGroup;
 			children = (
-				038E321D1C83A632001EF027 /* AppDelegate.h */,
-				038E321E1C83A632001EF027 /* AppDelegate.m */,
-				038E32231C83A632001EF027 /* GameScene.h */,
-				038E32241C83A632001EF027 /* GameScene.m */,
-				038E32261C83A632001EF027 /* GameScene.sks */,
+				038E32411C83A675001EF027 /* TFEAppDelegate.h */,
+				038E32421C83A675001EF027 /* TFEAppDelegate.m */,
+				038E32461C83A746001EF027 /* TFEMainScene.h */,
+				038E32471C83A746001EF027 /* TFEMainScene.m */,
+				038E324C1C83F667001EF027 /* NSIndexSet+TFERandomIndex.h */,
+				038E324D1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m */,
+				038E32491C83D23B001EF027 /* TFENode.h */,
+				038E324A1C83D23B001EF027 /* TFENode.m */,
 				038E32281C83A632001EF027 /* Assets.xcassets */,
 				038E322A1C83A632001EF027 /* MainMenu.xib */,
 				038E322D1C83A632001EF027 /* Info.plist */,
@@ -155,6 +162,7 @@
 		038E32121C83A632001EF027 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TFE;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Josh Caswell";
 				TargetAttributes = {
@@ -168,7 +176,7 @@
 				};
 			};
 			buildConfigurationList = 038E32151C83A632001EF027 /* Build configuration list for PBXProject "TwentyFortyEight" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -192,7 +200,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				038E32291C83A632001EF027 /* Assets.xcassets in Resources */,
-				038E32271C83A632001EF027 /* GameScene.sks in Resources */,
 				038E322C1C83A632001EF027 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,9 +218,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				038E32481C83A746001EF027 /* TFEMainScene.m in Sources */,
+				038E324B1C83D23B001EF027 /* TFENode.m in Sources */,
+				038E32431C83A675001EF027 /* TFEAppDelegate.m in Sources */,
+				038E324E1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m in Sources */,
 				038E32221C83A632001EF027 /* main.m in Sources */,
-				038E32251C83A632001EF027 /* GameScene.m in Sources */,
-				038E321F1C83A632001EF027 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +405,7 @@
 				038E323D1C83A632001EF027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		038E323E1C83A632001EF027 /* Build configuration list for PBXNativeTarget "TwentyFortyEightTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +414,7 @@
 				038E32401C83A632001EF027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
