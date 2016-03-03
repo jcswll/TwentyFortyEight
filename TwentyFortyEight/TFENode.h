@@ -10,8 +10,13 @@
 
 @interface TFENode : SKSpriteNode
 
-+ (instancetype)nodeWithValue:(uint32_t)value position:(CGPoint)position;
++ (instancetype)nodeWithValue:(uint32_t)value;
++ (dispatch_group_t)movementDispatchGroup;
 
 @property (nonatomic) uint32_t value;
+
+- (void)spawnAtPosition:(CGPoint)position;
+- (void)moveToPosition:(CGPoint)destination;
+- (void)moveIntoCombinationAtPosition:(CGPoint)destination;
 
 @end

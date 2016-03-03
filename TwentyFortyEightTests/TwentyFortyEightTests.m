@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "TFENode.h"
 
 @interface TwentyFortyEightTests : XCTestCase
 
@@ -14,26 +15,222 @@
 
 @implementation TwentyFortyEightTests
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+#pragma mark - No movement
+
+- (void)testEmptyRow
+{
+    BOOL didMove;
+    NSArray * slid = slideRow(@[[NSNull null],
+                                [NSNull null],
+                                [NSNull null],
+                                [NSNull null]], &didMove);
+    XCTAssertFalse(didMove);
+    XCTAssertEqualObjects(slid, @[]);
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+- (void)testBackwards
+{
+    NSArray * row = @[[TFENode nodeWithValue:2],
+                      [TFENode nodeWithValue:4],
+                      [TFENode nodeWithValue:8],
+                      [TFENode nodeWithValue:16]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    XCTAssertFalse(didMove);
+    XCTAssertEqualObjects(slid, row);
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testForwards
+{
+    NSArray * row = @[[TFENode nodeWithValue:16],
+                      [TFENode nodeWithValue:8],
+                      [TFENode nodeWithValue:4],
+                      [TFENode nodeWithValue:2]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    XCTAssertFalse(didMove);
+    XCTAssertEqualObjects(slid, row);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+#pragma mark - Combination
+
+- (void)testSplitWithTailerCombo
+{
+    NSArray * row = @[[TFENode nodeWithValue:2],
+                      [NSNull null],
+                      [TFENode nodeWithValue:2],
+                      [TFENode nodeWithValue:2]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[@[[TFENode nodeWithValue:2], [TFENode nodeWithValue:2]],
+                           [TFENode nodeWithValue:2]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testLoneMidCombo
+{
+    NSArray * row = @[[NSNull null],
+                      [TFENode nodeWithValue:2],
+                      [TFENode nodeWithValue:2],
+                      [NSNull null]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[@[[TFENode nodeWithValue:2], [TFENode nodeWithValue:2]]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testEndCapMidCombo
+{
+    NSArray * row = @[[TFENode nodeWithValue:256],
+                      [TFENode nodeWithValue:2],
+                      [TFENode nodeWithValue:2],
+                      [NSNull null]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[[TFENode nodeWithValue:256],
+                           @[[TFENode nodeWithValue:2], [TFENode nodeWithValue:2]]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testFarEndCombo
+{
+    NSArray * row = @[[NSNull null], [NSNull null],
+                      [TFENode nodeWithValue:2],
+                      [TFENode nodeWithValue:2]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[@[[TFENode nodeWithValue:2], [TFENode nodeWithValue:2]]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testDoubleHeaderCombo
+{
+    NSArray * row = @[[TFENode nodeWithValue:4],
+                      [TFENode nodeWithValue:4],
+                      [TFENode nodeWithValue:8],
+                      [TFENode nodeWithValue:4]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[@[[TFENode nodeWithValue:4], [TFENode nodeWithValue:4]],
+                           [TFENode nodeWithValue:8],
+                           [TFENode nodeWithValue:4]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testDoubleDoubleCombo
+{
+    NSArray * row = @[[TFENode nodeWithValue:4],
+                      [TFENode nodeWithValue:4],
+                      [TFENode nodeWithValue:8],
+                      [TFENode nodeWithValue:8]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[@[[TFENode nodeWithValue:4], [TFENode nodeWithValue:4]],
+                           @[[TFENode nodeWithValue:8], [TFENode nodeWithValue:8]]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testQuadCombo
+{
+    NSArray * row = @[[TFENode nodeWithValue:4],
+                      [TFENode nodeWithValue:4],
+                      [TFENode nodeWithValue:4],
+                      [TFENode nodeWithValue:4]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[@[[TFENode nodeWithValue:4], [TFENode nodeWithValue:4]],
+                           @[[TFENode nodeWithValue:4], [TFENode nodeWithValue:4]]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+#pragma mark - Just sliding
+
+- (void)testMiddleSlide
+{
+    NSArray * row = @[[NSNull null],
+                      [TFENode nodeWithValue:2],
+                      [TFENode nodeWithValue:4],
+                      [NSNull null]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[[TFENode nodeWithValue:2], [TFENode nodeWithValue:4]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testForwardSplitSlide
+{
+    NSArray * row = @[[TFENode nodeWithValue:2],
+                      [NSNull null],
+                      [TFENode nodeWithValue:4],
+                      [NSNull null]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[[TFENode nodeWithValue:2], [TFENode nodeWithValue:4]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testRearwardSplitSlide
+{
+    NSArray * row = @[[NSNull null],
+                      [TFENode nodeWithValue:2],
+                      [NSNull null],
+                      [TFENode nodeWithValue:4]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[[TFENode nodeWithValue:2], [TFENode nodeWithValue:4]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testRearwardSlide
+{
+    NSArray * row = @[[NSNull null],
+                      [NSNull null],
+                      [TFENode nodeWithValue:2],
+                      [TFENode nodeWithValue:4]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[[TFENode nodeWithValue:2], [TFENode nodeWithValue:4]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testThreeRearwardSlide
+{
+    NSArray * row = @[[NSNull null],
+                      [TFENode nodeWithValue:128],
+                      [TFENode nodeWithValue:2],
+                      [TFENode nodeWithValue:4]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[[TFENode nodeWithValue:128],
+                           [TFENode nodeWithValue:2],
+                           [TFENode nodeWithValue:4]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
+}
+
+- (void)testThreeSplitSlide
+{
+    NSArray * row = @[[TFENode nodeWithValue:1024],
+                      [NSNull null],
+                      [TFENode nodeWithValue:2],
+                      [TFENode nodeWithValue:4]];
+    BOOL didMove;
+    NSArray * slid = slideRow(row, &didMove);
+    NSArray * expected = @[[TFENode nodeWithValue:1024],
+                           [TFENode nodeWithValue:2], [TFENode nodeWithValue:4]];
+    XCTAssertTrue(didMove);
+    XCTAssertEqualObjects(slid, expected);
 }
 
 @end

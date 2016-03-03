@@ -1,14 +1,25 @@
 //
-//  NSIndexSet+TFERandomIndex.m
+//  NSIndexSet+TFEHelpers.m
 //  TwentyFortyEight
 //
 //  Created by Joshua Caswell on 2/28/16.
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-#import "NSIndexSet+TFERandomIndex.h"
+#import "NSIndexSet+TFEHelpers.h"
 
-@implementation NSIndexSet (TFERandomIndex)
+@implementation NSIndexSet (TFEHelpers)
+
++ (instancetype)TFEIndexSetWithIntegers:(const NSUInteger *)integers
+                                  count:(NSUInteger)count
+{
+    NSMutableIndexSet * set = [NSMutableIndexSet indexSet];
+    for( int i = 0; i < count; i++ ){
+        [set addIndex:integers[i]];
+    }
+    
+    return set;
+}
 
 - (NSUInteger)TFERandomIndex
 {

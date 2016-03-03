@@ -14,7 +14,9 @@
 		038E32431C83A675001EF027 /* TFEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32421C83A675001EF027 /* TFEAppDelegate.m */; };
 		038E32481C83A746001EF027 /* TFEMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32471C83A746001EF027 /* TFEMainScene.m */; };
 		038E324B1C83D23B001EF027 /* TFENode.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324A1C83D23B001EF027 /* TFENode.m */; };
-		038E324E1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324D1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m */; };
+		038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */; };
+		038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */; };
+		038E32951C87A098001EF027 /* TFEBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32941C87A098001EF027 /* TFEBoard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +44,12 @@
 		038E32471C83A746001EF027 /* TFEMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEMainScene.m; sourceTree = "<group>"; };
 		038E32491C83D23B001EF027 /* TFENode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFENode.h; sourceTree = "<group>"; };
 		038E324A1C83D23B001EF027 /* TFENode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFENode.m; sourceTree = "<group>"; };
-		038E324C1C83F667001EF027 /* NSIndexSet+TFERandomIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+TFERandomIndex.h"; sourceTree = "<group>"; };
-		038E324D1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+TFERandomIndex.m"; sourceTree = "<group>"; };
+		038E324C1C83F667001EF027 /* NSIndexSet+TFEHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+TFEHelpers.h"; sourceTree = "<group>"; };
+		038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+TFEHelpers.m"; sourceTree = "<group>"; };
+		038E324F1C856E29001EF027 /* NSArray+TFEFunctional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+TFEFunctional.h"; sourceTree = "<group>"; };
+		038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TFEFunctional.m"; sourceTree = "<group>"; };
+		038E32931C87A098001EF027 /* TFEBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFEBoard.h; sourceTree = "<group>"; };
+		038E32941C87A098001EF027 /* TFEBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEBoard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +93,16 @@
 			children = (
 				038E32411C83A675001EF027 /* TFEAppDelegate.h */,
 				038E32421C83A675001EF027 /* TFEAppDelegate.m */,
+				038E32931C87A098001EF027 /* TFEBoard.h */,
+				038E32941C87A098001EF027 /* TFEBoard.m */,
 				038E32461C83A746001EF027 /* TFEMainScene.h */,
 				038E32471C83A746001EF027 /* TFEMainScene.m */,
-				038E324C1C83F667001EF027 /* NSIndexSet+TFERandomIndex.h */,
-				038E324D1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m */,
 				038E32491C83D23B001EF027 /* TFENode.h */,
 				038E324A1C83D23B001EF027 /* TFENode.m */,
+				038E324F1C856E29001EF027 /* NSArray+TFEFunctional.h */,
+				038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */,
+				038E324C1C83F667001EF027 /* NSIndexSet+TFEHelpers.h */,
+				038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */,
 				038E32281C83A632001EF027 /* Assets.xcassets */,
 				038E322A1C83A632001EF027 /* MainMenu.xib */,
 				038E322D1C83A632001EF027 /* Info.plist */,
@@ -219,9 +229,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				038E32481C83A746001EF027 /* TFEMainScene.m in Sources */,
+				038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */,
 				038E324B1C83D23B001EF027 /* TFENode.m in Sources */,
 				038E32431C83A675001EF027 /* TFEAppDelegate.m in Sources */,
-				038E324E1C83F667001EF027 /* NSIndexSet+TFERandomIndex.m in Sources */,
+				038E32951C87A098001EF027 /* TFEBoard.m in Sources */,
+				038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */,
 				038E32221C83A632001EF027 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
