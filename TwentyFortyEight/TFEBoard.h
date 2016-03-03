@@ -7,14 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef NS_ENUM(NSUInteger, TFENodeDirection) {
-    TFENodeDirectionLeft = 0,
-    TFENodeDirectionUp,
-    TFENodeDirectionRight,
-    TFENodeDirectionDown,
-    TFENodeDirectionNotADirection
-};
+#import "TFENodeDirection.h"
 
 @class TFEMainScene;
 
@@ -24,18 +17,16 @@ typedef NS_ENUM(NSUInteger, TFENodeDirection) {
  */
 @interface TFEBoard : NSObject
 
++ (instancetype)boardWithScene:(TFEMainScene *)scene;
+
 /** Reference to the scene which displays the nodes that are managed by the
  *  board. The board tells the scene about nodes that move.
  */
 @property (weak, nonatomic) TFEMainScene * scene;
 
-- (void)buildGrid;
-
-/** Attempt to slide all nodes in the given direction. Returns YES
- *  if any nodes actually move, NO otherwise;
+/** Attempt to slide all nodes in the given direction. 
+ *  The scene will be notified if any movement actually takes place.
  */
-- (BOOL)moveNodesInDirection:(TFENodeDirection)direction;
-
-- (void)checkForEndGame;
+- (void)moveNodesInDirection:(TFENodeDirection)direction;
 
 @end

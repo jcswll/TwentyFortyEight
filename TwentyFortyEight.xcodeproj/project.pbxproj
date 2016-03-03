@@ -17,6 +17,7 @@
 		038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */; };
 		038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */; };
 		038E32951C87A098001EF027 /* TFEBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32941C87A098001EF027 /* TFEBoard.m */; };
+		038E329B1C881127001EF027 /* TFE.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E329A1C881127001EF027 /* TFE.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,10 @@
 		038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TFEFunctional.m"; sourceTree = "<group>"; };
 		038E32931C87A098001EF027 /* TFEBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFEBoard.h; sourceTree = "<group>"; };
 		038E32941C87A098001EF027 /* TFEBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEBoard.m; sourceTree = "<group>"; };
+		038E32991C881127001EF027 /* TFE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFE.h; sourceTree = "<group>"; };
+		038E329A1C881127001EF027 /* TFE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFE.m; sourceTree = "<group>"; };
+		038E329C1C881254001EF027 /* TFENodeDirection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFENodeDirection.h; sourceTree = "<group>"; };
+		038E329D1C88E449001EF027 /* TODO.taskpaper */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.taskpaper; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +98,9 @@
 			children = (
 				038E32411C83A675001EF027 /* TFEAppDelegate.h */,
 				038E32421C83A675001EF027 /* TFEAppDelegate.m */,
+				038E329C1C881254001EF027 /* TFENodeDirection.h */,
+				038E32991C881127001EF027 /* TFE.h */,
+				038E329A1C881127001EF027 /* TFE.m */,
 				038E32931C87A098001EF027 /* TFEBoard.h */,
 				038E32941C87A098001EF027 /* TFEBoard.m */,
 				038E32461C83A746001EF027 /* TFEMainScene.h */,
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				038E32211C83A632001EF027 /* main.m */,
+				038E329D1C88E449001EF027 /* TODO.taskpaper */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,6 +244,7 @@
 				038E32951C87A098001EF027 /* TFEBoard.m in Sources */,
 				038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */,
 				038E32221C83A632001EF027 /* main.m in Sources */,
+				038E329B1C881127001EF027 /* TFE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

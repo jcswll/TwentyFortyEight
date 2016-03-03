@@ -35,11 +35,7 @@
     }
     
     createdContent = YES;
-    board = [TFEBoard new];
-    //FIXME: These calls are order-dependent.
-    [board setScene:self];
-    [board buildGrid];
-
+    board = [TFEBoard boardWithScene:self];
 }
 
 static NSString * const kMovementActionKey = @"Movement";
@@ -69,10 +65,7 @@ static NSString * const kMovementActionKey = @"Movement";
             return;
     }
     
-    if( [board moveNodesInDirection:direction] ){
-        //FIXME: This is not the view's responsibility
-        [board checkForEndGame];
-    };
+    [board moveNodesInDirection:direction];
 }
 
 
