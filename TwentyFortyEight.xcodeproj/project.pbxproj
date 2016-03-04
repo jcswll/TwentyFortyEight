@@ -18,6 +18,7 @@
 		038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */; };
 		038E32951C87A098001EF027 /* TFEBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32941C87A098001EF027 /* TFEBoard.m */; };
 		038E329B1C881127001EF027 /* TFE.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E329A1C881127001EF027 /* TFE.m */; };
+		038E32A11C8A48F2001EF027 /* TFEMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32A01C8A48F2001EF027 /* TFEMove.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		038E329A1C881127001EF027 /* TFE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TFE.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		038E329C1C881254001EF027 /* TFENodeDirection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFENodeDirection.h; sourceTree = "<group>"; };
 		038E329D1C88E449001EF027 /* TODO.taskpaper */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; path = TODO.taskpaper; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
+		038E329F1C8A48F2001EF027 /* TFEMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFEMove.h; sourceTree = "<group>"; };
+		038E32A01C8A48F2001EF027 /* TFEMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEMove.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				038E329C1C881254001EF027 /* TFENodeDirection.h */,
 				038E32991C881127001EF027 /* TFE.h */,
 				038E329A1C881127001EF027 /* TFE.m */,
+				038E329F1C8A48F2001EF027 /* TFEMove.h */,
+				038E32A01C8A48F2001EF027 /* TFEMove.m */,
 				038E32931C87A098001EF027 /* TFEBoard.h */,
 				038E32941C87A098001EF027 /* TFEBoard.m */,
 				038E32461C83A746001EF027 /* TFEMainScene.h */,
@@ -241,6 +246,7 @@
 				038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */,
 				038E324B1C83D23B001EF027 /* TFENode.m in Sources */,
 				038E32431C83A675001EF027 /* TFEAppDelegate.m in Sources */,
+				038E32A11C8A48F2001EF027 /* TFEMove.m in Sources */,
 				038E32951C87A098001EF027 /* TFEBoard.m in Sources */,
 				038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */,
 				038E32221C83A632001EF027 /* main.m in Sources */,

@@ -21,6 +21,8 @@
  */
 - (CGPoint)centerOfGridSquare:(NSUInteger)squareNumber;
 
+- (void)toggleSlowForDebug;
+
 @end
 
 @implementation TFEMainScene
@@ -35,16 +37,18 @@
         return;
     }
     
-#if SLOW_DOWN_FOR_DEBUG
-        [self setSpeed:0.1];
-#endif
-    
     didCreateContent = YES;
     board = [TFEBoard boardWithScene:self];
 }
 
 - (void)keyDown:(NSEvent *)theEvent
 {
+    if( NSControlKeyMask == ([theEvent modifierFlags] & NSDeviceIndependentModifierFlagsMask) ){
+        if( kVK_ANSI_S == [theEvent keyCode] ){
+            [self toggleSlowForDebug];
+        }
+    }
+    
     // Don't accept input while movement is taking place.
     if( [TFENode anyNodeMovementInProgress] ){
         return;
@@ -85,6 +89,13 @@ static const CGFloat kGridSquareBorder = 10;
     CGFloat y = (gridSquareSize / 2) + ((gridSquareSize + kGridSquareBorder) * row);
     
     return (CGPoint){x, y};
+}
+
+- (void)toggleSlowForDebug
+{
+    static BOOL fullSpeed = YES;
+    fullSpeed = !fullSpeed;
+    [self setSpeed:fullSpeed ? 1.0 : 0.1];
 }
 
 - (void)moveNode:(TFENode *)node

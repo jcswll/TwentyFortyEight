@@ -1,13 +1,9 @@
 
 #import "TFE.h"
 #import "TFENode.h"
+#import "TFEMove.h"
 #import "NSArray+TFEFunctional.h"
 #import "NSIndexSet+TFEHelpers.h"
-
-NSString * const kTFENodeKey = @"TFENode";
-NSString * const kTFEMoveKey = @"TFEMove";
-NSString * const kTFEMoveIsSpawnKey = @"TFEMoveIsSpawn";
-NSString * const kTFEMoveIsComboKey = @"TFEMoveIsCombo";
 
 #pragma mark - Private function decls
 
@@ -33,24 +29,24 @@ NSArray * TFESlideRow(NSArray * row);
  *  TFEDisallowedSquaresByDirection()
  */
 NSArray * TFESpawnNewNode(NSArray * grid,
-                       NSIndexSet * disallowedIndexes,
-                       NSDictionary ** spawn);
+                          NSIndexSet * disallowedIndexes,
+                          TFEMove ** spawn);
 
-/** Returns a dictionary describing a node's movement: the node,
+/** Returns a TFEMove describing a node's movement: the node,
  *  the destination square, whether the node is being combined with another,
  *  or whether the move is a spawn.
  */
-NSDictionary * TFEMoveDescription(TFENode * node, NSUInteger destination,
-                               BOOL isCombo, BOOL isSpawn);
+TFEMove * TFEMoveDescription(TFENode * node, NSUInteger destination,
+                                  BOOL isCombo, BOOL isSpawn);
 
 #pragma mark - Public fuctions
 
-NSArray * TFEBuildGrid(NSArray **spawns)
+NSArray * TFEBuildGrid(NSArray<TFEMove *> ** spawns)
 {
     NSArray * grid = (NSArray *)TFENullArray();
     
-    NSDictionary * firstSpawn;
-    NSDictionary * secondSpawn;
+    TFEMove * firstSpawn;
+    TFEMove * secondSpawn;
     grid = TFESpawnNewNode(grid, nil, &firstSpawn);
     grid = TFESpawnNewNode(grid, nil, &secondSpawn);
     
@@ -124,8 +120,8 @@ NSArray * TFEMoveNodesInDirection(NSArray * grid,
 }
 
 NSArray * TFESpawnNewNodeExcludingDirection(NSArray * grid,
-                                         TFENodeDirection direction,
-                                         NSDictionary ** spawn)
+                                            TFENodeDirection direction,
+                                            TFEMove ** spawn)
 {
     return TFESpawnNewNode(grid, TFEDisallowedSquaresByDirection(direction), spawn);
 }
@@ -255,8 +251,8 @@ NSArray * TFESlideRow(NSArray * row)
 }
 
 NSArray * TFESpawnNewNode(NSArray * grid,
-                       NSIndexSet * disallowedIndexes,
-                       NSDictionary ** spawn)
+                          NSIndexSet * disallowedIndexes,
+                          TFEMove ** spawn)
 {
     NSMutableIndexSet * unoccupiedSquares =
                     [TFEIndexesOfUnoccupiedSquares(grid) mutableCopy];
@@ -280,13 +276,11 @@ NSArray * TFESpawnNewNode(NSArray * grid,
     return newGrid;
 }
          
-NSDictionary * TFEMoveDescription(TFENode * node, NSUInteger destination,
-                                  BOOL isCombo, BOOL isSpawn)
+TFEMove * TFEMoveDescription(TFENode * node, NSUInteger destination,
+                             BOOL isCombo, BOOL isSpawn)
 {
-    return @{kTFENodeKey : node,
-             kTFEMoveKey : @(destination),
-             kTFEMoveIsComboKey : @(isCombo),
-             kTFEMoveIsSpawnKey : @(isSpawn)};
+    return [TFEMove moveForNode:node toSquare:destination
+                      combining:isCombo spawning:isSpawn];
 }
 
 #pragma mark - Debug functions

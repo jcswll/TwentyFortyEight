@@ -2,6 +2,7 @@
 #import "TFEBoard.h"
 #import "TFE.h"
 #import "TFENode.h"
+#import "TFEMove.h"
 #import "TFEMainScene.h"
 
 @interface TFEBoard ()
@@ -10,12 +11,12 @@
  *  (created by TFEMoveDescription()) and pass the node and location info on to
  *  the scene for animating.
  */
-- (void)executeSpawn:(NSDictionary *)spawn;
+- (void)executeSpawn:(TFEMove *)spawn;
 /** Iterate the moves array, getting the values from each dictionary
  *  (created by TFEMoveDescription() add pass each node's new location info on
  *  to the scene for animating.
  */
-- (void)executeMoves:(NSArray<NSDictionary *> *)moves;
+- (void)executeMoves:(NSArray<TFEMove *> *)moves;
 
 /** Test the board for win and loss conditions, notifying the scene if either
  *  is found.
@@ -39,12 +40,12 @@
     self = [super init];
     if( !self ) return nil;
     
-    NSArray * initialSpawns;
+    NSArray<TFEMove *> * initialSpawns;
     _grid = TFEBuildGrid(&initialSpawns);
     
     _scene = scene;
     
-    for( NSDictionary * spawn in initialSpawns ){
+    for( TFEMove * spawn in initialSpawns ){
         [self executeSpawn:spawn];
     }
     
@@ -53,43 +54,36 @@
 
 - (void)moveNodesInDirection:(TFENodeDirection)direction
 {
-    NSArray * moves = nil;
+    NSArray<TFEMove *> * moves = nil;
     _grid = TFEMoveNodesInDirection(_grid, direction, &moves);
     
     if( !moves ) return;
         
     [self executeMoves:moves];
     
-    NSDictionary * spawn = nil;
+    TFEMove * spawn = nil;
     _grid = TFESpawnNewNodeExcludingDirection(_grid, direction, &spawn);
     [self executeSpawn:spawn];
     
     [self checkForEndGame];
 }
 
-- (void)executeSpawn:(NSDictionary *)spawn
+- (void)executeSpawn:(TFEMove *)spawn
 {
-    TFENode * node = spawn[kTFENodeKey];
-    NSUInteger destSquare = [spawn[kTFEMoveKey] unsignedIntegerValue];
-    
-    [[self scene] spawnNode:node inSquare:destSquare];
+    [[self scene] spawnNode:[spawn node] inSquare:[spawn destination]];
 }
 
-- (void)executeMoves:(NSArray *)moves
+- (void)executeMoves:(NSArray<TFEMove *> *)moves
 {
-    for( NSDictionary * move in moves ){
-        if( [move[kTFEMoveIsSpawnKey] boolValue] ){
+    for( TFEMove * move in moves ){
+        if( [move isSpawn] ){
             [self executeSpawn:move];
             continue;
         }
         
-        TFENode * node = move[kTFENodeKey];
-        NSUInteger destSquare = [move[kTFEMoveKey] unsignedIntegerValue];
-        BOOL isCombo = [move[kTFEMoveIsComboKey] boolValue];
-        
-        [[self scene] moveNode:node
-                  toGridSquare:destSquare
-                     combining:isCombo];
+        [[self scene] moveNode:[move node]
+                  toGridSquare:[move destination]
+                     combining:[move isCombination]];
     }
 }
 
