@@ -17,7 +17,7 @@ extern NSString * const kTFEMoveIsComboKey;
 /** Constructs and returns an initial grid, with two spawned nodes. 
  *  Returns spawn information indirectly.
  */
-NSArray * buildGrid(NSArray ** spawns);
+NSArray * TFEBuildGrid(NSArray<NSDictionary *> ** spawns);
 
 /** Attempt to slide all nodes in grid towards the given direction. 
  *  
@@ -30,7 +30,7 @@ NSArray * buildGrid(NSArray ** spawns);
  *
  *  Returns the grid as reconfigured after all movement has taken place.
  */
-NSArray * moveNodesInDirection(NSArray * grid,
+NSArray * TFEMoveNodesInDirection(NSArray * grid,
                                TFENodeDirection direction,
                                NSArray<NSDictionary *> ** moves);
 
@@ -41,12 +41,12 @@ NSArray * moveNodesInDirection(NSArray * grid,
  *  grid square, keyed by kTFENodeKey and kTFEMoveKey respectively.
  *  Returns the grid with the new node added.
  */
-NSArray * spawnNewNodeExcludingDirection(NSArray * grid,
+NSArray * TFESpawnNewNodeExcludingDirection(NSArray * grid,
                                          TFENodeDirection direction,
                                          NSDictionary ** spawn);
 
 /** Returns YES if the grid contains the winning-valued node. */
-BOOL isAWinner(NSArray * grid);
+BOOL TFEIsAWinner(NSArray * grid);
 
 /** Returns YES if the grid is full and no moves are possible. */
-BOOL isALoser(NSArray * grid);
+BOOL TFEIsALoser(NSArray * grid);

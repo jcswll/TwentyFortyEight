@@ -12,6 +12,17 @@ static const CGFloat kNodeBounceDuration = 0.06;
 static const CGFloat kNodeMoveDuration = 0.125;
 static const CGFloat kNodeResizeFadeDuration = 0.19;
 
+@interface TFENode ()
+
+/** The TFENode class tracks whether any instances are running animations.
+ *  This dispatch group is the means. An instance enters the group before
+ *  starting its animation action, and leaves the group in the action's
+ *  completion.
+ */
++ (dispatch_group_t)movementDispatchGroup;
+
+@end
+
 @implementation TFENode
 
 + (instancetype)nodeWithValue:(uint32_t)value
@@ -29,6 +40,19 @@ static const CGFloat kNodeResizeFadeDuration = 0.19;
     [node addChild:label];
     
     return node;
+}
+
++ (void)waitOnAllNodeMovement
+{
+    dispatch_group_wait([self movementDispatchGroup], DISPATCH_TIME_FOREVER);
+}
+
++ (BOOL)anyNodeMovementInProgress
+{
+    // Return immediately regardless, but signal whether it was because
+    // the group is inactive or because of timeout.
+    return 0 != dispatch_group_wait([self movementDispatchGroup],
+                                    DISPATCH_TIME_NOW);
 }
 
 + (dispatch_group_t)movementDispatchGroup
@@ -57,17 +81,25 @@ static const CGFloat kNodeResizeFadeDuration = 0.19;
     return [[self class] hash] << [self value];
 }
 
-- (void)spawnAtPosition:(CGPoint)position
+-(void)spawnAtPosition:(CGPoint)position
 {
-    SKAction * grow = [[SKAction resizeToWidth:0
-                                        height:0
-                                      duration:kNodeResizeFadeDuration]
-                       reversedAction];
-    SKAction * scale = [SKAction scaleBy:1.1 duration:kNodeResizeFadeDuration];
-    SKAction * spawn =
-        [SKAction group:@[grow,
-                             [SKAction fadeInWithDuration:kNodeResizeFadeDuration],
-           scale, [SKAction scaleBy:1.0 duration:kNodeBounceDuration]]];
+    // Grow to full size
+    CGSize size = [self size];
+    [self setSize:(CGSize){0,0}];
+    SKAction * grow = [SKAction resizeToWidth:size.width
+                                        height:size.height
+                                      duration:kNodeResizeFadeDuration];
+    // Do a little size bounce
+    SKAction * wait = [SKAction waitForDuration:kNodeResizeFadeDuration * 0.9];
+    SKAction * scaleUp = [SKAction scaleTo:1.2 duration:kNodeBounceDuration];
+    SKAction * scaleDown = [SKAction scaleTo:0.9 duration:kNodeBounceDuration];
+    SKAction * scaleBackUp = [SKAction scaleTo:1.0 duration:kNodeBounceDuration];
+    // And fade in
+    SKAction * fade = [SKAction fadeInWithDuration:kNodeResizeFadeDuration];
+    SKAction * spawn = [SKAction group:@[grow, fade,
+                         [SKAction sequence:@[wait, scaleUp,
+                                              scaleDown, scaleBackUp]]]];
+
     [self setPosition:position];
     [self runAction:spawn];
 }

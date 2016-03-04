@@ -12,36 +12,41 @@
 // Include Carbon header for key code enum
 #import <Carbon/Carbon.h>
 
+#define SLOW_DOWN_FOR_DEBUG 1
+
 @interface TFEMainScene ()
 
 /** Point for the center of the grid square at the given index. 0-based,
  * counting from bottom left.
  */
 - (CGPoint)centerOfGridSquare:(NSUInteger)squareNumber;
-- (NSUInteger)gridSquareForPosition:(CGPoint)position;
 
 @end
 
 @implementation TFEMainScene
 {
-    BOOL createdContent;
+    BOOL didCreateContent;
     TFEBoard * board;
 }
 
 - (void)didMoveToView:(SKView *)view
 {
-    if( createdContent ){
+    if( didCreateContent ){
         return;
     }
     
-    createdContent = YES;
+#if SLOW_DOWN_FOR_DEBUG
+        [self setSpeed:0.1];
+#endif
+    
+    didCreateContent = YES;
     board = [TFEBoard boardWithScene:self];
 }
 
-static NSString * const kMovementActionKey = @"Movement";
 - (void)keyDown:(NSEvent *)theEvent
 {
-    if( 0 != dispatch_group_wait([TFENode movementDispatchGroup], DISPATCH_TIME_NOW)){
+    // Don't accept input while movement is taking place.
+    if( [TFENode anyNodeMovementInProgress] ){
         return;
     }
     
@@ -82,16 +87,6 @@ static const CGFloat kGridSquareBorder = 10;
     return (CGPoint){x, y};
 }
 
-- (NSUInteger)gridSquareForPosition:(CGPoint)position
-{
-    CGFloat minDimension = MIN([self size].width, [self size].height);
-    CGFloat gridSquareSize = minDimension / 4;
-    NSUInteger col = position.x / (gridSquareSize + kGridSquareBorder);
-    NSUInteger row = position.y / (gridSquareSize + kGridSquareBorder);
-    
-    return (row * 4) + col;
-}
-
 - (void)moveNode:(TFENode *)node
     toGridSquare:(NSUInteger)square
        combining:(BOOL)combining
@@ -108,15 +103,16 @@ static const CGFloat kGridSquareBorder = 10;
 
 - (void)spawnNode:(TFENode *)node inSquare:(NSUInteger)square
 {
+    // Wait until all other movement has stopped before running the animation
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
-                   ^{
-                       dispatch_group_wait([TFENode movementDispatchGroup], DISPATCH_TIME_FOREVER);
-                       dispatch_async(dispatch_get_main_queue(), ^{
+        ^{
+            [TFENode waitOnAllNodeMovement];
+            dispatch_async(dispatch_get_main_queue(), ^{
                            
-                           [self addChild:node];
-                           [node spawnAtPosition:[self centerOfGridSquare:square]];
-                       });
-                   });
+            [self addChild:node];
+            [node spawnAtPosition:[self centerOfGridSquare:square]];
+        });
+    });
 }
 
 - (void)gameDidEndInVictory:(BOOL)victorious
@@ -133,8 +129,3 @@ static const CGFloat kGridSquareBorder = 10;
 }
 
 @end
-
-CGFloat vectorMagnitude(CGVector vector)
-{
-    return sqrt(pow(vector.dx, 2) + pow(vector.dx, 2));
-}

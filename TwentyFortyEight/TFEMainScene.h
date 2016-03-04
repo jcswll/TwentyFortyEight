@@ -17,12 +17,17 @@
 
 @interface TFEMainScene (TFEBoardCommunication)
 
+/** Animate node to the correct position for the index square, destroying
+ *  the node if combining is true.
+ */
 - (void)moveNode:(TFENode *)node
     toGridSquare:(NSUInteger)square
        combining:(BOOL)combining;
 
+/** Animate the appearance of node at the position for the index square. */
 - (void)spawnNode:(TFENode *)node inSquare:(NSUInteger)square;
 
+/** Animate a message for the end of the game. */
 - (void)gameDidEndInVictory:(BOOL)victorious;
 
 @end

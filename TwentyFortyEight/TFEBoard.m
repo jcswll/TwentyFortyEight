@@ -7,12 +7,12 @@
 @interface TFEBoard ()
 
 /** Grab the appropriate values from the spawn dictionary
- *  (created by moveDescription()) and pass the node and location info on to
+ *  (created by TFEMoveDescription()) and pass the node and location info on to
  *  the scene for animating.
  */
 - (void)executeSpawn:(NSDictionary *)spawn;
 /** Iterate the moves array, getting the values from each dictionary
- *  (created by moveDescription() add pass each node's new location info on
+ *  (created by TFEMoveDescription() add pass each node's new location info on
  *  to the scene for animating.
  */
 - (void)executeMoves:(NSArray<NSDictionary *> *)moves;
@@ -40,7 +40,7 @@
     if( !self ) return nil;
     
     NSArray * initialSpawns;
-    _grid = buildGrid(&initialSpawns);
+    _grid = TFEBuildGrid(&initialSpawns);
     
     _scene = scene;
     
@@ -54,14 +54,14 @@
 - (void)moveNodesInDirection:(TFENodeDirection)direction
 {
     NSArray * moves = nil;
-    _grid = moveNodesInDirection(_grid, direction, &moves);
+    _grid = TFEMoveNodesInDirection(_grid, direction, &moves);
     
     if( !moves ) return;
         
     [self executeMoves:moves];
     
     NSDictionary * spawn = nil;
-    _grid = spawnNewNodeExcludingDirection(_grid, direction, &spawn);
+    _grid = TFESpawnNewNodeExcludingDirection(_grid, direction, &spawn);
     [self executeSpawn:spawn];
     
     [self checkForEndGame];
@@ -95,10 +95,10 @@
 
 - (void)checkForEndGame
 {
-    if( isAWinner(_grid) ){
+    if( TFEIsAWinner(_grid) ){
         [[self scene] gameDidEndInVictory:YES];
     }
-    else if( isALoser(_grid) ){
+    else if( TFEIsALoser(_grid) ){
         [[self scene] gameDidEndInVictory:NO];
     }
 }

@@ -15,44 +15,44 @@ NSString * const kTFEMoveIsComboKey = @"TFEMoveIsCombo";
  *  these are the squares where spawning is not allowed after a move has 
  *  been made.
  */
-NSIndexSet * disallowedSquaresByDirection(TFENodeDirection d);
+NSIndexSet * TFEDisallowedSquaresByDirection(TFENodeDirection d);
 /** Returns an NSMutableArray of 16 NSNull. */
-NSMutableArray * nullArray(void);
+NSMutableArray * TFENullArray(void);
 /** Returns the indexes in squares that do not contain NSNull. */
-NSIndexSet * indexesOfUnoccupiedSquares(NSArray * squares);
+NSIndexSet * TFEIndexesOfUnoccupiedSquares(NSArray * squares);
 /** Given a list of nodes, attempts to "slide" them towards the front of the
  *  list, combining adjacent equal-valued nodes, and moving nodes through
  *  empty spaces.
  *  Removes nulls before sliding.
  *  Returns the reconfigured row, or nil if nothing actually moved.
  */
-NSArray * slideRow(NSArray * row);
+NSArray * TFESlideRow(NSArray * row);
 
 /** Does the actual work for the public function 
- *  spawnNewNodeExcludingDirection(), which will pass in the result of
- *  disallowedSquaresByDirection()
+ *  TFESpawnNewNodeExcludingDirection(), which will pass in the result of
+ *  TFEDisallowedSquaresByDirection()
  */
-NSArray * spawnNewNode(NSArray * grid,
+NSArray * TFESpawnNewNode(NSArray * grid,
                        NSIndexSet * disallowedIndexes,
                        NSDictionary ** spawn);
 
-/** Returns a dictionary describing a node's movement: the node
+/** Returns a dictionary describing a node's movement: the node,
  *  the destination square, whether the node is being combined with another,
  *  or whether the move is a spawn.
  */
-NSDictionary * moveDescription(TFENode * node, NSUInteger destination,
+NSDictionary * TFEMoveDescription(TFENode * node, NSUInteger destination,
                                BOOL isCombo, BOOL isSpawn);
 
 #pragma mark - Public fuctions
 
-NSArray * buildGrid(NSArray **spawns)
+NSArray * TFEBuildGrid(NSArray **spawns)
 {
-    NSArray * grid = (NSArray *)nullArray();
+    NSArray * grid = (NSArray *)TFENullArray();
     
     NSDictionary * firstSpawn;
     NSDictionary * secondSpawn;
-    grid = spawnNewNode(grid, nil, &firstSpawn);
-    grid = spawnNewNode(grid, nil, &secondSpawn);
+    grid = TFESpawnNewNode(grid, nil, &firstSpawn);
+    grid = TFESpawnNewNode(grid, nil, &secondSpawn);
     
     *spawns = @[firstSpawn, secondSpawn];
     
@@ -65,11 +65,11 @@ static const NSUInteger gridLinesByDirection[4][4][4] =
      {{3, 2, 1, 0}, {7, 6, 5, 4}, {11, 10, 9, 8}, {15, 14, 13, 12}},
      {{0, 4, 8, 12}, {1, 5, 9, 13}, {2, 6, 10, 14}, {3, 7, 11, 15}}};
 
-NSArray * moveNodesInDirection(NSArray * grid,
+NSArray * TFEMoveNodesInDirection(NSArray * grid,
                                TFENodeDirection direction,
                                NSArray ** moves)
 {
-    NSMutableArray * newGrid = nullArray();
+    NSMutableArray * newGrid = TFENullArray();
     NSMutableArray * newMoves = nil;
     
     for( int row_i = 0; row_i < 4; row_i++ ){
@@ -83,7 +83,7 @@ NSArray * moveNodesInDirection(NSArray * grid,
             rowNodes[i] = grid[idx];
         }
         
-        NSArray * slidRow = slideRow(rowNodes);
+        NSArray * slidRow = TFESlideRow(rowNodes);
         // No movement, just copy over nodes and move to the next row.
         if( !slidRow ){
             for( int i = 0; i < 4; i++ ){
@@ -102,18 +102,18 @@ NSArray * moveNodesInDirection(NSArray * grid,
                  if( [element isKindOfClass:[NSArray class]] ){
                      for( TFENode * node in element ){
                          [newMoves addObject:
-                                moveDescription(node, destSquare, YES, NO)];
+                                TFEMoveDescription(node, destSquare, YES, NO)];
                      }
                      uint32_t newVal = [(TFENode*)element[0] value] * 2;
                      TFENode * combinedNode = [TFENode nodeWithValue:newVal];
                      newGrid[destSquare] = combinedNode;
                      [newMoves addObject:
-                        moveDescription(combinedNode, destSquare, NO, YES)];
+                        TFEMoveDescription(combinedNode, destSquare, NO, YES)];
                  }
                  else {
                      newGrid[destSquare] = element;
                      [newMoves addObject:
-                        moveDescription(element, destSquare, NO, NO)];
+                        TFEMoveDescription(element, destSquare, NO, NO)];
                  }
              }];
     }
@@ -123,16 +123,16 @@ NSArray * moveNodesInDirection(NSArray * grid,
     return newGrid;
 }
 
-NSArray * spawnNewNodeExcludingDirection(NSArray * grid,
+NSArray * TFESpawnNewNodeExcludingDirection(NSArray * grid,
                                          TFENodeDirection direction,
                                          NSDictionary ** spawn)
 {
-    return spawnNewNode(grid, disallowedSquaresByDirection(direction), spawn);
+    return TFESpawnNewNode(grid, TFEDisallowedSquaresByDirection(direction), spawn);
 }
 
 
 
-BOOL isAWinner(NSArray * grid)
+BOOL TFEIsAWinner(NSArray * grid)
 {
     static TFENode * twentyFortyEight;
     if( !twentyFortyEight ){
@@ -142,17 +142,17 @@ BOOL isAWinner(NSArray * grid)
     return [grid containsObject:twentyFortyEight];
 }
 
-BOOL isALoser(NSArray * grid)
+BOOL TFEIsALoser(NSArray * grid)
 {
     // If the board is not full, can't have lost yet
-    if( [indexesOfUnoccupiedSquares(grid) count] > 0 ){
+    if( [TFEIndexesOfUnoccupiedSquares(grid) count] > 0 ){
         return NO;
     }
     
     // Check movement in all directions.
     NSArray * moves = nil;
     for( TFENodeDirection d = 0; d < 4; d++ ){
-        id __unused _ = moveNodesInDirection(grid, d, &moves);
+        id __unused _ = TFEMoveNodesInDirection(grid, d, &moves);
         // If movement is possible in _any_ direction, haven't lost.
         if( moves ){
             break;
@@ -164,7 +164,7 @@ BOOL isALoser(NSArray * grid)
 
 #pragma mark - Private functions
 
-NSIndexSet * disallowedSquaresByDirection(TFENodeDirection d)
+NSIndexSet * TFEDisallowedSquaresByDirection(TFENodeDirection d)
 {
     static const NSUInteger left[4] = {12, 8, 4, 0};
     static NSIndexSet * leftSet;
@@ -195,7 +195,7 @@ NSIndexSet * disallowedSquaresByDirection(TFENodeDirection d)
     return list[d];
 }
 
-NSMutableArray * nullArray(void)
+NSMutableArray * TFENullArray(void)
 {
     NSMutableArray * grid = [NSMutableArray array];
     for( int i = 0; i < 16; i++ ){
@@ -205,7 +205,7 @@ NSMutableArray * nullArray(void)
     return grid;
 }
 
-NSIndexSet * indexesOfUnoccupiedSquares(NSArray * grid)
+NSIndexSet * TFEIndexesOfUnoccupiedSquares(NSArray * grid)
 {
     return [grid indexesOfObjectsPassingTest:
                 ^BOOL (id obj, NSUInteger idx, BOOL * stop)
@@ -214,7 +214,7 @@ NSIndexSet * indexesOfUnoccupiedSquares(NSArray * grid)
                   }];
 }
 
-NSArray * slideRow(NSArray * row)
+NSArray * TFESlideRow(NSArray * row)
 {
     NSArray * realNodes = [row filteredArrayUsingPredicate:
                             [NSPredicate predicateWithFormat:@"self != nil"]];
@@ -254,30 +254,34 @@ NSArray * slideRow(NSArray * row)
     return didMove ? slidRow : nil;
 }
 
-NSArray * spawnNewNode(NSArray * grid,
+NSArray * TFESpawnNewNode(NSArray * grid,
                        NSIndexSet * disallowedIndexes,
                        NSDictionary ** spawn)
 {
     NSMutableIndexSet * unoccupiedSquares =
-    [indexesOfUnoccupiedSquares(grid) mutableCopy];
+                    [TFEIndexesOfUnoccupiedSquares(grid) mutableCopy];
     if( disallowedIndexes ){
         [unoccupiedSquares removeIndexes:disallowedIndexes];
     }
     
-    uint32_t val = (arc4random_uniform(2) + 1) * 2;
     NSUInteger idx = [unoccupiedSquares TFERandomIndex];
+    
+    // Bias heavily towards new value being a 2
+    uint32_t draw = arc4random_uniform(10);
+    uint32_t val = (draw < 9) ? 2 : 4;
     TFENode * node = [TFENode nodeWithValue:val];
+    
     NSMutableArray * newGrid = [grid mutableCopy];
     [newGrid replaceObjectAtIndex:idx
                        withObject:node];
     
-    *spawn = moveDescription(node, idx, NO, YES);
+    *spawn = TFEMoveDescription(node, idx, NO, YES);
     
     return newGrid;
 }
          
-NSDictionary * moveDescription(TFENode * node, NSUInteger destination,
-                               BOOL isCombo, BOOL isSpawn)
+NSDictionary * TFEMoveDescription(TFENode * node, NSUInteger destination,
+                                  BOOL isCombo, BOOL isSpawn)
 {
     return @{kTFENodeKey : node,
              kTFEMoveKey : @(destination),
