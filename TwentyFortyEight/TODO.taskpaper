@@ -5,4 +5,4 @@
 - Prefix TFE module functions. @done
 - Make it more likely that a 2 is generated (chance is 90% in original version) @done
 - Implement scoring
-- Fix square position calculation (and make sizes dynamic)
+- Fix square position calculation (and make sizes dynamic) @done

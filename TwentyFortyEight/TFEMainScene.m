@@ -12,8 +12,6 @@
 // Include Carbon header for key code enum
 #import <Carbon/Carbon.h>
 
-#define SLOW_DOWN_FOR_DEBUG 1
-
 @interface TFEMainScene ()
 
 /** Point for the center of the grid square at the given index. 0-based,
@@ -21,6 +19,7 @@
  */
 - (CGPoint)centerOfGridSquare:(NSUInteger)squareNumber;
 
+/** Switch the scene's speed between 0.1 and 1.0 for checking animations. */
 - (void)toggleSlowForDebug;
 
 @end
@@ -46,6 +45,7 @@
     if( NSControlKeyMask == ([theEvent modifierFlags] & NSDeviceIndependentModifierFlagsMask) ){
         if( kVK_ANSI_S == [theEvent keyCode] ){
             [self toggleSlowForDebug];
+            return;
         }
     }
     
@@ -57,15 +57,19 @@
     unsigned short code = [theEvent keyCode];
     TFENodeDirection direction;
     switch (code) {
+        case kVK_ANSI_A:
         case kVK_LeftArrow:
             direction = TFENodeDirectionLeft;
             break;
+        case kVK_ANSI_W:
         case kVK_UpArrow:
             direction = TFENodeDirectionUp;
             break;
+        case kVK_ANSI_D:
         case kVK_RightArrow:
             direction = TFENodeDirectionRight;
             break;
+        case kVK_ANSI_S:
         case kVK_DownArrow:
             direction = TFENodeDirectionDown;
             break;
@@ -77,16 +81,14 @@
     [board moveNodesInDirection:direction];
 }
 
-
-static const CGFloat kGridSquareBorder = 10;
 - (CGPoint)centerOfGridSquare:(NSUInteger)squareNumber
 {
     CGFloat minDimension = MIN([self size].width, [self size].height);
     CGFloat gridSquareSize = minDimension / 4;
     NSUInteger col = (squareNumber % 4);
     NSUInteger row = (squareNumber / 4);
-    CGFloat x = (gridSquareSize / 2) + ((gridSquareSize + kGridSquareBorder) * col);
-    CGFloat y = (gridSquareSize / 2) + ((gridSquareSize + kGridSquareBorder) * row);
+    CGFloat x = gridSquareSize * (col + 0.5);
+    CGFloat y = gridSquareSize * (row + 0.5);
     
     return (CGPoint){x, y};
 }
@@ -97,6 +99,8 @@ static const CGFloat kGridSquareBorder = 10;
     fullSpeed = !fullSpeed;
     [self setSpeed:fullSpeed ? 1.0 : 0.1];
 }
+
+#pragma mark - Board commnunication
 
 - (void)moveNode:(TFENode *)node
     toGridSquare:(NSUInteger)square

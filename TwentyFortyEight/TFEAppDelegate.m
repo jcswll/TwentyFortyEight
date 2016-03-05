@@ -13,6 +13,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
+    [[self mainWindow] setContentAspectRatio:(NSSize){1, 1}];
+    
     TFEMainScene *scene = [[TFEMainScene alloc] initWithSize:[[self mainView] frame].size];
     
     [[self mainView] presentScene:scene];
