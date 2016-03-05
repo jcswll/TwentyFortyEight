@@ -1,6 +1,6 @@
 - Change interface for waiting on TFENode dispatch group: caller should not need to know of existence of group, just that it needs to wait. @done
 - Convert dictionary-based moves to data class. @done
-- Make a helper method -[NSArray TFEObjectsAtOrderedIndexes:(const NSUInteger *)count:(NSUInteger)] to use for initializing rowNodes in TFEMoveNodesInDirection() @maybe
+- Make a helper method -[NSArray TFEObjectsAtOrderedIndexes:(const NSUInteger *) count:(NSUInteger)] to use for initializing rowNodes in TFEMoveNodesInDirection() @maybe
 - Tests are obsolete with changes to TFE module's interface. Should also test that move descriptions are correct.
 - Prefix TFE module functions. @done
 - Make it more likely that a 2 is generated (chance is 90% in original version) @done

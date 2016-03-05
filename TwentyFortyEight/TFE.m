@@ -37,7 +37,7 @@ NSArray * TFESpawnNewNode(NSArray * grid,
  *  or whether the move is a spawn.
  */
 TFEMove * TFEMoveDescription(TFENode * node, NSUInteger destination,
-                                  BOOL isCombo, BOOL isSpawn);
+                             BOOL isCombo, BOOL isSpawn);
 
 #pragma mark - Public fuctions
 
@@ -63,7 +63,7 @@ static const NSUInteger gridLinesByDirection[4][4][4] =
 
 NSArray * TFEMoveNodesInDirection(NSArray * grid,
                                TFENodeDirection direction,
-                               NSArray ** moves)
+                               NSArray<TFEMove *> ** moves)
 {
     NSMutableArray * newGrid = TFENullArray();
     NSMutableArray * newMoves = nil;

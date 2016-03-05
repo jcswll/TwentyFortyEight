@@ -14,6 +14,8 @@ static const CGFloat kNodeResizeFadeDuration = 0.19;
 
 @interface TFENode ()
 
++ (SKTexture *)textureForValue:(uint32_t)value;
+
 /** The TFENode class tracks whether any instances are running animations.
  *  This dispatch group is the means. An instance enters the group before
  *  starting its animation action, and leaves the group in the action's
@@ -27,17 +29,11 @@ static const CGFloat kNodeResizeFadeDuration = 0.19;
 
 + (instancetype)nodeWithValue:(uint32_t)value
 {
-    id node = [[self alloc] initWithColor:[NSColor yellowColor]
-                                     size:(CGSize){100, 100}];
+    SKTexture * texture = [self textureForValue:value];
+    id node = [[self alloc] initWithTexture:texture];
     
+    [node setSize:(CGSize){100, 100}];
     [(TFENode *)node setValue:value];
-    
-    SKLabelNode * label = [SKLabelNode labelNodeWithFontNamed:@"Palatino"];
-    [label setText:[NSString stringWithFormat:@"%u", value]];
-    [label setFontSize:64];
-    [label setVerticalAlignmentMode:SKLabelVerticalAlignmentModeCenter];
-    
-    [node addChild:label];
     
     return node;
 }
@@ -53,6 +49,12 @@ static const CGFloat kNodeResizeFadeDuration = 0.19;
     // the group is inactive or because of timeout.
     return 0 != dispatch_group_wait([self movementDispatchGroup],
                                     DISPATCH_TIME_NOW);
+}
+
++ (SKTexture *)textureForValue:(uint32_t)value
+{
+    NSString * name = [NSString stringWithFormat:@"%d", value];
+    return [SKTexture textureWithImageNamed:name];
 }
 
 + (dispatch_group_t)movementDispatchGroup
