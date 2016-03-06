@@ -18,6 +18,11 @@
  */
 - (void)executeMoves:(NSArray<TFEMove *> *)moves;
 
+/** Add the score for each move in moves to the current score, and 
+ *  notify the scene if any update is necessary.
+ */
+- (void)scoreMoves:(NSArray<TFEMove *> *)moves;
+
 /** Test the board for win and loss conditions, notifying the scene if either
  *  is found.
  */
@@ -28,6 +33,7 @@
 @implementation TFEBoard
 {
     NSArray * _grid;
+    uint32_t _score;
 }
 
 + (instancetype)boardWithScene:(TFEMainScene *)scene
@@ -61,6 +67,8 @@
         
     [self executeMoves:moves];
     
+    [self scoreMoves:moves];
+    
     TFEMove * spawn = nil;
     _grid = TFESpawnNewNodeExcludingDirection(_grid, direction, &spawn);
     [self executeSpawn:spawn];
@@ -84,6 +92,15 @@
         [[self scene] moveNode:[move node]
                   toGridSquare:[move destination]
                      combining:[move isCombination]];
+    }
+}
+
+- (void)scoreMoves:(NSArray<TFEMove *> *)moves
+{
+    uint32_t new_points = TFEScoreForMoves(moves);
+    if( new_points > 0 ){
+        _score += new_points;
+        [[self scene] updateScoreTo:_score];
     }
 }
 

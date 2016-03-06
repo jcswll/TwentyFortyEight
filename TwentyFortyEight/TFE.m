@@ -12,10 +12,13 @@
  *  been made.
  */
 NSIndexSet * TFEDisallowedSquaresByDirection(TFENodeDirection d);
+
 /** Returns an NSMutableArray of 16 NSNull. */
 NSMutableArray * TFENullArray(void);
+
 /** Returns the indexes in squares that do not contain NSNull. */
 NSIndexSet * TFEIndexesOfUnoccupiedSquares(NSArray * squares);
+
 /** Given a list of nodes, attempts to "slide" them towards the front of the
  *  list, combining adjacent equal-valued nodes, and moving nodes through
  *  empty spaces.
@@ -156,6 +159,18 @@ BOOL TFEIsALoser(NSArray * grid)
     }
     
     return (moves == nil);
+}
+
+uint32_t TFEScoreForMoves(NSArray<TFEMove *> * moves)
+{
+    uint32_t score = 0;
+    for( TFEMove * move in moves ){
+        if( [move isCombination] ){
+            score += [[move node] value];
+        }
+    }
+    
+    return score;
 }
 
 #pragma mark - Private functions

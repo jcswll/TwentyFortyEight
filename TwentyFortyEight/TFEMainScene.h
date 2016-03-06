@@ -30,4 +30,6 @@
 /** Animate a message for the end of the game. */
 - (void)gameDidEndInVictory:(BOOL)victorious;
 
+- (void)updateScoreTo:(uint32_t)new_score;
+
 @end

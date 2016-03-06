@@ -26,18 +26,27 @@
 
 @implementation TFEMainScene
 {
-    BOOL didCreateContent;
-    TFEBoard * board;
+    BOOL _didCreateContent;
+    TFEBoard * _board;
+    SKLabelNode * _scoreLabel;
 }
 
 - (void)didMoveToView:(SKView *)view
 {
-    if( didCreateContent ){
+    if( _didCreateContent ){
         return;
     }
     
-    didCreateContent = YES;
-    board = [TFEBoard boardWithScene:self];
+    _didCreateContent = YES;
+    _board = [TFEBoard boardWithScene:self];
+    
+    _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Palatino"];
+    [_scoreLabel setFontColor:[NSColor whiteColor]];
+    [_scoreLabel setFontSize:27];
+    [_scoreLabel setText:@"0"];
+    [_scoreLabel setPosition:(CGPoint){CGRectGetMidX([view bounds]),
+                                       CGRectGetMidY([view bounds])}];
+    [self addChild:_scoreLabel];
 }
 
 - (void)keyDown:(NSEvent *)theEvent
@@ -78,7 +87,7 @@
             return;
     }
     
-    [board moveNodesInDirection:direction];
+    [_board moveNodesInDirection:direction];
 }
 
 - (CGPoint)centerOfGridSquare:(NSUInteger)squareNumber
@@ -140,7 +149,19 @@
     NSString * message = victorious ? @"You won!" : @"You lost";
     [label setText:message];
     
-    [self addChild:label];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                   ^{
+                       [TFENode waitOnAllNodeMovement];
+                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                           
+                           [self addChild:label];
+                       });
+                   });
+}
+
+- (void)updateScoreTo:(uint32_t)new_score
+{
+    [_scoreLabel setText:[NSString stringWithFormat:@"%d", new_score]];
 }
 
 @end

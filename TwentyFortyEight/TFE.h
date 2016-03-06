@@ -25,8 +25,8 @@ NSArray * TFEBuildGrid(NSArray<TFEMove *> ** spawns);
  *  Returns the grid as reconfigured after all movement has taken place.
  */
 NSArray * TFEMoveNodesInDirection(NSArray * grid,
-                               TFENodeDirection direction,
-                               NSArray<TFEMove *> ** moves);
+                                  TFENodeDirection direction,
+                                  NSArray<TFEMove *> ** moves);
 
 /** Creates a new node at a random index selected from those that are both
  *  unoccupied and not in the line furthest in the disallowed direction. 
@@ -35,11 +35,17 @@ NSArray * TFEMoveNodesInDirection(NSArray * grid,
  *  Returns the grid with the new node added.
  */
 NSArray * TFESpawnNewNodeExcludingDirection(NSArray * grid,
-                                         TFENodeDirection direction,
-                                         TFEMove ** spawn);
+                                            TFENodeDirection direction,
+                                            TFEMove ** spawn);
 
 /** Returns YES if the grid contains the winning-valued node. */
 BOOL TFEIsAWinner(NSArray * grid);
 
 /** Returns YES if the grid is full and no moves are possible. */
 BOOL TFEIsALoser(NSArray * grid);
+
+
+/** Returns the points scored for the moves in the list: combinations score
+ *  the value of each of their components.
+ */
+uint32_t TFEScoreForMoves(NSArray<TFEMove *> * moves);
