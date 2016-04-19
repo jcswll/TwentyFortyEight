@@ -9,3 +9,4 @@
 - Fix square position calculation (and make sizes dynamic) @done
 - Give score label an interesting animation when changing score.
 - Clean up and animate game end message.
+- Add "overshoot" animation to tile slides.

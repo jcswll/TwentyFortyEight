@@ -12,9 +12,10 @@
 @class TFENode;
 @class TFEMove;
 
-/** Returns the indexes for the grid line furthest in the given direction;
- *  these are the squares where spawning is not allowed after a move has
- *  been made.
+/**
+ * Returns the indexes for the grid line furthest in the given direction;
+ * these are the squares where spawning is not allowed after a move has
+ * been made.
  */
 NSIndexSet * TFEDisallowedSquaresByDirection(TFENodeDirection d);
 
@@ -24,25 +25,28 @@ NSMutableArray * TFENullArray(void);
 /** Returns the indexes in squares that do not contain NSNull. */
 NSIndexSet * TFEIndexesOfUnoccupiedSquares(NSArray * squares);
 
-/** Given a list of nodes, attempts to "slide" them towards the front of the
- *  list, combining adjacent equal-valued nodes, and moving nodes through
- *  empty spaces.
- *  Removes nulls before sliding.
- *  Returns the reconfigured row, or nil if nothing actually moved.
+/**
+ * Given a list of nodes, attempt to "slide" them towards the front of the
+ * list, combining adjacent equal-valued nodes, and moving nodes through
+ * empty spaces.
+ *
+ * Returns the reconfigured row, or nil if nothing actually moved.
  */
 NSArray * TFESlideRow(NSArray * row);
 
-/** Does the actual work for the public function
- *  TFESpawnNewNodeExcludingDirection(), which will pass in the result of
- *  TFEDisallowedSquaresByDirection()
+/**
+ * Does the actual work for the public function
+ * TFESpawnNewNodeExcludingDirection(), which will pass in the result of
+ * TFEDisallowedSquaresByDirection() for disallowedIndexes
  */
 NSArray * TFESpawnNewNode(NSArray * grid,
                           NSIndexSet * disallowedIndexes,
                           TFEMove ** spawn);
 
-/** Returns a TFEMove describing a node's movement: the node,
- *  the destination square, whether the node is being combined with another,
- *  or whether the move is a spawn.
+/**
+ * Returns a TFEMove describing a node's movement: the node,
+ * the destination square, whether the node is being combined with another,
+ * or whether the move is a spawn.
  */
 TFEMove * TFEMoveDescription(TFENode * node, NSUInteger destination,
                              BOOL isCombo, BOOL isSpawn);

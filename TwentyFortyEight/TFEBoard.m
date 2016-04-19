@@ -7,18 +7,20 @@
 
 @interface TFEBoard ()
 
-/** Grab the appropriate values from the spawn dictionary
- *  (created by TFEMoveDescription()) and pass the node and location info on to
- *  the scene for animating.
+/** 
+ * Grab the appropriate values from the \c spawn object (created by
+ * \c TFEMoveDescription() ) and pass the node and location info on to
+ * the scene for animating.
  */
 - (void)executeSpawn:(TFEMove *)spawn;
-/** Iterate the moves array, getting the values from each dictionary
- *  (created by TFEMoveDescription() add pass each node's new location info on
- *  to the scene for animating.
+/** 
+ * Get the values from each move in the \c moves array, (created by 
+ * \c TFEMoveDescription() ) and pass each node's new location info on
+ * to the scene for animating.
  */
 - (void)executeMoves:(NSArray<TFEMove *> *)moves;
 
-/** Add the score for each move in moves to the current score, and 
+/** Add the score for each move in \c moves to the current score, and 
  *  notify the scene if any update is necessary.
  */
 - (void)scoreMoves:(NSArray<TFEMove *> *)moves;

@@ -8,7 +8,6 @@
 
 #import "TFEMove.h"
 
-
 @implementation TFEMove
 
 + (instancetype)moveForNode:(TFENode *)node
