@@ -40,7 +40,9 @@
     _didCreateContent = YES;
     _board = [TFEBoard boardWithScene:self];
     
-    _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Palatino"];
+    [self setBackgroundColor:[SKColor colorWithRed:243.0/255 green:242.0/255 blue:230.0/255 alpha:1.0]];
+    
+    _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@""];
     [_scoreLabel setFontColor:[NSColor whiteColor]];
     [_scoreLabel setFontSize:27];
     [_scoreLabel setText:@"0"];
