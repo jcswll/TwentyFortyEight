@@ -8,9 +8,10 @@
 
 #import "TFENode.h"
 
-static const CGFloat kNodeBounceDuration = 0.06;
-static const CGFloat kNodeMoveDuration = 0.125;
-static const CGFloat kNodeResizeFadeDuration = 0.19;
+static CGFloat randomOffsetWithGamut(CGFloat gamut)
+{
+    return gamut * ((CGFloat)arc4random() / UINT32_MAX) - (gamut / 2);
+}
 
 @interface TFENode ()
 
@@ -83,6 +84,30 @@ static const CGFloat kNodeResizeFadeDuration = 0.19;
     return [[self class] hash] << [self value];
 }
 
+- (CGFloat)resizeFadeDuration
+{
+    static const CGFloat kNodeResizeFadeDuration = 0.19;
+    CGFloat gamut = 0.08;
+    CGFloat offset = randomOffsetWithGamut(gamut);
+    return kNodeResizeFadeDuration + offset;
+}
+
+- (CGFloat)bounceDuration
+{
+    static const CGFloat kNodeBounceDuration = 0.06;
+    CGFloat gamut = 0.08;
+    CGFloat offset = randomOffsetWithGamut(gamut);
+    return kNodeBounceDuration + offset;
+}
+
+- (CGFloat)moveDuration
+{
+    static const CGFloat kNodeMoveDuration = 0.125;
+    CGFloat gamut = 0.08;
+    CGFloat offset = randomOffsetWithGamut(gamut);
+    return kNodeMoveDuration + offset;
+}
+
 -(void)spawnAtPosition:(CGPoint)position
 {
     // Grow to full size
@@ -90,14 +115,14 @@ static const CGFloat kNodeResizeFadeDuration = 0.19;
     [self setSize:(CGSize){0,0}];
     SKAction * grow = [SKAction resizeToWidth:size.width
                                         height:size.height
-                                      duration:kNodeResizeFadeDuration];
+                                      duration:[self resizeFadeDuration]];
     // Do a little size bounce
-    SKAction * wait = [SKAction waitForDuration:kNodeResizeFadeDuration * 0.9];
-    SKAction * scaleUp = [SKAction scaleTo:1.2 duration:kNodeBounceDuration];
-    SKAction * scaleDown = [SKAction scaleTo:0.9 duration:kNodeBounceDuration];
-    SKAction * scaleBackUp = [SKAction scaleTo:1.0 duration:kNodeBounceDuration];
+    SKAction * wait = [SKAction waitForDuration:[self resizeFadeDuration] * 0.9];
+    SKAction * scaleUp = [SKAction scaleTo:1.2 duration:[self bounceDuration]];
+    SKAction * scaleDown = [SKAction scaleTo:0.9 duration:[self bounceDuration]];
+    SKAction * scaleBackUp = [SKAction scaleTo:1.0 duration:[self bounceDuration]];
     // And fade in
-    SKAction * fade = [SKAction fadeInWithDuration:kNodeResizeFadeDuration];
+    SKAction * fade = [SKAction fadeInWithDuration:[self resizeFadeDuration]];
     SKAction * spawn = [SKAction group:@[grow, fade,
                          [SKAction sequence:@[wait, scaleUp,
                                               scaleDown, scaleBackUp]]]];
@@ -109,8 +134,10 @@ static const CGFloat kNodeResizeFadeDuration = 0.19;
 - (void)moveToPosition:(CGPoint)destination
 {
     dispatch_group_enter([TFENode movementDispatchGroup]);
-    [self runAction:[SKAction moveTo:destination
-                            duration:kNodeMoveDuration]
+    SKAction * move = [SKAction moveTo:destination
+                              duration:[self moveDuration]];
+    [move setTimingMode:SKActionTimingEaseInEaseOut];
+    [self runAction:move
          completion:^{
              dispatch_group_leave([TFENode movementDispatchGroup]);
      }];
@@ -120,11 +147,11 @@ static const CGFloat kNodeResizeFadeDuration = 0.19;
 {
     SKAction * disappear =
         [SKAction group:@[[SKAction moveTo:destination
-                                  duration:kNodeMoveDuration],
+                                  duration:[self moveDuration]],
                           [SKAction resizeToWidth:0
                                            height:0
-                                         duration:kNodeMoveDuration * 1.5],
-                          [SKAction fadeOutWithDuration:kNodeMoveDuration * 1.5]]];
+                                         duration:[self moveDuration] * 1.5],
+                          [SKAction fadeOutWithDuration:[self moveDuration] * 1.5]]];
     
     
     dispatch_group_enter([TFENode movementDispatchGroup]);
