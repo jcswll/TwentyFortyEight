@@ -9,9 +9,11 @@
 #import <SpriteKit/SpriteKit.h>
 
 @class TFENode;
-@class TFEBoard;
 
 @interface TFEMainScene : SKScene
+
+/** Returns YES while noode movement is taking place, so that, e.g. user input can be rejected. */
+- (BOOL)anyMovementInProgress;
 
 @end
 
@@ -27,9 +29,6 @@
 /** Animate the appearance of node at the position for the index square. */
 - (void)spawnNode:(TFENode *)node inSquare:(NSUInteger)square;
 
-/** Animate a message for the end of the game. */
 - (void)gameDidEndInVictory:(BOOL)victorious;
-
-- (void)updateScoreTo:(uint32_t)new_score;
 
 @end

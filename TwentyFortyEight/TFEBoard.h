@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TFENodeDirection.h"
 
+@class TFEGameController;
 @class TFEMainScene;
 
 /** 
@@ -18,13 +19,8 @@
  */
 @interface TFEBoard : NSObject
 
-+ (instancetype)boardWithScene:(TFEMainScene *)scene;
-
-/** 
- * Reference to the scene which displays the nodes that are managed by the
- * board. The board tells the scene about nodes that move.
- */
-@property (weak, nonatomic) TFEMainScene * scene;
++ (instancetype)boardWithController:(TFEGameController *)controller
+                              scene:(TFEMainScene *)scene;
 
 /** 
  * Attempt to slide all nodes in the given direction.

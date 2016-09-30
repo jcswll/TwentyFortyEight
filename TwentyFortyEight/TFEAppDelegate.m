@@ -8,14 +8,18 @@
 
 #import "TFEAppDelegate.h"
 #import "TFEMainScene.h"
+#import "TFEGameController.h"
 
 @implementation TFEAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    [[self mainWindow] setContentAspectRatio:(NSSize){1, 1}];
+    TFEMainScene * scene = [[TFEMainScene alloc] initWithSize:[[self mainView] frame].size];
+    TFEGameController * controller = [TFEGameController controllerForScene:scene];
+    [self setGameController:controller];
+    [controller setScoreLabel:[self scoreLabel]];
     
-    TFEMainScene *scene = [[TFEMainScene alloc] initWithSize:[[self mainView] frame].size];
+    [[self mainWindow] makeFirstResponder:controller];
     
     [[self mainView] presentScene:scene];
 }

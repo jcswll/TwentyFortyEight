@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -71,7 +72,7 @@
                                     <action selector="performMiniaturize:" target="-1" id="538"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Zoom" id="239">
+                            <menuItem title="Zoom" keyEquivalent="m" id="239">
                                 <connections>
                                     <action selector="performZoom:" target="-1" id="240"/>
                                 </connections>
@@ -105,29 +106,66 @@
             <connections>
                 <outlet property="mainView" destination="Iqe-i3-fCS" id="I3n-IF-NNs"/>
                 <outlet property="mainWindow" destination="bMz-at-1ev" id="xGV-2h-2mu"/>
+                <outlet property="scoreLabel" destination="z2H-aL-Ufs" id="hzi-Kv-5jR"/>
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="bMz-at-1ev">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="131" y="158" width="570" height="570"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="contentRect" x="131" y="158" width="526" height="606"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="nZl-dc-RPn">
-                <rect key="frame" x="0.0" y="0.0" width="570" height="570"/>
+                <rect key="frame" x="0.0" y="0.0" width="526" height="606"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Iqe-i3-fCS" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="570" height="570"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="bQZ-vd-1Z6" userLabel="Header">
+                        <rect key="frame" x="0.0" y="526" width="526" height="80"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z2H-aL-Ufs" userLabel="Score" customClass="TFELabel">
+                                <rect key="frame" x="413" y="14" width="95" height="53"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1024" id="jZ3-TK-RlM">
+                                    <font key="font" size="34" name="Krungthep"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hbv-P3-HSp">
+                                <rect key="frame" x="348" y="18" width="61" height="26"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Score:" id="akL-1H-t69">
+                                    <font key="font" size="17" name="Krungthep"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="z2H-aL-Ufs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bQZ-vd-1Z6" secondAttribute="top" constant="6" id="1VE-ym-0uk"/>
+                            <constraint firstAttribute="height" constant="80" id="DcX-jj-JGS"/>
+                            <constraint firstItem="z2H-aL-Ufs" firstAttribute="leading" secondItem="hbv-P3-HSp" secondAttribute="trailing" constant="8" id="PDn-ZU-q3b"/>
+                            <constraint firstItem="z2H-aL-Ufs" firstAttribute="centerY" secondItem="bQZ-vd-1Z6" secondAttribute="centerY" id="PSI-52-EMq"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="z2H-aL-Ufs" secondAttribute="bottom" constant="6" id="b9X-iQ-oxt"/>
+                            <constraint firstAttribute="trailing" secondItem="z2H-aL-Ufs" secondAttribute="trailing" constant="20" id="krb-jL-pkq"/>
+                            <constraint firstItem="hbv-P3-HSp" firstAttribute="baseline" secondItem="z2H-aL-Ufs" secondAttribute="baseline" id="wsT-fP-e2q"/>
+                        </constraints>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Iqe-i3-fCS" userLabel="Scene View" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="526" height="526"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Iqe-i3-fCS" secondAttribute="height" multiplier="1:1" id="1kP-uM-nQg"/>
+                        </constraints>
                     </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Iqe-i3-fCS" firstAttribute="height" secondItem="nZl-dc-RPn" secondAttribute="height" id="7u9-UG-o9k"/>
-                    <constraint firstItem="Iqe-i3-fCS" firstAttribute="centerY" secondItem="nZl-dc-RPn" secondAttribute="centerY" id="GSm-Bz-0rn"/>
-                    <constraint firstItem="Iqe-i3-fCS" firstAttribute="width" secondItem="nZl-dc-RPn" secondAttribute="width" id="Q7B-Uk-dBj"/>
-                    <constraint firstItem="Iqe-i3-fCS" firstAttribute="centerX" secondItem="nZl-dc-RPn" secondAttribute="centerX" id="vYn-dV-wYu"/>
+                    <constraint firstItem="Iqe-i3-fCS" firstAttribute="top" secondItem="bQZ-vd-1Z6" secondAttribute="bottom" id="57u-EE-njc"/>
+                    <constraint firstAttribute="bottom" secondItem="Iqe-i3-fCS" secondAttribute="bottom" id="7aR-nU-wYf"/>
+                    <constraint firstItem="bQZ-vd-1Z6" firstAttribute="centerX" secondItem="nZl-dc-RPn" secondAttribute="centerX" id="IVX-rb-brZ"/>
+                    <constraint firstItem="bQZ-vd-1Z6" firstAttribute="width" secondItem="nZl-dc-RPn" secondAttribute="width" id="hX2-7Y-AG8"/>
+                    <constraint firstItem="Iqe-i3-fCS" firstAttribute="centerX" secondItem="nZl-dc-RPn" secondAttribute="centerX" id="sFJ-AA-e5N"/>
+                    <constraint firstItem="Iqe-i3-fCS" firstAttribute="width" secondItem="nZl-dc-RPn" secondAttribute="width" id="tKo-Dh-UNr"/>
+                    <constraint firstItem="bQZ-vd-1Z6" firstAttribute="top" secondItem="nZl-dc-RPn" secondAttribute="top" id="yDp-Yy-Rza"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="238" y="325"/>
+            <point key="canvasLocation" x="216" y="343"/>
         </window>
     </objects>
 </document>

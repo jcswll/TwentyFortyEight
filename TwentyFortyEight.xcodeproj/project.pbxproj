@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		036EA9B51D9E03C900193E58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9B41D9E03C900193E58 /* main.m */; };
+		036EA9B81D9E03C900193E58 /* TFEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9B71D9E03C900193E58 /* TFEAppDelegate.m */; };
+		036EA9CA1D9E03C900193E58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 036EA9C81D9E03C900193E58 /* LaunchScreen.storyboard */; };
+		036EA9CF1D9E040400193E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
+		036EA9D31D9E051E00193E58 /* TFEGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9D21D9E051E00193E58 /* TFEGameController.m */; };
+		036EA9D61D9F01D900193E58 /* TFELabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9D51D9F01D900193E58 /* TFELabel.m */; };
 		038E32221C83A632001EF027 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32211C83A632001EF027 /* main.m */; };
 		038E32291C83A632001EF027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
 		038E322C1C83A632001EF027 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038E322A1C83A632001EF027 /* MainMenu.xib */; };
@@ -33,6 +39,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		036EA9B11D9E03C900193E58 /* TwentyFortyEight-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TwentyFortyEight-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		036EA9B41D9E03C900193E58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		036EA9B61D9E03C900193E58 /* TFEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFEAppDelegate.h; sourceTree = "<group>"; };
+		036EA9B71D9E03C900193E58 /* TFEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFEAppDelegate.m; sourceTree = "<group>"; };
+		036EA9C91D9E03C900193E58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		036EA9CB1D9E03C900193E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		036EA9D11D9E051E00193E58 /* TFEGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFEGameController.h; sourceTree = "<group>"; };
+		036EA9D21D9E051E00193E58 /* TFEGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEGameController.m; sourceTree = "<group>"; };
+		036EA9D41D9F01D900193E58 /* TFELabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFELabel.h; sourceTree = "<group>"; };
+		036EA9D51D9F01D900193E58 /* TFELabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFELabel.m; sourceTree = "<group>"; };
+		036EA9D71D9F11AD00193E58 /* TFEMainScene+SlowForDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TFEMainScene+SlowForDebug.h"; sourceTree = "<group>"; };
 		038E321A1C83A632001EF027 /* TwentyFortyEight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwentyFortyEight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		038E32211C83A632001EF027 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		038E32281C83A632001EF027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +81,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		036EA9AE1D9E03C900193E58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		038E32171C83A632001EF027 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,11 +105,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036EA9B21D9E03C900193E58 /* TwentyFortyEight-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				036EA9B61D9E03C900193E58 /* TFEAppDelegate.h */,
+				036EA9B71D9E03C900193E58 /* TFEAppDelegate.m */,
+				036EA9C81D9E03C900193E58 /* LaunchScreen.storyboard */,
+				036EA9CB1D9E03C900193E58 /* Info.plist */,
+				036EA9B31D9E03C900193E58 /* Supporting Files */,
+			);
+			path = "TwentyFortyEight-iOS";
+			sourceTree = "<group>";
+		};
+		036EA9B31D9E03C900193E58 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				036EA9B41D9E03C900193E58 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		036EA9D01D9E040E00193E58 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		038E32111C83A632001EF027 = {
 			isa = PBXGroup;
 			children = (
-				038E321C1C83A632001EF027 /* TwentyFortyEight */,
+				036EA9D01D9E040E00193E58 /* Common */,
+				038E321C1C83A632001EF027 /* TwentyFortyEight-Mac */,
 				038E32351C83A632001EF027 /* TwentyFortyEightTests */,
+				036EA9B21D9E03C900193E58 /* TwentyFortyEight-iOS */,
 				038E321B1C83A632001EF027 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,15 +148,20 @@
 			children = (
 				038E321A1C83A632001EF027 /* TwentyFortyEight.app */,
 				038E32321C83A632001EF027 /* TwentyFortyEightTests.xctest */,
+				036EA9B11D9E03C900193E58 /* TwentyFortyEight-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		038E321C1C83A632001EF027 /* TwentyFortyEight */ = {
+		038E321C1C83A632001EF027 /* TwentyFortyEight-Mac */ = {
 			isa = PBXGroup;
 			children = (
 				038E32411C83A675001EF027 /* TFEAppDelegate.h */,
 				038E32421C83A675001EF027 /* TFEAppDelegate.m */,
+				036EA9D11D9E051E00193E58 /* TFEGameController.h */,
+				036EA9D21D9E051E00193E58 /* TFEGameController.m */,
+				036EA9D41D9F01D900193E58 /* TFELabel.h */,
+				036EA9D51D9F01D900193E58 /* TFELabel.m */,
 				038E329C1C881254001EF027 /* TFENodeDirection.h */,
 				038E32991C881127001EF027 /* TFE.h */,
 				038E329A1C881127001EF027 /* TFE.m */,
@@ -112,6 +170,7 @@
 				038E32931C87A098001EF027 /* TFEBoard.h */,
 				038E32941C87A098001EF027 /* TFEBoard.m */,
 				038E32461C83A746001EF027 /* TFEMainScene.h */,
+				036EA9D71D9F11AD00193E58 /* TFEMainScene+SlowForDebug.h */,
 				038E32471C83A746001EF027 /* TFEMainScene.m */,
 				038E32491C83D23B001EF027 /* TFENode.h */,
 				038E324A1C83D23B001EF027 /* TFENode.m */,
@@ -124,6 +183,7 @@
 				038E322D1C83A632001EF027 /* Info.plist */,
 				038E32201C83A632001EF027 /* Supporting Files */,
 			);
+			name = "TwentyFortyEight-Mac";
 			path = TwentyFortyEight;
 			sourceTree = "<group>";
 		};
@@ -150,6 +210,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		036EA9B01D9E03C900193E58 /* TwentyFortyEight-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 036EA9CE1D9E03C900193E58 /* Build configuration list for PBXNativeTarget "TwentyFortyEight-iOS" */;
+			buildPhases = (
+				036EA9AD1D9E03C900193E58 /* Sources */,
+				036EA9AE1D9E03C900193E58 /* Frameworks */,
+				036EA9AF1D9E03C900193E58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TwentyFortyEight-iOS";
+			productName = "TwentyFortyEight-iOS";
+			productReference = 036EA9B11D9E03C900193E58 /* TwentyFortyEight-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		038E32191C83A632001EF027 /* TwentyFortyEight */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 038E323B1C83A632001EF027 /* Build configuration list for PBXNativeTarget "TwentyFortyEight" */;
@@ -195,6 +272,11 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Josh Caswell";
 				TargetAttributes = {
+					036EA9B01D9E03C900193E58 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = F655DJ76U3;
+						ProvisioningStyle = Automatic;
+					};
 					038E32191C83A632001EF027 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -219,11 +301,21 @@
 			targets = (
 				038E32191C83A632001EF027 /* TwentyFortyEight */,
 				038E32311C83A632001EF027 /* TwentyFortyEightTests */,
+				036EA9B01D9E03C900193E58 /* TwentyFortyEight-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		036EA9AF1D9E03C900193E58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				036EA9CF1D9E040400193E58 /* Assets.xcassets in Resources */,
+				036EA9CA1D9E03C900193E58 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		038E32181C83A632001EF027 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,17 +335,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		036EA9AD1D9E03C900193E58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				036EA9B81D9E03C900193E58 /* TFEAppDelegate.m in Sources */,
+				036EA9B51D9E03C900193E58 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		038E32161C83A632001EF027 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				038E32481C83A746001EF027 /* TFEMainScene.m in Sources */,
+				036EA9D61D9F01D900193E58 /* TFELabel.m in Sources */,
 				038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */,
 				038E324B1C83D23B001EF027 /* TFENode.m in Sources */,
 				038E32431C83A675001EF027 /* TFEAppDelegate.m in Sources */,
 				038E32A11C8A48F2001EF027 /* TFEMove.m in Sources */,
 				038E32951C87A098001EF027 /* TFEBoard.m in Sources */,
 				038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */,
+				036EA9D31D9E051E00193E58 /* TFEGameController.m in Sources */,
 				038E32221C83A632001EF027 /* main.m in Sources */,
 				038E329B1C881127001EF027 /* TFE.m in Sources */,
 			);
@@ -279,6 +382,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		036EA9C81D9E03C900193E58 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				036EA9C91D9E03C900193E58 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		038E322A1C83A632001EF027 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -290,6 +401,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		036EA9CC1D9E03C900193E58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = F655DJ76U3;
+				INFOPLIST_FILE = "TwentyFortyEight-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WoolSweaterSoft.TwentyFortyEight-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		036EA9CD1D9E03C900193E58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F655DJ76U3;
+				INFOPLIST_FILE = "TwentyFortyEight-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WoolSweaterSoft.TwentyFortyEight-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		038E32391C83A632001EF027 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -423,6 +576,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		036EA9CE1D9E03C900193E58 /* Build configuration list for PBXNativeTarget "TwentyFortyEight-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				036EA9CC1D9E03C900193E58 /* Debug */,
+				036EA9CD1D9E03C900193E58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		038E32151C83A632001EF027 /* Build configuration list for PBXProject "TwentyFortyEight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

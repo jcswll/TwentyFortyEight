@@ -7,10 +7,9 @@
 //
 
 #import "TFEMainScene.h"
+#import "TFEMainScene+SlowForDebug.h"
 #import "TFEBoard.h"
 #import "TFENode.h"
-// Include Carbon header for key code enum
-#import <Carbon/Carbon.h>
 
 @interface TFEMainScene ()
 
@@ -30,8 +29,6 @@
 @implementation TFEMainScene
 {
     BOOL _didCreateContent;
-    TFEBoard * _board;
-    SKLabelNode * _scoreLabel;
 }
 
 + (SKColor *)whiteColor
@@ -44,6 +41,11 @@
     return [SKColor colorWithRed:33.0/255 green:30.0/255 blue:0 alpha:1.0];
 }
 
+- (BOOL)anyMovementInProgress
+{
+    return [TFENode anyNodeMovementInProgress];
+}
+
 - (void)didMoveToView:(SKView *)view
 {
     if( _didCreateContent ){
@@ -51,58 +53,8 @@
     }
     
     _didCreateContent = YES;
-    _board = [TFEBoard boardWithScene:self];
     
     [self setBackgroundColor:[[self class] whiteColor]];
-    
-    _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Krungthep"];
-    [_scoreLabel setFontColor:[[self class] blackColor]];
-    [_scoreLabel setFontSize:34];
-    [_scoreLabel setText:@"0"];
-    [_scoreLabel setPosition:(CGPoint){CGRectGetMidX([view bounds]),
-                                       CGRectGetMidY([view bounds])}];
-    [self addChild:_scoreLabel];
-}
-
-- (void)keyDown:(NSEvent *)theEvent
-{
-    if( NSControlKeyMask == ([theEvent modifierFlags] & NSDeviceIndependentModifierFlagsMask) ){
-        if( kVK_ANSI_S == [theEvent keyCode] ){
-            [self toggleSlowForDebug];
-            return;
-        }
-    }
-    
-    // Don't accept input while movement is taking place.
-    if( [TFENode anyNodeMovementInProgress] ){
-        return;
-    }
-    
-    unsigned short code = [theEvent keyCode];
-    TFENodeDirection direction;
-    switch (code) {
-        case kVK_ANSI_A:
-        case kVK_LeftArrow:
-            direction = TFENodeDirectionLeft;
-            break;
-        case kVK_ANSI_W:
-        case kVK_UpArrow:
-            direction = TFENodeDirectionUp;
-            break;
-        case kVK_ANSI_D:
-        case kVK_RightArrow:
-            direction = TFENodeDirectionRight;
-            break;
-        case kVK_ANSI_S:
-        case kVK_DownArrow:
-            direction = TFENodeDirectionDown;
-            break;
-        default:
-            /* No movement for other keys */
-            return;
-    }
-    
-    [_board moveNodesInDirection:direction];
 }
 
 - (CGPoint)centerOfGridSquare:(NSUInteger)squareNumber
@@ -176,11 +128,6 @@
             [self addChild:label];
         });
     });
-}
-
-- (void)updateScoreTo:(uint32_t)new_score
-{
-    [_scoreLabel setText:[NSString stringWithFormat:@"%d", new_score]];
 }
 
 @end
