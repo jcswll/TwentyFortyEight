@@ -110,22 +110,27 @@ static CGFloat randomOffsetWithGamut(CGFloat gamut)
 
 -(void)spawnAtPosition:(CGPoint)position
 {
+    CGFloat thisResizeDuration = [self resizeFadeDuration];
+    CGFloat thisBounceDuration = [self bounceDuration];
     // Grow to full size
     CGSize size = [self size];
-    [self setSize:(CGSize){0,0}];
+    [self setSize:(CGSize){size.height * 0.85, size.width * 0.85}];
     SKAction * grow = [SKAction resizeToWidth:size.width
                                         height:size.height
-                                      duration:[self resizeFadeDuration]];
+                                      duration:thisResizeDuration];
+    
     // Do a little size bounce
-    SKAction * wait = [SKAction waitForDuration:[self resizeFadeDuration] * 0.9];
-    SKAction * scaleUp = [SKAction scaleTo:1.2 duration:[self bounceDuration]];
-    SKAction * scaleDown = [SKAction scaleTo:0.9 duration:[self bounceDuration]];
-    SKAction * scaleBackUp = [SKAction scaleTo:1.0 duration:[self bounceDuration]];
+    SKAction * wait = [SKAction waitForDuration:thisResizeDuration * 0.9];
+    SKAction * scaleUp = [SKAction scaleTo:1.1 duration:thisBounceDuration];
+    SKAction * scaleDown = [SKAction scaleTo:0.93 duration:thisBounceDuration];
+    SKAction * scaleBackUp = [SKAction scaleTo:1.0 duration:thisBounceDuration];
+    SKAction * bounceScale = [SKAction sequence:@[wait, scaleUp, scaleDown, scaleBackUp]];
+    
     // And fade in
-    SKAction * fade = [SKAction fadeInWithDuration:[self resizeFadeDuration]];
-    SKAction * spawn = [SKAction group:@[grow, fade,
-                         [SKAction sequence:@[wait, scaleUp,
-                                              scaleDown, scaleBackUp]]]];
+    SKAction * fade = [SKAction fadeInWithDuration:thisResizeDuration];
+    [fade setTimingMode:SKActionTimingEaseInEaseOut];
+    
+    SKAction * spawn = [SKAction group:@[grow, /*fade,*/ bounceScale]];
 
     [self setPosition:position];
     [self runAction:spawn];
@@ -133,37 +138,42 @@ static CGFloat randomOffsetWithGamut(CGFloat gamut)
 
 - (void)moveToPosition:(CGPoint)destination
 {
-    dispatch_group_enter([TFENode movementDispatchGroup]);
     SKAction * move = [SKAction moveTo:destination
                               duration:[self moveDuration]];
     [move setTimingMode:SKActionTimingEaseInEaseOut];
+    
+    dispatch_group_enter([TFENode movementDispatchGroup]);
     [self runAction:move
-         completion:^{
-             dispatch_group_leave([TFENode movementDispatchGroup]);
-     }];
+         completion:^{ dispatch_group_leave([TFENode movementDispatchGroup]); }];
 }
 
 - (void)moveIntoCombinationAtPosition:(CGPoint)destination
 {
-    SKAction * disappear =
-        [SKAction group:@[[SKAction moveTo:destination
-                                  duration:[self moveDuration]],
-                          [SKAction resizeToWidth:0
-                                           height:0
-                                         duration:[self moveDuration] * 1.5],
-                          [SKAction fadeOutWithDuration:[self moveDuration] * 1.5]]];
+    CGFloat thisMoveDuration = [self moveDuration];
+    CGFloat thisResizeDuration = [self resizeFadeDuration];
+    SKAction * shrink = [SKAction resizeToWidth:[self size].width / 4
+                                         height:[self size].height / 4
+                                       duration:thisResizeDuration];
+    SKAction * fade = [SKAction fadeOutWithDuration:thisResizeDuration];
+    SKAction * move = [SKAction moveTo:destination duration:thisMoveDuration];
     
+    SKAction * fadeAndShrink = [SKAction group:@[shrink, fade]];
+    
+    SKAction * delayedDisappear = [SKAction sequence:@[[SKAction waitForDuration:thisMoveDuration], fadeAndShrink]];
     
     dispatch_group_enter([TFENode movementDispatchGroup]);
-    [self runAction:disappear
-         completion:
-          ^{
-              dispatch_group_leave([TFENode movementDispatchGroup]);
-              dispatch_async(dispatch_get_main_queue(),
-                        ^{
-                            [self removeFromParent];
-                        });
-          }];
+    [self runAction:move
+         completion:^{ dispatch_group_leave([TFENode movementDispatchGroup]); }];
+    
+    // Disappear animation does not prevent user input or spawning
+    [self runAction:delayedDisappear
+         completion:^{
+             
+             // Next run loop
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self removeFromParent];
+             });;
+     }];
 }
 
 @end

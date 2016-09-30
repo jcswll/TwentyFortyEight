@@ -14,6 +14,9 @@
 
 @interface TFEMainScene ()
 
++ (SKColor *)whiteColor;
++ (SKColor *)blackColor;
+
 /** Point for the center of the grid square at the given index. 0-based,
  * counting from bottom left.
  */
@@ -31,6 +34,16 @@
     SKLabelNode * _scoreLabel;
 }
 
++ (SKColor *)whiteColor
+{
+    return [SKColor colorWithRed:243.0/255 green:242.0/255 blue:230.0/255 alpha:1.0];
+}
+
++ (SKColor *)blackColor
+{
+    return [SKColor colorWithRed:33.0/255 green:30.0/255 blue:0 alpha:1.0];
+}
+
 - (void)didMoveToView:(SKView *)view
 {
     if( _didCreateContent ){
@@ -40,11 +53,11 @@
     _didCreateContent = YES;
     _board = [TFEBoard boardWithScene:self];
     
-    [self setBackgroundColor:[SKColor colorWithRed:243.0/255 green:242.0/255 blue:230.0/255 alpha:1.0]];
+    [self setBackgroundColor:[[self class] whiteColor]];
     
-    _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@""];
-    [_scoreLabel setFontColor:[NSColor whiteColor]];
-    [_scoreLabel setFontSize:27];
+    _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Krungthep"];
+    [_scoreLabel setFontColor:[[self class] blackColor]];
+    [_scoreLabel setFontSize:34];
     [_scoreLabel setText:@"0"];
     [_scoreLabel setPosition:(CGPoint){CGRectGetMidX([view bounds]),
                                        CGRectGetMidY([view bounds])}];
@@ -130,11 +143,11 @@
 - (void)spawnNode:(TFENode *)node inSquare:(NSUInteger)square
 {
     // Wait until all other movement has stopped before running the animation
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
-        ^{
-            [TFENode waitOnAllNodeMovement];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                           
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        [TFENode waitOnAllNodeMovement];
+        dispatch_async(dispatch_get_main_queue(), ^{
+
             [self addChild:node];
             [node spawnAtPosition:[self centerOfGridSquare:square]];
         });
@@ -143,22 +156,26 @@
 
 - (void)gameDidEndInVictory:(BOOL)victorious
 {
-    SKLabelNode * label = [SKLabelNode labelNodeWithFontNamed:@"Palatino"];
-    [label setFontColor:[NSColor blueColor]];
-    [label setFontSize:128];
+    SKLabelNode * label = [SKLabelNode labelNodeWithFontNamed:@"Krungthep"];
+    [label setFontColor:[[self class] blackColor]];
+    [label setFontSize:108];
     CGSize size = [self size];
     [label setPosition:(CGPoint){size.width/2, size.height/2}];
-    NSString * message = victorious ? @"You won!" : @"You lost";
+    NSString * message = victorious ? @"You won!" : @"Game over";
     [label setText:message];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
-                   ^{
-                       [TFENode waitOnAllNodeMovement];
-                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                           
-                           [self addChild:label];
-                       });
-                   });
+    dispatch_queue_t wait_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(wait_queue, ^{
+        
+        [TFENode waitOnAllNodeMovement];
+        
+        dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+        dispatch_queue_t ui_queue = dispatch_get_main_queue();
+        
+        dispatch_after(delay, ui_queue, ^{
+            [self addChild:label];
+        });
+    });
 }
 
 - (void)updateScoreTo:(uint32_t)new_score
