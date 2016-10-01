@@ -1,10 +1,11 @@
 //
-//  TFELabel.h
+//  TFEViewController.h
 //  TwentyFortyEight
 //
 //  Created by Joshua Caswell on 9/30/16.
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
+
 
 #import <TargetConditionals.h>
 
@@ -12,17 +13,14 @@
 
 @import Cocoa;
 
-@interface TFELabel : NSTextField
-
-@property (copy) NSString * text;
-
+@interface TFEViewController : NSViewController
 @end
 
 #else
 
 @import UIKit;
 
-@interface TFELabel : UILabel
+@interface TFEViewController : UIViewController
 @end
 
 #endif

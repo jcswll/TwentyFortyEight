@@ -78,6 +78,10 @@
 
 - (void)moveNodesInDirection:(TFENodeDirection)direction
 {
+    if( direction == TFENodeDirectionNotADirection ) {
+        return;
+    }
+    
     NSArray<TFEMove *> * moves = nil;
     _grid = TFEMoveNodesInDirection(_grid, direction, &moves);
     

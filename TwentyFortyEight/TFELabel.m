@@ -10,6 +10,7 @@
 
 @implementation TFELabel
 
+#if !TARGET_OS_IPHONE
 - (NSString *)text
 {
     return [super stringValue];
@@ -19,5 +20,6 @@
 {
     [super setStringValue:text];
 }
+#endif
 
 @end

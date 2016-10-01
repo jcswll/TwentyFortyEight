@@ -6,10 +6,19 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@import SpriteKit;
+
+@class TFELabel;
+@class TFEGameController;
 
 @interface TFEAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow * mainWindow;
+
+@property (weak, nonatomic) IBOutlet SKView * mainView;
+@property (weak, nonatomic) IBOutlet TFELabel * scoreLabel;
+
+@property (strong, nonatomic) TFEGameController * gameController;
 
 @end

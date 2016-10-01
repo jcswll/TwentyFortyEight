@@ -14,14 +14,13 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    TFEMainScene * scene = [[TFEMainScene alloc] initWithSize:[[self mainView] frame].size];
-    TFEGameController * controller = [TFEGameController controllerForScene:scene];
+    TFEGameController * controller = [TFEGameController new];
     [self setGameController:controller];
-    [controller setScoreLabel:[self scoreLabel]];
     
+    [[self mainWindow] setContentViewController:controller];
     [[self mainWindow] makeFirstResponder:controller];
     
-    [[self mainView] presentScene:scene];
+    [[self mainWindow] makeKeyAndOrderFront:self];
 }
 
 @end

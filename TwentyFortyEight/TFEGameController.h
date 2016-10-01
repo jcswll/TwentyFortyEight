@@ -6,16 +6,18 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-@import Cocoa;
+@import SpriteKit;
+
+#import "TFEViewController.h"
 
 @class TFEMainScene;
 @class TFELabel;
 
-@interface TFEGameController : NSResponder
+@interface TFEGameController : TFEViewController
 
-+ (instancetype)controllerForScene:(TFEMainScene *)scene;
+@property (weak, nonatomic) IBOutlet SKView * gameView;
 
-@property (weak, nonatomic) TFELabel * scoreLabel;
+@property (weak, nonatomic) IBOutlet TFELabel * scoreLabel;
 
 @end
 

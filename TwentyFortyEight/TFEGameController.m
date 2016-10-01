@@ -7,93 +7,48 @@
 //
 
 #import "TFEGameController.h"
+#import "TFEGameController+Private.h"
 #import "TFEMainScene.h"
-#import "TFEMainScene+SlowForDebug.h"
 #import "TFEBoard.h"
 #import "TFELabel.h"
-// Include Carbon header for key code enum
-#import <Carbon/Carbon.h>
-
-@interface TFEGameController ()
-
-- (instancetype)initWithScene:(TFEMainScene *)scene;
-
-@property (strong, nonatomic) TFEMainScene * scene;
-@property (strong, nonatomic) TFEBoard * board;
-
-@end
 
 @implementation TFEGameController
 {
     uint32_t _score;
 }
 
-+ (instancetype)controllerForScene:(TFEMainScene *)scene
+- (instancetype)init
 {
-    return [[self alloc] initWithScene:scene];
-}
-
-- (instancetype)initWithScene:(TFEMainScene *)scene
-{
-    self = [super init];
+    self = [super initWithNibName:@"MainView" bundle:nil];
     if( !self ) return nil;
     
-    _scene = scene;
+    _scene = [TFEMainScene sceneWithSize:CGSizeMake(100, 100)];
     _board = [TFEBoard boardWithController:self
-                                     scene:scene];
+                                     scene:_scene];
     
     return self;
 }
 
-- (BOOL)acceptsFirstResponder
+- (void)viewDidLoad
 {
-    return YES;
+    [super viewDidLoad];
+    
+    [[self scene] setSize:[[self gameView] bounds].size];
+}
+
+- (void)viewWillAppear
+{
+    [self viewWillAppear:NO];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[self gameView] presentScene:[self scene]];
 }
 
 - (BOOL)becomeFirstResponder
 {
     return YES;
-}
-
-- (void)keyDown:(NSEvent *)theEvent
-{
-    if( NSControlKeyMask == ([theEvent modifierFlags] & NSDeviceIndependentModifierFlagsMask) ){
-        if( kVK_ANSI_S == [theEvent keyCode] ){
-            [[self scene] toggleSlowForDebug];
-            return;
-        }
-    }
-    
-    // Don't accept input while movement is taking place.
-    if( [[self scene] anyMovementInProgress] ){
-        return;
-    }
-    
-    unsigned short code = [theEvent keyCode];
-    TFENodeDirection direction;
-    switch (code) {
-        case kVK_ANSI_A:
-        case kVK_LeftArrow:
-            direction = TFENodeDirectionLeft;
-            break;
-        case kVK_ANSI_W:
-        case kVK_UpArrow:
-            direction = TFENodeDirectionUp;
-            break;
-        case kVK_ANSI_D:
-        case kVK_RightArrow:
-            direction = TFENodeDirectionRight;
-            break;
-        case kVK_ANSI_S:
-        case kVK_DownArrow:
-            direction = TFENodeDirectionDown;
-            break;
-        default:
-            /* No movement for other keys */
-            return;
-    }
-    
-    [[self board] moveNodesInDirection:direction];
 }
 
 //MARK: Board communication

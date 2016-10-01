@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TFEGameController">
+            <connections>
+                <outlet property="gameView" destination="NZe-hM-mvG" id="Jr8-4P-Kov"/>
+                <outlet property="scoreLabel" destination="bmM-4h-w1D" id="OY9-g6-45e"/>
+                <outlet property="view" destination="iN0-l3-epB" id="TEB-fz-9ZG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZe-hM-mvG" userLabel="GameView" customClass="SKView">
+                    <color key="backgroundColor" red="0.0" green="0.036957301200000001" blue="0.3361720145" alpha="1" colorSpace="calibratedRGB"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="NZe-hM-mvG" secondAttribute="height" multiplier="1:1" id="lMJ-vU-Q2W"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="1CB-xo-f8N" appends="YES" id="bfU-Q5-OJY"/>
+                        <outletCollection property="gestureRecognizers" destination="xsD-Nm-on0" appends="YES" id="UOO-uT-JaB"/>
+                        <outletCollection property="gestureRecognizers" destination="wE2-5Q-dRw" appends="YES" id="f3p-MF-xEV"/>
+                        <outletCollection property="gestureRecognizers" destination="pqg-rb-g6u" appends="YES" id="9af-q9-Tg9"/>
+                    </connections>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-4h-w1D" customClass="TFELabel">
+                    <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBk-cE-ay6">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bmM-4h-w1D" secondAttribute="trailing" constant="16" id="0Jk-no-hKW"/>
+                <constraint firstAttribute="trailingMargin" secondItem="NZe-hM-mvG" secondAttribute="trailing" id="AR7-B4-h1X"/>
+                <constraint firstItem="fBk-cE-ay6" firstAttribute="baseline" secondItem="bmM-4h-w1D" secondAttribute="baseline" id="GVV-Om-nsp"/>
+                <constraint firstItem="NZe-hM-mvG" firstAttribute="top" secondItem="bmM-4h-w1D" secondAttribute="bottom" constant="8" id="Hiv-0H-ZQR"/>
+                <constraint firstItem="NZe-hM-mvG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerXWithinMargins" id="N9k-tq-TGp"/>
+                <constraint firstAttribute="leadingMargin" secondItem="NZe-hM-mvG" secondAttribute="leading" id="iO0-TL-xLJ"/>
+                <constraint firstItem="bmM-4h-w1D" firstAttribute="leading" secondItem="fBk-cE-ay6" secondAttribute="trailing" constant="8" id="oSU-mH-5gJ"/>
+                <constraint firstItem="NZe-hM-mvG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vTb-JL-fKA"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+        <swipeGestureRecognizer direction="left" id="1CB-xo-f8N" userLabel="Left Swipe Recognizer">
+            <connections>
+                <action selector="swipe:" destination="-1" id="DiM-6k-7LR"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="up" id="wE2-5Q-dRw" userLabel="Up Swipe Recognizer">
+            <connections>
+                <action selector="swipe:" destination="-1" id="7cK-Wg-O3y"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="right" id="xsD-Nm-on0" userLabel="Right Swipe Recognizer">
+            <connections>
+                <action selector="swipe:" destination="-1" id="wao-V6-Lh1"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="down" id="pqg-rb-g6u" userLabel="Down Swipe Recognizer">
+            <connections>
+                <action selector="swipe:" destination="-1" id="b9X-pc-ZZX"/>
+            </connections>
+        </swipeGestureRecognizer>
+    </objects>
+</document>
