@@ -10,6 +10,7 @@
 #import "TFEGameController+Private.h"
 #import "TFEBoard.h"
 #import "TFEMainScene.h"
+#import "TFEMainScene+SlowForDebug.h"
 #import "TFENodeDirection.h"
 
 @implementation TFEGameController (Touches)
@@ -41,6 +42,13 @@
     }
 
     [[self board] moveNodesInDirection:nodeDirection];
+}
+
+- (void)longPress:(UILongPressGestureRecognizer *)recognizer
+{
+    if( UIGestureRecognizerStateBegan == recognizer.state ){
+        [[self scene] toggleSlowForDebug];
+    }
 }
 
 @end

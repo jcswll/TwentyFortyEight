@@ -32,6 +32,7 @@
                         <outletCollection property="gestureRecognizers" destination="xsD-Nm-on0" appends="YES" id="UOO-uT-JaB"/>
                         <outletCollection property="gestureRecognizers" destination="wE2-5Q-dRw" appends="YES" id="f3p-MF-xEV"/>
                         <outletCollection property="gestureRecognizers" destination="pqg-rb-g6u" appends="YES" id="9af-q9-Tg9"/>
+                        <outletCollection property="gestureRecognizers" destination="7Vc-wS-tMt" appends="YES" id="Nmn-UA-H8q"/>
                     </connections>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-4h-w1D" customClass="TFELabel">
@@ -78,5 +79,10 @@
                 <action selector="swipe:" destination="-1" id="b9X-pc-ZZX"/>
             </connections>
         </swipeGestureRecognizer>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="7Vc-wS-tMt" userLabel="Long Press Recognizer">
+            <connections>
+                <action selector="longPress:" destination="-1" id="26h-MD-nhu"/>
+            </connections>
+        </pongPressGestureRecognizer>
     </objects>
 </document>

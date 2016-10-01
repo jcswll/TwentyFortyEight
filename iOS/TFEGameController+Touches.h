@@ -12,4 +12,6 @@
 
 - (IBAction)swipe:(UISwipeGestureRecognizer *)recognizer;
 
+- (IBAction)longPress:(UILongPressGestureRecognizer *)recognizer;
+
 @end
