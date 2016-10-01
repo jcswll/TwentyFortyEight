@@ -126,11 +126,7 @@ static CGFloat randomOffsetWithGamut(CGFloat gamut)
     SKAction * scaleBackUp = [SKAction scaleTo:1.0 duration:thisBounceDuration];
     SKAction * bounceScale = [SKAction sequence:@[wait, scaleUp, scaleDown, scaleBackUp]];
     
-    // And fade in
-    SKAction * fade = [SKAction fadeInWithDuration:thisResizeDuration];
-    [fade setTimingMode:SKActionTimingEaseInEaseOut];
-    
-    SKAction * spawn = [SKAction group:@[grow, /*fade,*/ bounceScale]];
+    SKAction * spawn = [SKAction group:@[grow, bounceScale]];
 
     [self setPosition:position];
     [self runAction:spawn];

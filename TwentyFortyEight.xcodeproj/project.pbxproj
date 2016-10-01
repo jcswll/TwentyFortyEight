@@ -129,7 +129,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		036EA9B21D9E03C900193E58 /* TwentyFortyEight-iOS */ = {
+		036EA9B21D9E03C900193E58 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				036EA9B61D9E03C900193E58 /* TFEAppDelegate.h */,
@@ -141,7 +141,6 @@
 				036EA9CB1D9E03C900193E58 /* Info.plist */,
 				036EA9B31D9E03C900193E58 /* Supporting Files */,
 			);
-			name = "TwentyFortyEight-iOS";
 			path = iOS;
 			sourceTree = "<group>";
 		};
@@ -191,7 +190,7 @@
 				036EA9D01D9E040E00193E58 /* Common */,
 				038E321C1C83A632001EF027 /* Mac */,
 				038E32351C83A632001EF027 /* TwentyFortyEightTests */,
-				036EA9B21D9E03C900193E58 /* TwentyFortyEight-iOS */,
+				036EA9B21D9E03C900193E58 /* iOS */,
 				038E321B1C83A632001EF027 /* Products */,
 			);
 			sourceTree = "<group>";
