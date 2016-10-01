@@ -16,6 +16,12 @@
 + (SKColor *)whiteColor;
 + (SKColor *)blackColor;
 
+/** The size for all the tile nodes in the scene. They are always square. */
+@property (nonatomic) CGFloat nodeSize;
+
+/** Determine the correct size for a node based on the scene size. */
+- (void)calculateNodeSize;
+
 /** Point for the center of the grid square at the given index. 0-based,
  * counting from bottom left.
  */
@@ -55,6 +61,23 @@
     _didCreateContent = YES;
     
     [self setBackgroundColor:[[self class] whiteColor]];
+    [self calculateNodeSize];
+}
+
+- (void)didChangeSize:(CGSize)oldSize
+{
+    [self calculateNodeSize];
+}
+
+- (void)calculateNodeSize
+{
+    // Nodes will be inset from their grid squares by (square_size / inset_factor) on all sides.
+    static const CGFloat kNodeSizeInsetFactor = 8;
+    
+    CGFloat minDimension = MIN([self size].width, [self size].height);
+    CGFloat gridSquareSize = minDimension / 4;
+    
+    [self setNodeSize:gridSquareSize - (2 * gridSquareSize / kNodeSizeInsetFactor)];
 }
 
 - (CGPoint)centerOfGridSquare:(NSUInteger)squareNumber
@@ -101,6 +124,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
 
             [self addChild:node];
+            [node setSize:CGSizeMake([self nodeSize], [self nodeSize])];
             [node spawnAtPosition:[self centerOfGridSquare:square]];
         });
     });
