@@ -101,7 +101,7 @@
                 </menuItem>
             </items>
         </menu>
-        <customObject id="494" customClass="TFEAppDelegate">
+        <customObject id="494" customClass="TFEAppDelegate" customModule="TwentyFortyEight" customModuleProvider="target">
             <connections>
                 <outlet property="mainWindow" destination="bMz-at-1ev" id="xGV-2h-2mu"/>
             </connections>
