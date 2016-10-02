@@ -9,13 +9,7 @@
 /* Begin PBXBuildFile section */
 		036EA9CA1D9E03C900193E58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 036EA9C81D9E03C900193E58 /* LaunchScreen.storyboard */; };
 		036EA9CF1D9E040400193E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
-		036EA9D31D9E051E00193E58 /* TFEGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9D21D9E051E00193E58 /* TFEGameController.m */; };
-		036EA9D61D9F01D900193E58 /* TFELabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9D51D9F01D900193E58 /* TFELabel.m */; };
-		036EA9E11D9F2DF400193E58 /* TFEGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9D21D9E051E00193E58 /* TFEGameController.m */; };
-		036EA9E21D9F2E7600193E58 /* TFELabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9D51D9F01D900193E58 /* TFELabel.m */; };
 		036EA9E41D9F2EE100193E58 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036EA9E31D9F2EE100193E58 /* MainView.xib */; };
-		036EA9E71D9F42E000193E58 /* TFEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9E61D9F42E000193E58 /* TFEViewController.m */; };
-		036EA9E81D9F42E000193E58 /* TFEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9E61D9F42E000193E58 /* TFEViewController.m */; };
 		036EA9EA1D9F459500193E58 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036EA9E91D9F459500193E58 /* MainView.xib */; };
 		036EA9EB1D9F499300193E58 /* TFE.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E329A1C881127001EF027 /* TFE.m */; };
 		036EA9EC1D9F499600193E58 /* TFEMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32A01C8A48F2001EF027 /* TFEMove.m */; };
@@ -28,6 +22,12 @@
 		036EA9FC1DA054DD00193E58 /* TFEGameController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EA9DD1D9F2A7700193E58 /* TFEGameController+Keyboard.m */; };
 		036EAA011DA08F9E00193E58 /* TFEAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA001DA08F9E00193E58 /* TFEAppDelegate.swift */; };
 		036EAA041DA0942200193E58 /* TFEAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA031DA0942200193E58 /* TFEAppDelegate.swift */; };
+		036EAA091DA09C7C00193E58 /* TFEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA081DA09C7C00193E58 /* TFEViewController.swift */; };
+		036EAA0B1DA09FBA00193E58 /* TFELabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA0A1DA09FBA00193E58 /* TFELabel.swift */; };
+		036EAA0D1DA09FE400193E58 /* TFEGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA0C1DA09FE400193E58 /* TFEGameController.swift */; };
+		036EAA0E1DA0A58B00193E58 /* TFEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA081DA09C7C00193E58 /* TFEViewController.swift */; };
+		036EAA0F1DA0A58B00193E58 /* TFELabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA0A1DA09FBA00193E58 /* TFELabel.swift */; };
+		036EAA101DA0A58B00193E58 /* TFEGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA0C1DA09FE400193E58 /* TFEGameController.swift */; };
 		038E32291C83A632001EF027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
 		038E322C1C83A632001EF027 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038E322A1C83A632001EF027 /* MainMenu.xib */; };
 		038E32371C83A632001EF027 /* TwentyFortyEightSlideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32361C83A632001EF027 /* TwentyFortyEightSlideTests.m */; };
@@ -55,17 +55,10 @@
 		036EA9B11D9E03C900193E58 /* TwentyFortyEight-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TwentyFortyEight-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		036EA9C91D9E03C900193E58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		036EA9CB1D9E03C900193E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		036EA9D11D9E051E00193E58 /* TFEGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFEGameController.h; sourceTree = "<group>"; };
-		036EA9D21D9E051E00193E58 /* TFEGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEGameController.m; sourceTree = "<group>"; };
-		036EA9D41D9F01D900193E58 /* TFELabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFELabel.h; path = "Cross-Platform Wrappers/TFELabel.h"; sourceTree = "<group>"; };
-		036EA9D51D9F01D900193E58 /* TFELabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFELabel.m; path = "Cross-Platform Wrappers/TFELabel.m"; sourceTree = "<group>"; };
 		036EA9D71D9F11AD00193E58 /* TFEMainScene+SlowForDebug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TFEMainScene+SlowForDebug.h"; sourceTree = "<group>"; };
 		036EA9DC1D9F2A7700193E58 /* TFEGameController+Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TFEGameController+Keyboard.h"; path = "Mac/TFEGameController+Keyboard.h"; sourceTree = SOURCE_ROOT; };
 		036EA9DD1D9F2A7700193E58 /* TFEGameController+Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TFEGameController+Keyboard.m"; path = "Mac/TFEGameController+Keyboard.m"; sourceTree = SOURCE_ROOT; };
-		036EA9E01D9F2B2900193E58 /* TFEGameController+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TFEGameController+Private.h"; sourceTree = "<group>"; };
 		036EA9E31D9F2EE100193E58 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
-		036EA9E51D9F42E000193E58 /* TFEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFEViewController.h; path = "Cross-Platform Wrappers/TFEViewController.h"; sourceTree = "<group>"; };
-		036EA9E61D9F42E000193E58 /* TFEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFEViewController.m; path = "Cross-Platform Wrappers/TFEViewController.m"; sourceTree = "<group>"; };
 		036EA9E91D9F459500193E58 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainView.xib; path = Mac/MainView.xib; sourceTree = SOURCE_ROOT; };
 		036EA9F21D9F4B7100193E58 /* TFEGameController+Touches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TFEGameController+Touches.h"; sourceTree = "<group>"; };
 		036EA9F51D9F508400193E58 /* TFENodeDirection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TFENodeDirection.h; path = "Game Core/TFENodeDirection.h"; sourceTree = "<group>"; };
@@ -74,6 +67,9 @@
 		036EA9FD1DA08F6B00193E58 /* TwentyFortyEight-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "TwentyFortyEight-Bridging-Header.h"; path = "../TwentyFortyEight-Bridging-Header.h"; sourceTree = "<group>"; };
 		036EAA001DA08F9E00193E58 /* TFEAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TFEAppDelegate.swift; path = Mac/TFEAppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		036EAA031DA0942200193E58 /* TFEAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFEAppDelegate.swift; sourceTree = "<group>"; };
+		036EAA081DA09C7C00193E58 /* TFEViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TFEViewController.swift; path = "Cross-Platform Wrappers/TFEViewController.swift"; sourceTree = "<group>"; };
+		036EAA0A1DA09FBA00193E58 /* TFELabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TFELabel.swift; path = "Cross-Platform Wrappers/TFELabel.swift"; sourceTree = "<group>"; };
+		036EAA0C1DA09FE400193E58 /* TFEGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFEGameController.swift; sourceTree = "<group>"; };
 		038E321A1C83A632001EF027 /* TwentyFortyEight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwentyFortyEight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		038E32281C83A632001EF027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		038E322B1C83A632001EF027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -149,13 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				036EA9FD1DA08F6B00193E58 /* TwentyFortyEight-Bridging-Header.h */,
-				036EA9E51D9F42E000193E58 /* TFEViewController.h */,
-				036EA9E61D9F42E000193E58 /* TFEViewController.m */,
-				036EA9D41D9F01D900193E58 /* TFELabel.h */,
-				036EA9D51D9F01D900193E58 /* TFELabel.m */,
-				036EA9D11D9E051E00193E58 /* TFEGameController.h */,
-				036EA9E01D9F2B2900193E58 /* TFEGameController+Private.h */,
-				036EA9D21D9E051E00193E58 /* TFEGameController.m */,
+				036EAA081DA09C7C00193E58 /* TFEViewController.swift */,
+				036EAA0A1DA09FBA00193E58 /* TFELabel.swift */,
+				036EAA0C1DA09FE400193E58 /* TFEGameController.swift */,
 				036EA9F51D9F508400193E58 /* TFENodeDirection.h */,
 				038E32991C881127001EF027 /* TFE.h */,
 				038E329A1C881127001EF027 /* TFE.m */,
@@ -369,16 +361,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				036EA9F11D9F49A800193E58 /* NSIndexSet+TFEHelpers.m in Sources */,
-				036EA9E21D9F2E7600193E58 /* TFELabel.m in Sources */,
 				036EA9EE1D9F499D00193E58 /* TFEMainScene.m in Sources */,
+				036EAA0E1DA0A58B00193E58 /* TFEViewController.swift in Sources */,
+				036EAA101DA0A58B00193E58 /* TFEGameController.swift in Sources */,
 				036EA9F71D9F519300193E58 /* TFEGameController+Touches.m in Sources */,
 				036EAA041DA0942200193E58 /* TFEAppDelegate.swift in Sources */,
 				036EA9F01D9F49A500193E58 /* NSArray+TFEFunctional.m in Sources */,
+				036EAA0F1DA0A58B00193E58 /* TFELabel.swift in Sources */,
 				036EA9EB1D9F499300193E58 /* TFE.m in Sources */,
 				036EA9EF1D9F49A000193E58 /* TFENode.m in Sources */,
 				036EA9ED1D9F499800193E58 /* TFEBoard.m in Sources */,
-				036EA9E81D9F42E000193E58 /* TFEViewController.m in Sources */,
-				036EA9E11D9F2DF400193E58 /* TFEGameController.m in Sources */,
 				036EA9EC1D9F499600193E58 /* TFEMove.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,16 +380,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				038E32481C83A746001EF027 /* TFEMainScene.m in Sources */,
-				036EA9D61D9F01D900193E58 /* TFELabel.m in Sources */,
 				038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */,
 				038E324B1C83D23B001EF027 /* TFENode.m in Sources */,
+				036EAA091DA09C7C00193E58 /* TFEViewController.swift in Sources */,
 				038E32A11C8A48F2001EF027 /* TFEMove.m in Sources */,
-				036EA9E71D9F42E000193E58 /* TFEViewController.m in Sources */,
 				036EA9FC1DA054DD00193E58 /* TFEGameController+Keyboard.m in Sources */,
 				038E32951C87A098001EF027 /* TFEBoard.m in Sources */,
 				038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */,
+				036EAA0B1DA09FBA00193E58 /* TFELabel.swift in Sources */,
 				036EAA011DA08F9E00193E58 /* TFEAppDelegate.swift in Sources */,
-				036EA9D31D9E051E00193E58 /* TFEGameController.m in Sources */,
+				036EAA0D1DA09FE400193E58 /* TFEGameController.swift in Sources */,
 				038E329B1C881127001EF027 /* TFE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,16 +445,18 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F655DJ76U3;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "WoolSweaterSoft.TwentyFortyEight-iOS";
+				PRODUCT_MODULE_NAME = TwentyFortyEight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TwentyFortyEight-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = $PROJECT_DIR/Common;
 			};
@@ -478,15 +472,17 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F655DJ76U3;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "WoolSweaterSoft.TwentyFortyEight-iOS";
+				PRODUCT_MODULE_NAME = TwentyFortyEight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TwentyFortyEight-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = $PROJECT_DIR/Common;
 				VALIDATE_PRODUCT = YES;
@@ -578,13 +574,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TwentyFortyEight-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -594,12 +591,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Mac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TwentyFortyEight-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

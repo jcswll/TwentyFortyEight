@@ -1,9 +1,15 @@
+//  TFEBoard.h
+//  TFE
+//
+//  Created by Joshua Caswell on 3/1/16.
+//  Copyright © 2016 Josh Caswell. All rights reserved.
+
+#import "TwentyFortyEight-Swift.h"
 
 #import "TFEBoard.h"
 #import "TFE.h"
 #import "TFENode.h"
 #import "TFEMove.h"
-#import "TFEGameController.h"
 #import "TFEMainScene.h"
 
 @interface TFEBoard ()

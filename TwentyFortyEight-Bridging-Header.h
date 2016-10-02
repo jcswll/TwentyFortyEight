@@ -2,5 +2,5 @@
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
-#import "TFEGameController.h"
-#import "TFELabel.h"
+#import "TFEMainScene.h"
+#import "TFEBoard.h"

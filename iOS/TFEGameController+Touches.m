@@ -7,7 +7,6 @@
 //
 
 #import "TFEGameController+Touches.h"
-#import "TFEGameController+Private.h"
 #import "TFEBoard.h"
 #import "TFEMainScene.h"
 #import "TFEMainScene+SlowForDebug.h"

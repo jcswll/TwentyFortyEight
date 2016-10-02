@@ -6,7 +6,7 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-#import "TFEGameController.h"
+#import "TwentyFortyEight-Swift.h"
 
 @interface TFEGameController (Touches)
 
