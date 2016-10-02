@@ -189,7 +189,7 @@
 				038E329D1C88E449001EF027 /* TODO.taskpaper */,
 				036EA9D01D9E040E00193E58 /* Common */,
 				038E321C1C83A632001EF027 /* Mac */,
-				038E32351C83A632001EF027 /* TwentyFortyEightTests */,
+				038E32351C83A632001EF027 /* Tests */,
 				036EA9B21D9E03C900193E58 /* iOS */,
 				038E321B1C83A632001EF027 /* Products */,
 			);
@@ -229,7 +229,7 @@
 			name = "Supporting Files";
 			sourceTree = SOURCE_ROOT;
 		};
-		038E32351C83A632001EF027 /* TwentyFortyEightTests */ = {
+		038E32351C83A632001EF027 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				038E32A51C8A73AB001EF027 /* TFETestHeader.h */,
@@ -237,7 +237,6 @@
 				038E32A61C8A740C001EF027 /* TFEScoreTests.m */,
 				038E32381C83A632001EF027 /* Info.plist */,
 			);
-			name = TwentyFortyEightTests;
 			path = Tests;
 			sourceTree = "<group>";
 		};
@@ -604,7 +603,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = TwentyFortyEightTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEightTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -617,7 +616,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = TwentyFortyEightTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEightTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
