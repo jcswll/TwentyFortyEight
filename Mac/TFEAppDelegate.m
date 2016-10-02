@@ -7,6 +7,7 @@
 //
 
 #import "TFEAppDelegate.h"
+
 #import "TFEMainScene.h"
 #import "TFEGameController.h"
 
@@ -15,6 +16,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
     TFEGameController * controller = [TFEGameController new];
+    
     [self setGameController:controller];
     
     [[self mainWindow] setContentViewController:controller];

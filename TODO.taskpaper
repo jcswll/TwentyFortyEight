@@ -10,3 +10,4 @@
 - Give score label an interesting animation when changing score.
 - Clean up and animate game end message.
 - Add "overshoot" animation to tile slides.
+- Game controller loses first responder on Mac when the title bar is clicked. @bug

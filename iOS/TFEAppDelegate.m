@@ -10,10 +10,6 @@
 
 #import "TFEGameController.h"
 
-@interface TFEAppDelegate ()
-
-@end
-
 @implementation TFEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -21,6 +17,7 @@
     UIWindow * window = [UIWindow new];
     TFEGameController * controller = [TFEGameController new];
     
+    [self setGameController:controller];
     [self setMainWindow:window];
     [window setRootViewController:controller];
     

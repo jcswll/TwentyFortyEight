@@ -208,12 +208,12 @@
 		038E321C1C83A632001EF027 /* Mac */ = {
 			isa = PBXGroup;
 			children = (
+				038E322A1C83A632001EF027 /* MainMenu.xib */,
 				036EA9E91D9F459500193E58 /* MainView.xib */,
 				038E32411C83A675001EF027 /* TFEAppDelegate.h */,
 				038E32421C83A675001EF027 /* TFEAppDelegate.m */,
 				036EA9DC1D9F2A7700193E58 /* TFEGameController+Keyboard.h */,
 				036EA9DD1D9F2A7700193E58 /* TFEGameController+Keyboard.m */,
-				038E322A1C83A632001EF027 /* MainMenu.xib */,
 				036EA9FA1DA0547D00193E58 /* Info.plist */,
 				038E32201C83A632001EF027 /* Supporting Files */,
 			);
