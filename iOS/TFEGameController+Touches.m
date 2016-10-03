@@ -7,7 +7,6 @@
 //
 
 #import "TFEGameController+Touches.h"
-#import "TFEBoard.h"
 #import "TFEMainScene.h"
 #import "TFEMainScene+SlowForDebug.h"
 #import "TFENodeDirection.h"
@@ -40,7 +39,7 @@
             break;
     }
 
-    [[self board] moveNodesInDirection:nodeDirection];
+    [self userDidInput:nodeDirection];
 }
 
 - (void)longPress:(UILongPressGestureRecognizer *)recognizer

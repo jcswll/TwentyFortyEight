@@ -3,4 +3,7 @@
 //
 
 #import "TFEMainScene.h"
-#import "TFEBoard.h"
+#import "TFEMove.h"
+#import "TFENode.h"
+#import "TFE.h"
+#import "TFENodeDirection.h"

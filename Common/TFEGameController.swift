@@ -52,6 +52,13 @@ class TFEGameController : TFEViewController
         return true
     }
     
+    // Message sent to self from platform-specific user input extensions.
+    // This is necessary because `board` is not mutable inside the extensions, and `moveNodes(inDirection:)` is mutating.
+    func userDidInput(direction: TFENodeDirection)
+    {
+        self.board.moveNodes(inDirection: direction)
+    }
+    
     //MARK: - Communication from board
     
     func gameDidEnd(inVictory victorious: Bool)

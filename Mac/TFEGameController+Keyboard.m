@@ -9,7 +9,6 @@
 #import "TFEGameController+Keyboard.h"
 #import "TFEMainScene.h"
 #import "TFEMainScene+SlowForDebug.h"
-#import "TFEBoard.h"
 // Include Carbon header for key code enum
 #import <Carbon/Carbon.h>
 
@@ -53,7 +52,7 @@
             return;
     }
     
-    [[self board] moveNodesInDirection:direction];
+    [self userDidInput:direction];
 }
 
 @end
