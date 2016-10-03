@@ -46,9 +46,9 @@
     return [SKColor colorWithRed:33.0/255 green:30.0/255 blue:0 alpha:1.0];
 }
 
-- (BOOL)anyMovementInProgress
+- (BOOL)canAcceptInput
 {
-    return [TFENode anyNodeMovementInProgress];
+    return ![TFENode anyNodeMovementInProgress];
 }
 
 - (void)didMoveToView:(SKView *)view

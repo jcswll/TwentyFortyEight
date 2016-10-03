@@ -7,3 +7,4 @@
 #import "TFENode.h"
 #import "TFE.h"
 #import "TFENodeDirection.h"
+#import "TFEMainScene+SlowForDebug.h"

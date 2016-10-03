@@ -12,8 +12,8 @@
 
 @interface TFEMainScene : SKScene
 
-/** Returns YES while noode movement is taking place, so that, e.g. user input can be rejected. */
-- (BOOL)anyMovementInProgress;
+/** Returns NO while node movement is taking place. */
+- (BOOL)canAcceptInput;
 
 @end
 
