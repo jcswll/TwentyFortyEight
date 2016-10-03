@@ -9,7 +9,6 @@
 @import Cocoa;
 @import SpriteKit;
 
-@class TFELabel;
 @class TFEGameController;
 
 @interface TFEAppDelegate : NSObject <NSApplicationDelegate>

@@ -7,8 +7,8 @@
 //
 
 #import "TFEMainScene.h"
+
 #import "TFEMainScene+SlowForDebug.h"
-#import "TFEBoard.h"
 #import "TFENode.h"
 
 @interface TFEMainScene ()

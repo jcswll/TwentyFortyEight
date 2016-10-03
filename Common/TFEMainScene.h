@@ -6,13 +6,13 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+@import SpriteKit;
 
 @class TFENode;
 
 @interface TFEMainScene : SKScene
 
-/** Returns YES while noode movement is taking place, so that, e.g. user input can be rejected. */
+/** Returns YES while node movement is taking place, so that, e.g. user input can be rejected. */
 - (BOOL)anyMovementInProgress;
 
 @end

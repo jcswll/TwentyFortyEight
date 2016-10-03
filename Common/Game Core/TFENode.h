@@ -6,7 +6,7 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+@import SpriteKit;
 
 @interface TFENode : SKSpriteNode
 

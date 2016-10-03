@@ -6,13 +6,16 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-#import "TFEGameController+Keyboard.h"
-#import "TFEGameController+Private.h"
-#import "TFEMainScene.h"
-#import "TFEMainScene+SlowForDebug.h"
-#import "TFEBoard.h"
 // Include Carbon header for key code enum
 #import <Carbon/Carbon.h>
+
+#import "TFEGameController+Keyboard.h"
+
+#import "TFEGameController+Private.h"
+#import "TFEBoard.h"
+#import "TFEMainScene.h"
+#import "TFEMainScene+SlowForDebug.h"
+#import "TFENodeDirection.h"
 
 @implementation TFEGameController (Keyboard)
 

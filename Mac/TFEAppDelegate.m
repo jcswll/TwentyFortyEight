@@ -8,7 +8,6 @@
 
 #import "TFEAppDelegate.h"
 
-#import "TFEMainScene.h"
 #import "TFEGameController.h"
 
 @implementation TFEAppDelegate

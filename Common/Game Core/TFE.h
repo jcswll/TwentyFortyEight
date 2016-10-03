@@ -6,7 +6,8 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+
 #import "TFENodeDirection.h"
 
 @class TFEMove;
