@@ -24,6 +24,8 @@ static CGFloat randomOffsetWithGamut(CGFloat gamut)
  */
 + (dispatch_group_t)movementDispatchGroup;
 
+- (void)moveToPosition:(CGPoint)destination duration:(CGFloat)duration;
+
 @end
 
 @implementation TFENode
@@ -110,23 +112,25 @@ static CGFloat randomOffsetWithGamut(CGFloat gamut)
 
 -(void)spawnAtPosition:(CGPoint)position
 {
+    static const CGFloat kInitialScale = 0.85;
+    static const CGFloat kBounceUpperScale = 1.1;
+    static const CGFloat kBounceLowerScale = 0.93;
+    static const CGFloat kUnityScale = 1.0;
+
     CGFloat thisResizeDuration = [self resizeFadeDuration];
     CGFloat thisBounceDuration = [self bounceDuration];
+    
     // Grow to full size
-    CGSize size = [self size];
-    [self setSize:(CGSize){size.height * 0.85, size.width * 0.85}];
-    SKAction * grow = [SKAction resizeToWidth:size.width
-                                        height:size.height
-                                      duration:thisResizeDuration];
+    [self setScale:kInitialScale];
+    SKAction * grow = [SKAction scaleTo:kUnityScale duration:thisResizeDuration];
     
     // Do a little size bounce
-    SKAction * wait = [SKAction waitForDuration:thisResizeDuration * 0.9];
-    SKAction * scaleUp = [SKAction scaleTo:1.1 duration:thisBounceDuration];
-    SKAction * scaleDown = [SKAction scaleTo:0.93 duration:thisBounceDuration];
-    SKAction * scaleBackUp = [SKAction scaleTo:1.0 duration:thisBounceDuration];
-    SKAction * bounceScale = [SKAction sequence:@[wait, scaleUp, scaleDown, scaleBackUp]];
+    SKAction * scaleUp = [SKAction scaleTo:kBounceUpperScale duration:thisBounceDuration];
+    SKAction * scaleDown = [SKAction scaleTo:kBounceLowerScale duration:thisBounceDuration];
+    SKAction * scaleBackUp = [SKAction scaleTo:kUnityScale duration:thisBounceDuration];
+    SKAction * bounceScale = [SKAction sequence:@[scaleUp, scaleDown, scaleBackUp]];
     
-    SKAction * spawn = [SKAction group:@[grow, bounceScale]];
+    SKAction * spawn = [SKAction sequence:@[grow, bounceScale]];
 
     [self setPosition:position];
     [self runAction:spawn];
@@ -134,42 +138,47 @@ static CGFloat randomOffsetWithGamut(CGFloat gamut)
 
 - (void)moveToPosition:(CGPoint)destination
 {
-    SKAction * move = [SKAction moveTo:destination
-                              duration:[self moveDuration]];
+    [self moveToPosition:destination duration:[self moveDuration]];
+}
+
+- (void)moveIntoCombinationAtPosition:(CGPoint)destination
+{
+    static const CGFloat kFinalShrinkScale = 0.25;
+    
+    BOOL changingPosition = !CGPointEqualToPoint(destination, [self position]);
+    
+    CGFloat thisResizeDuration = [self resizeFadeDuration];
+    SKAction * shrink = [SKAction scaleTo:kFinalShrinkScale duration:thisResizeDuration];
+    SKAction * fade = [SKAction fadeOutWithDuration:thisResizeDuration];
+    
+    SKAction * fadeAndShrink = [SKAction group:@[shrink, fade]];
+
+    if( changingPosition ){
+
+        CGFloat thisMoveDuration = [self moveDuration];
+        fadeAndShrink = [SKAction sequence:@[[SKAction waitForDuration:thisMoveDuration], fadeAndShrink]];
+        [self moveToPosition:destination duration:thisMoveDuration];
+    }
+    
+    // Disappear animation does not prevent spawning
+    [self runAction:fadeAndShrink
+         completion:^{
+        
+            // Next run loop
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self removeFromParent];
+            });
+    }];
+}
+
+- (void)moveToPosition:(CGPoint)destination duration:(CGFloat)duration
+{
+    SKAction * move = [SKAction moveTo:destination duration:duration];
     [move setTimingMode:SKActionTimingEaseInEaseOut];
     
     dispatch_group_enter([TFENode movementDispatchGroup]);
     [self runAction:move
          completion:^{ dispatch_group_leave([TFENode movementDispatchGroup]); }];
-}
-
-- (void)moveIntoCombinationAtPosition:(CGPoint)destination
-{
-    CGFloat thisMoveDuration = [self moveDuration];
-    CGFloat thisResizeDuration = [self resizeFadeDuration];
-    SKAction * shrink = [SKAction resizeToWidth:[self size].width / 4
-                                         height:[self size].height / 4
-                                       duration:thisResizeDuration];
-    SKAction * fade = [SKAction fadeOutWithDuration:thisResizeDuration];
-    SKAction * move = [SKAction moveTo:destination duration:thisMoveDuration];
-    
-    SKAction * fadeAndShrink = [SKAction group:@[shrink, fade]];
-    
-    SKAction * delayedDisappear = [SKAction sequence:@[[SKAction waitForDuration:thisMoveDuration], fadeAndShrink]];
-    
-    dispatch_group_enter([TFENode movementDispatchGroup]);
-    [self runAction:move
-         completion:^{ dispatch_group_leave([TFENode movementDispatchGroup]); }];
-    
-    // Disappear animation does not prevent user input or spawning
-    [self runAction:delayedDisappear
-         completion:^{
-             
-             // Next run loop
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 [self removeFromParent];
-             });;
-     }];
 }
 
 @end

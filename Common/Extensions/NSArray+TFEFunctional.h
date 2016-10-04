@@ -6,7 +6,7 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 /** Predicate for -[NSArray TFEFilter:]. Objects in the array for which YES is
  * returned from the filter Block will be present in the filtered result.

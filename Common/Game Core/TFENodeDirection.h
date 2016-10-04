@@ -6,7 +6,8 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-typedef NS_ENUM(NSUInteger, TFENodeDirection) {
+typedef NS_ENUM(NSUInteger, TFENodeDirection)
+{
     TFENodeDirectionLeft = 0,
     TFENodeDirectionUp,
     TFENodeDirectionRight,
