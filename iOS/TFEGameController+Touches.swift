@@ -6,6 +6,8 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
+import UIKit
+
 extension TFEGameController
 {
     func swipe(recognizer: UISwipeGestureRecognizer)

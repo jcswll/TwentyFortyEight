@@ -59,11 +59,11 @@ struct TFEBoard
     
     func executeMoves(moves: [TFEMove])
     {
-        moves.filter({ $0.spawning }).forEach { spawn in
+        moves.filter({ $0.isSpawn }).forEach { spawn in
             self.executeSpawn(spawn)
         }
-        moves.filter({ !$0.spawning }).forEach { move in
-            self.scene.move(move.node, toSquare: move.destination, combining: move.combining)
+        moves.filter({ !$0.isSpawn }).forEach { move in
+            self.scene.move(move.node, toSquare: move.destination, combining: move.isCombination)
         }
     }
     

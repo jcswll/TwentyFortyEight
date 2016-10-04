@@ -123,3 +123,11 @@ More importantly, since the property is `private(set) var board`, it could not b
 (This solution would also have fixed the first problem of the board not being visible at all in ObjC.)
 
 This seems like a step backwards in organization from ObjC (a consequence of the lack of headers).
+
+---
+
+Subclassing SKSpriteNode was a headache. (Aside from the usual stupidity with `init(coder:)`) The initializer rules mean that `init(value:)` is forced to call `init(texture:color:size:)`, which is the only DI for SKSpriteNode. `init(texture:)` is a convenience initializer. So I'm _forced_ to supply a color rather than letting the superclass use its own default. I don't even know yet what the effect is.
+
+Before I found the solution, there was some wrestling with an error about a constant property apparently not being settable inside a convenience initializer.
+
+`textureForValue:` would be translated according to new Swift naming guidelines as `texture(forValue:)`, but since parameter names are not part of the function signature, that makes the natural `let texture = texture(forValue: value)` produce "error: variable used within its own initial value". The compiler can't figure out that the second `texture` is a function invocation for some reason.

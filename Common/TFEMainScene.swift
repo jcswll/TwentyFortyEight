@@ -52,10 +52,10 @@ class TFEMainScene : SKScene
         let destination = self.center(ofGridSquare: square)
         
         if combining {
-            node.moveIntoCombinationAtPosition(destination)
+            node.moveIntoCombination(atPosition: destination)
         }
         else {
-            node.moveToPosition(destination)
+            node.move(toPosition: destination)
         }
     }
     
@@ -71,7 +71,7 @@ class TFEMainScene : SKScene
                 
                 self.addChild(node)
                 node.size = CGSize(width: self.nodeSize, height: self.nodeSize)
-                node.spawnAtPosition(self.center(ofGridSquare: square))
+                node.spawn(atPosition: self.center(ofGridSquare: square))
             })
         })
     }
