@@ -11,7 +11,7 @@ extension TFEGameController
     func swipe(recognizer: UISwipeGestureRecognizer)
     {
         // Don't accept swipe input while movement is taking place. Otherwise nodes get lost.
-        guard self.scene.canAcceptInput() else {
+        guard self.scene.canAcceptInput else {
             return
         }
         

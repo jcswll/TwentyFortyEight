@@ -63,7 +63,7 @@ struct TFEBoard
             self.executeSpawn(spawn)
         }
         moves.filter({ !$0.spawning }).forEach { move in
-            self.scene.moveNode(move.node, toGridSquare: move.destination, combining: move.combining)
+            self.scene.move(move.node, toSquare: move.destination, combining: move.combining)
         }
     }
     

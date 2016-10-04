@@ -63,7 +63,7 @@ class TFEGameController : TFEViewController
     
     func gameDidEnd(inVictory victorious: Bool)
     {
-        self.scene.gameDidEndInVictory(victorious)
+        self.scene.gameDidEnd(inVictory: victorious)
     }
     
     func updateScore(to score: UInt32)

@@ -22,7 +22,7 @@ extension TFEGameController
         }
         
         // Don't accept move input while movement is already taking place. Otherwise nodes get lost.
-        guard self.scene.canAcceptInput() else {
+        guard self.scene.canAcceptInput else {
             return
         }
         
