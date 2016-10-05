@@ -16,7 +16,7 @@ struct TrailingSquares
     private static let right: Set<Int> = [15, 11, 7, 3]
     private static let up: Set<Int> = [0, 1, 2, 3]
     
-    static func in(direction direction: TFENodeDirection) -> Set<Int>
+    static func awayFrom(direction: TFENodeDirection) -> Set<Int>
     {
         switch direction {
             
@@ -52,18 +52,18 @@ struct GridIndexes
     
     private static let up = [[0, 4, 8, 12], [1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15]]
     
-    static func in(direction direction: TFENodeDirection, row: Int) -> [Int]
+    static func by(direction: TFENodeDirection) -> [[Int]]
     {
         switch direction {
             
             case .Left:
-                return self.left[row]
+                return self.left
             case .Up:
-                return self.up[row]
+                return self.up
             case .Right:
-                return self.right[row]
+                return self.right
             case .Down:
-                return self.down[row]
+                return self.down
             case .NotADirection:
                 fatalError("No squares available for .NotADirection")
         }

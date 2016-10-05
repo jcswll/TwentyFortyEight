@@ -19,7 +19,7 @@ enum SlidNode
     case Solo(TFENode)
     case Empty
     
-    init(_ node: TFENode?)
+    init(_ node: TFENode? = nil)
     {
         if let soloNode = node {
             self = .Solo(soloNode)
@@ -27,6 +27,11 @@ enum SlidNode
         else {
             self = .Empty
         }
+    }
+    
+    init(_ first: TFENode, _ second: TFENode)
+    {
+        self = .Combined(first, second)
     }
 }
 

@@ -10,4 +10,14 @@
 - Give score label an interesting animation when changing score.
 - Clean up and animate game end message.
 - Add "overshoot" animation to tile slides.
-- Game controller loses first responder on Mac when the title bar is clicked. @bug
+- Game controller loses first responder on Mac when the title bar is clicked. @bug @status(closed:fixed)
+
+Swift:
+    - Grid-modifying functions can probably use `inout` @swift @enhancement
+    - Redo TFEGridIsALoser() with a `flatMap`
+        return [.Left, .Up, .Right, .Down].flatMap({ (direction: TFENodeDirection) in
+
+            let (moves, _) = TFEMove(nodes: grid, inDirection: direction)
+            return moves
+
+        }).isEmpty

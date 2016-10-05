@@ -9,7 +9,15 @@
 struct TFEMove
 {
     let node: TFENode
-    let destination: UInt
+    let destination: Int
     let isCombination: Bool
     let isSpawn: Bool
+    
+    init(node: TFENode, destination: Int, isCombination: Bool = false, isSpawn: Bool = false)
+    {
+        self.node = node
+        self.destination = destination
+        self.isCombination = isCombination
+        self.isSpawn = isSpawn
+    }
 }

@@ -11,7 +11,6 @@
 		036EA9CF1D9E040400193E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
 		036EA9E41D9F2EE100193E58 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036EA9E31D9F2EE100193E58 /* MainView.xib */; };
 		036EA9EA1D9F459500193E58 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036EA9E91D9F459500193E58 /* MainView.xib */; };
-		036EA9EB1D9F499300193E58 /* TFE.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E329A1C881127001EF027 /* TFE.m */; };
 		036EA9F01D9F49A500193E58 /* NSArray+TFEFunctional.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */; };
 		036EA9F11D9F49A800193E58 /* NSIndexSet+TFEHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */; };
 		036EAA011DA08F9E00193E58 /* TFEAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA001DA08F9E00193E58 /* TFEAppDelegate.swift */; };
@@ -44,12 +43,13 @@
 		036EAA6A1DA4933C00193E58 /* Set+RandomInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA661DA4933C00193E58 /* Set+RandomInt.swift */; };
 		036EAA6D1DA4958E00193E58 /* GridSquarePositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */; };
 		036EAA6E1DA4958E00193E58 /* GridSquarePositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */; };
+		036EAA701DA49AF900193E58 /* TFE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6F1DA49AF900193E58 /* TFE.swift */; };
+		036EAA711DA49AF900193E58 /* TFE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6F1DA49AF900193E58 /* TFE.swift */; };
 		038E32291C83A632001EF027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
 		038E322C1C83A632001EF027 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038E322A1C83A632001EF027 /* MainMenu.xib */; };
 		038E32371C83A632001EF027 /* TwentyFortyEightSlideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32361C83A632001EF027 /* TwentyFortyEightSlideTests.m */; };
 		038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */; };
 		038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */; };
-		038E329B1C881127001EF027 /* TFE.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E329A1C881127001EF027 /* TFE.m */; };
 		038E32A71C8A740C001EF027 /* TFEScoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32A61C8A740C001EF027 /* TFEScoreTests.m */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +88,7 @@
 		036EAA651DA4933C00193E58 /* Array+ElementsAtIndexes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+ElementsAtIndexes.swift"; path = "Extensions/Array+ElementsAtIndexes.swift"; sourceTree = "<group>"; };
 		036EAA661DA4933C00193E58 /* Set+RandomInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Set+RandomInt.swift"; path = "Extensions/Set+RandomInt.swift"; sourceTree = "<group>"; };
 		036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridSquarePositions.swift; path = "Game Core/GridSquarePositions.swift"; sourceTree = "<group>"; };
+		036EAA6F1DA49AF900193E58 /* TFE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TFE.swift; path = "Game Core/TFE.swift"; sourceTree = "<group>"; };
 		038E321A1C83A632001EF027 /* TwentyFortyEight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwentyFortyEight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		038E32281C83A632001EF027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		038E322B1C83A632001EF027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 				036EAA5C1DA35C2900193E58 /* TFENode.swift */,
 				036EAA5F1DA48CBF00193E58 /* SlidNode.swift */,
 				036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */,
+				036EAA6F1DA49AF900193E58 /* TFE.swift */,
 				038E32991C881127001EF027 /* TFE.h */,
 				038E329A1C881127001EF027 /* TFE.m */,
 				036EAA201DA2163400193E58 /* TFEBoard.swift */,
@@ -389,6 +391,7 @@
 				036EAA101DA0A58B00193E58 /* TFEGameController.swift in Sources */,
 				036EAA041DA0942200193E58 /* TFEAppDelegate.swift in Sources */,
 				036EAA2D1DA3068600193E58 /* TFEGameController+Touches.swift in Sources */,
+				036EAA711DA49AF900193E58 /* TFE.swift in Sources */,
 				036EA9F01D9F49A500193E58 /* NSArray+TFEFunctional.m in Sources */,
 				036EAA611DA48CBF00193E58 /* SlidNode.swift in Sources */,
 				036EAA0F1DA0A58B00193E58 /* TFELabel.swift in Sources */,
@@ -397,7 +400,6 @@
 				036EAA5E1DA35C2900193E58 /* TFENode.swift in Sources */,
 				036EAA221DA2187B00193E58 /* TFEBoard.swift in Sources */,
 				036EAA551DA35B3E00193E58 /* TFENodeDirection.swift in Sources */,
-				036EA9EB1D9F499300193E58 /* TFE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +416,7 @@
 				036EAA091DA09C7C00193E58 /* TFEViewController.swift in Sources */,
 				038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */,
 				036EAA0B1DA09FBA00193E58 /* TFELabel.swift in Sources */,
+				036EAA701DA49AF900193E58 /* TFE.swift in Sources */,
 				036EAA571DA35B8000193E58 /* TFEMove.swift in Sources */,
 				036EAA601DA48CBF00193E58 /* SlidNode.swift in Sources */,
 				036EAA011DA08F9E00193E58 /* TFEAppDelegate.swift in Sources */,
@@ -422,7 +425,6 @@
 				036EAA541DA35B3E00193E58 /* TFENodeDirection.swift in Sources */,
 				036EAA211DA2163400193E58 /* TFEBoard.swift in Sources */,
 				036EAA0D1DA09FE400193E58 /* TFEGameController.swift in Sources */,
-				038E329B1C881127001EF027 /* TFE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

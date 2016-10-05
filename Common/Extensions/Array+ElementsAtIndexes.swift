@@ -12,7 +12,7 @@ extension Array
      * Given an array of integer indexes, return an array of the receiever's
      * elements at those indexes.
      */
-    func elementsAtIndexes(indexes: [Int]) -> [Element]
+    func elements(at indexes: [Int]) -> [Element]
     {
         var retVal: [Element] = []
 

@@ -20,8 +20,7 @@ struct TFEBoard
         self.scene = scene
         self.score = 0
         
-        var initialSpawns: NSArray?
-        self.grid = TFEBuildGrid(&initialSpawns)
+        (let initialSpawns, self.grid) = TFEBuildGrid()
         
         initialSpawns?.forEach { (spawn) in
             self.executeSpawn(spawn as! TFEMove)
