@@ -8,8 +8,19 @@
 
 import SpriteKit
 
+/**
+ * TFENodes are the sprites representing the tiles on the game board. They configure their appearance
+ * and perform necessary animations. They also hold their point value, which the game engine uses to
+ * calculate combinations.
+ */
 class TFENode : SKSpriteNode
 {
+    /** Create the appropriate `SKTexture` for this value. */
+    private static func textureForValue(value: UInt32) -> SKTexture
+    {
+        return SKTexture(imageNamed: "\(value)")
+    }
+    
     /** The node's point value. This is a `TFENode`'s sole feature for purposes of comparison to other nodes. */
     let value: UInt32
     
@@ -17,7 +28,7 @@ class TFENode : SKSpriteNode
     {
         self.value = value
         
-        let texture = textureForValue(value)
+        let texture = TFENode.textureForValue(value)
         super.init(texture: texture, color: SKColor.clearColor(), size: CGSize(width: 100, height: 100))
     }
     
@@ -26,8 +37,8 @@ class TFENode : SKSpriteNode
     }
     
     /** Random duration for the grow or shrink/fade animation. */
-    private var resizeFadeDuration: Double {
-        
+    private var resizeFadeDuration: Double
+    {
         let kResizeFadeDuration: Double = 0.19
         let gamut: Double = 0.08
         let offset = randomOffset(withGamut: gamut)
@@ -36,8 +47,8 @@ class TFENode : SKSpriteNode
     }
 
     /** Random duration for each of the parts of the size bounce animation when spawning. */
-    private var bounceDuration: Double {
-        
+    private var bounceDuration: Double
+    {
         let kBounceDuration: Double = 0.06
         let gamut: Double = 0.08
         let offset = randomOffset(withGamut: gamut)
@@ -46,8 +57,8 @@ class TFENode : SKSpriteNode
     }
 
     /** Random duration for a slide animation. */
-    private var moveDuration: Double {
-        
+    private var moveDuration: Double
+    {
         let kMoveDuration: Double = 0.125
         let gamut: Double = 0.08
         let offset = randomOffset(withGamut: gamut)
@@ -55,6 +66,7 @@ class TFENode : SKSpriteNode
         return kMoveDuration + offset
     }
     
+    /** Create node at the given position, with animation. */
     func spawn(atPosition position: CGPoint)
     {
         let kInitialScale: CGFloat = 0.85
@@ -81,16 +93,18 @@ class TFENode : SKSpriteNode
         self.runAction(spawn)
     }
     
+    /** Slide the node to the given position. */
     func move(toPosition destination: CGPoint)
     {
         self.move(toPosition: position, duration: self.moveDuration)
     }
     
+    /** Animate the node's dissappearance at the destination point. */
     func moveIntoCombination(atPosition destination: CGPoint)
     {
         let kFinalShrinkScale: CGFloat = 0.25
         
-        let changingPosition = destination != self.position
+        let isChangingPosition = destination != self.position
         
         let thisResizeDuration = self.resizeFadeDuration
         
@@ -99,7 +113,7 @@ class TFENode : SKSpriteNode
         
         var fadeAndShrink = SKAction.group([shrink, fade])
         
-        if changingPosition {
+        if isChangingPosition {
             
             let thisMoveDuration = self.moveDuration
             fadeAndShrink = SKAction.sequence([SKAction.waitForDuration(thisMoveDuration), fadeAndShrink])
@@ -115,6 +129,7 @@ class TFENode : SKSpriteNode
         })
     }
     
+    /** Slide the node to the given position over the given duration. */
     private func move(toPosition destination: CGPoint, duration: NSTimeInterval)
     {
         let move = SKAction.moveTo(destination, duration: duration)
@@ -176,15 +191,4 @@ extension TFENode
      * completion.
      */
     private static let movementDispatchGroup: dispatch_group_t = dispatch_group_create()
-}
-
-private func textureForValue(value: UInt32) -> SKTexture
-{
-    return SKTexture(imageNamed: "\(value)")
-}
-
-private func randomOffset(withGamut gamut: Double) -> Double
-{
-    let randVal = Double(arc4random() / UInt32.max)
-    return gamut * randVal - (gamut / 2)
 }

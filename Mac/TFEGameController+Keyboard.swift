@@ -6,6 +6,7 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
+import Cocoa
 // Include Carbon for key code enum
 import Carbon
 
