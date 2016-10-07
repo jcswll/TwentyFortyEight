@@ -14,10 +14,12 @@
 
 Swift:
     - Grid-modifying functions can probably use `inout` @swift @enhancement
-    - Redo TFEGridIsALoser() with a `flatMap`
+    - Redo TFEGridIsALoser() with a `flatMap` @swift
         return [.Left, .Up, .Right, .Down].flatMap({ (direction: TFENodeDirection) in
 
             let (moves, _) = TFEMove(nodes: grid, inDirection: direction)
             return moves
 
         }).isEmpty
+    - Adjust the chance of spawning a value-2 node (should be 90%)
+    - Fixup naming (removing TFE prefixes as appropriate) @enhancement @swift

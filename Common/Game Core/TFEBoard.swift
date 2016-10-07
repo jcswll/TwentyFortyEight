@@ -11,7 +11,7 @@ struct TFEBoard
     private let controller: TFEGameController
     private let scene: TFEMainScene
     
-    private var grid: [AnyObject]
+    private var grid: [TFENode?]
     private var score: UInt32
     
     init(controller: TFEGameController, scene: TFEMainScene)
@@ -20,33 +20,30 @@ struct TFEBoard
         self.scene = scene
         self.score = 0
         
-        (let initialSpawns, self.grid) = TFEBuildGrid()
+        let initialSpawns: [TFEMove]
+        (initialSpawns, self.grid) = TFEBuildGrid()
         
-        initialSpawns?.forEach { (spawn) in
-            self.executeSpawn(spawn as! TFEMove)
+        for spawn in initialSpawns {
+            self.executeSpawn(spawn)
         }
     }
     
     mutating func moveNodes(inDirection direction: TFENodeDirection)
-    {
-        guard direction != .NotADirection else {
-            return
-        }
+    {        
+        let possibleMoves: [TFEMove]?
+        (possibleMoves, self.grid) = TFEMoveNodes(self.grid, inDirection: direction)
         
-        var possibleMoves: NSArray? = nil
-        self.grid = TFEMoveNodesInDirection(self.grid, direction, &possibleMoves)
-        
-        guard let moves = possibleMoves as? [TFEMove] else {
+        guard let moves = possibleMoves else {
             return
         }
         
         self.executeMoves(moves)
         self.score(moves)
         
-        var spawn: TFEMove?
-        self.grid = TFESpawnNewNodeExcludingDirection(self.grid, direction, &spawn)
+        let spawn: TFEMove
+        (spawn, self.grid) = TFESpawnNewNode(on: self.grid, excluding: direction)
         
-        self.executeSpawn(spawn!)
+        self.executeSpawn(spawn)
         
         self.checkForEndGame()
     }
@@ -58,17 +55,17 @@ struct TFEBoard
     
     func executeMoves(moves: [TFEMove])
     {
-        moves.filter({ $0.isSpawn }).forEach { spawn in
+        for spawn in moves.filter({ $0.isSpawn }) {
             self.executeSpawn(spawn)
         }
-        moves.filter({ !$0.isSpawn }).forEach { move in
+        for move in moves.filter({ !$0.isSpawn }) {
             self.scene.move(move.node, toSquare: move.destination, combining: move.isCombination)
         }
     }
     
     mutating func score(moves: [TFEMove])
     {
-        let newPoints = TFEScoreForMoves(moves)
+        let newPoints = TFEScore(forMoves: moves)
         guard newPoints > 0 else {
             return
         }

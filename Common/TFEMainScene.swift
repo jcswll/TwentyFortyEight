@@ -47,7 +47,7 @@ class TFEMainScene : SKScene
     
     //MARK: - Communication from board
     
-    func move(node: TFENode, toSquare square: UInt, combining: Bool)
+    func move(node: TFENode, toSquare square: Int, combining: Bool)
     {
         let destination = self.center(ofGridSquare: square)
         
@@ -59,7 +59,7 @@ class TFEMainScene : SKScene
         }
     }
     
-    func spawnNode(node: TFENode, inSquare square: UInt)
+    func spawnNode(node: TFENode, inSquare square: Int)
     {
         let wait_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         let ui_queue = dispatch_get_main_queue()
@@ -114,7 +114,7 @@ class TFEMainScene : SKScene
         self.nodeSize = gridSquareSide - (2 * gridSquareSide / kNodeSizeInsetFactor)
     }
     
-    private func center(ofGridSquare squareNumber: UInt) -> CGPoint
+    func center(ofGridSquare squareNumber: Int) -> CGPoint
     {
         let minDimension = min(self.size.width, self.size.height)
         let gridSquareSide = minDimension / 4

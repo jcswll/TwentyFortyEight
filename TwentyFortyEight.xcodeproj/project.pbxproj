@@ -11,8 +11,6 @@
 		036EA9CF1D9E040400193E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
 		036EA9E41D9F2EE100193E58 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036EA9E31D9F2EE100193E58 /* MainView.xib */; };
 		036EA9EA1D9F459500193E58 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036EA9E91D9F459500193E58 /* MainView.xib */; };
-		036EA9F01D9F49A500193E58 /* NSArray+TFEFunctional.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */; };
-		036EA9F11D9F49A800193E58 /* NSIndexSet+TFEHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */; };
 		036EAA011DA08F9E00193E58 /* TFEAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA001DA08F9E00193E58 /* TFEAppDelegate.swift */; };
 		036EAA041DA0942200193E58 /* TFEAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA031DA0942200193E58 /* TFEAppDelegate.swift */; };
 		036EAA091DA09C7C00193E58 /* TFEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA081DA09C7C00193E58 /* TFEViewController.swift */; };
@@ -45,12 +43,12 @@
 		036EAA6E1DA4958E00193E58 /* GridSquarePositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */; };
 		036EAA701DA49AF900193E58 /* TFE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6F1DA49AF900193E58 /* TFE.swift */; };
 		036EAA711DA49AF900193E58 /* TFE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6F1DA49AF900193E58 /* TFE.swift */; };
+		036EAA731DA6062500193E58 /* TFEMainSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA721DA6062500193E58 /* TFEMainSceneTests.swift */; };
+		036EAA751DA6101500193E58 /* TFESlideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA741DA6101500193E58 /* TFESlideTests.swift */; };
+		036EAA771DA6122400193E58 /* XCTestCase+StopFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */; };
+		036EAA791DA619C700193E58 /* TFEMoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA781DA619C700193E58 /* TFEMoveTests.swift */; };
 		038E32291C83A632001EF027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
 		038E322C1C83A632001EF027 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038E322A1C83A632001EF027 /* MainMenu.xib */; };
-		038E32371C83A632001EF027 /* TwentyFortyEightSlideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32361C83A632001EF027 /* TwentyFortyEightSlideTests.m */; };
-		038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */; };
-		038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */; };
-		038E32A71C8A740C001EF027 /* TFEScoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 038E32A61C8A740C001EF027 /* TFEScoreTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,20 +87,16 @@
 		036EAA661DA4933C00193E58 /* Set+RandomInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Set+RandomInt.swift"; path = "Extensions/Set+RandomInt.swift"; sourceTree = "<group>"; };
 		036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridSquarePositions.swift; path = "Game Core/GridSquarePositions.swift"; sourceTree = "<group>"; };
 		036EAA6F1DA49AF900193E58 /* TFE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TFE.swift; path = "Game Core/TFE.swift"; sourceTree = "<group>"; };
+		036EAA721DA6062500193E58 /* TFEMainSceneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFEMainSceneTests.swift; sourceTree = "<group>"; };
+		036EAA741DA6101500193E58 /* TFESlideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFESlideTests.swift; sourceTree = "<group>"; };
+		036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+StopFailure.swift"; sourceTree = "<group>"; };
+		036EAA781DA619C700193E58 /* TFEMoveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFEMoveTests.swift; sourceTree = "<group>"; };
 		038E321A1C83A632001EF027 /* TwentyFortyEight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwentyFortyEight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		038E32281C83A632001EF027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		038E322B1C83A632001EF027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		038E32321C83A632001EF027 /* TwentyFortyEightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwentyFortyEightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		038E32361C83A632001EF027 /* TwentyFortyEightSlideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TwentyFortyEightSlideTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		038E32381C83A632001EF027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
-		038E32491C83D23B001EF027 /* TFENode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFENode.h; path = "Game Core/TFENode.h"; sourceTree = "<group>"; };
-		038E324A1C83D23B001EF027 /* TFENode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFENode.m; path = "Game Core/TFENode.m"; sourceTree = "<group>"; };
-		038E324C1C83F667001EF027 /* NSIndexSet+TFEHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSIndexSet+TFEHelpers.h"; path = "Extensions/NSIndexSet+TFEHelpers.h"; sourceTree = "<group>"; };
-		038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSIndexSet+TFEHelpers.m"; path = "Extensions/NSIndexSet+TFEHelpers.m"; sourceTree = "<group>"; };
-		038E324F1C856E29001EF027 /* NSArray+TFEFunctional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+TFEFunctional.h"; path = "Extensions/NSArray+TFEFunctional.h"; sourceTree = "<group>"; };
-		038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+TFEFunctional.m"; path = "Extensions/NSArray+TFEFunctional.m"; sourceTree = "<group>"; };
-		038E32991C881127001EF027 /* TFE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = TFE.h; path = "Game Core/TFE.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		038E329A1C881127001EF027 /* TFE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = TFE.m; path = "Game Core/TFE.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		038E329D1C88E449001EF027 /* TODO.taskpaper */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; path = TODO.taskpaper; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
 		038E32A51C8A73AB001EF027 /* TFETestHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFETestHeader.h; sourceTree = "<group>"; };
 		038E32A61C8A740C001EF027 /* TFEScoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEScoreTests.m; sourceTree = "<group>"; };
@@ -167,16 +161,8 @@
 				036EAA5F1DA48CBF00193E58 /* SlidNode.swift */,
 				036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */,
 				036EAA6F1DA49AF900193E58 /* TFE.swift */,
-				038E32991C881127001EF027 /* TFE.h */,
-				038E329A1C881127001EF027 /* TFE.m */,
 				036EAA201DA2163400193E58 /* TFEBoard.swift */,
 				036EAA501DA32E6300193E58 /* TFEMainScene.swift */,
-				038E32491C83D23B001EF027 /* TFENode.h */,
-				038E324A1C83D23B001EF027 /* TFENode.m */,
-				038E324F1C856E29001EF027 /* NSArray+TFEFunctional.h */,
-				038E32501C856E29001EF027 /* NSArray+TFEFunctional.m */,
-				038E324C1C83F667001EF027 /* NSIndexSet+TFEHelpers.h */,
-				038E324D1C83F667001EF027 /* NSIndexSet+TFEHelpers.m */,
 				038E32281C83A632001EF027 /* Assets.xcassets */,
 			);
 			path = Common;
@@ -238,10 +224,14 @@
 		038E32351C83A632001EF027 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */,
 				038E32A51C8A73AB001EF027 /* TFETestHeader.h */,
 				038E32361C83A632001EF027 /* TwentyFortyEightSlideTests.m */,
 				038E32A61C8A740C001EF027 /* TFEScoreTests.m */,
 				038E32381C83A632001EF027 /* Info.plist */,
+				036EAA721DA6062500193E58 /* TFEMainSceneTests.swift */,
+				036EAA741DA6101500193E58 /* TFESlideTests.swift */,
+				036EAA781DA619C700193E58 /* TFEMoveTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -323,6 +313,7 @@
 					};
 					038E32311C83A632001EF027 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 038E32191C83A632001EF027;
 					};
 				};
@@ -382,7 +373,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				036EA9F11D9F49A800193E58 /* NSIndexSet+TFEHelpers.m in Sources */,
 				036EAA521DA32E6300193E58 /* TFEMainScene.swift in Sources */,
 				036EAA6A1DA4933C00193E58 /* Set+RandomInt.swift in Sources */,
 				036EAA641DA4916E00193E58 /* RandomOffset.swift in Sources */,
@@ -392,7 +382,6 @@
 				036EAA041DA0942200193E58 /* TFEAppDelegate.swift in Sources */,
 				036EAA2D1DA3068600193E58 /* TFEGameController+Touches.swift in Sources */,
 				036EAA711DA49AF900193E58 /* TFE.swift in Sources */,
-				036EA9F01D9F49A500193E58 /* NSArray+TFEFunctional.m in Sources */,
 				036EAA611DA48CBF00193E58 /* SlidNode.swift in Sources */,
 				036EAA0F1DA0A58B00193E58 /* TFELabel.swift in Sources */,
 				036EAA581DA35B8000193E58 /* TFEMove.swift in Sources */,
@@ -411,10 +400,8 @@
 				036EAA511DA32E6300193E58 /* TFEMainScene.swift in Sources */,
 				036EAA691DA4933C00193E58 /* Set+RandomInt.swift in Sources */,
 				036EAA631DA4916E00193E58 /* RandomOffset.swift in Sources */,
-				038E32511C856E29001EF027 /* NSArray+TFEFunctional.m in Sources */,
 				036EAA671DA4933C00193E58 /* Array+ElementsAtIndexes.swift in Sources */,
 				036EAA091DA09C7C00193E58 /* TFEViewController.swift in Sources */,
-				038E324E1C83F667001EF027 /* NSIndexSet+TFEHelpers.m in Sources */,
 				036EAA0B1DA09FBA00193E58 /* TFELabel.swift in Sources */,
 				036EAA701DA49AF900193E58 /* TFE.swift in Sources */,
 				036EAA571DA35B8000193E58 /* TFEMove.swift in Sources */,
@@ -432,8 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				038E32A71C8A740C001EF027 /* TFEScoreTests.m in Sources */,
-				038E32371C83A632001EF027 /* TwentyFortyEightSlideTests.m in Sources */,
+				036EAA771DA6122400193E58 /* XCTestCase+StopFailure.swift in Sources */,
+				036EAA731DA6062500193E58 /* TFEMainSceneTests.swift in Sources */,
+				036EAA791DA619C700193E58 /* TFEMoveTests.swift in Sources */,
+				036EAA751DA6101500193E58 /* TFESlideTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,12 +629,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEightTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwentyFortyEight.app/Contents/MacOS/TwentyFortyEight";
 			};
 			name = Debug;
@@ -655,11 +647,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TwentyFortyEightTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwentyFortyEight.app/Contents/MacOS/TwentyFortyEight";
 			};
 			name = Release;

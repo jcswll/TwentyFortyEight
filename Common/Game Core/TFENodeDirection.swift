@@ -8,5 +8,5 @@
 
 enum TFENodeDirection
 {
-    case Left, Up, Right, Down, NotADirection
+    case Left, Up, Right, Down
 }
