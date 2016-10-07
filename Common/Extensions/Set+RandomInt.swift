@@ -16,7 +16,7 @@ extension Set where Element : IntegerType {
         var retVal = self.first
         
         for (i, v) in self.dropFirst().enumerate() {
-            if 0 == arc4random_uniform(UInt32(i+1)) {
+            if 0 == arc4random_uniform(UInt32(i+2)) {
                 retVal = v
             }
         }

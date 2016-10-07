@@ -96,7 +96,7 @@ class TFENode : SKSpriteNode
     /** Slide the node to the given position. */
     func move(toPosition destination: CGPoint)
     {
-        self.move(toPosition: position, duration: self.moveDuration)
+        self.move(toPosition: destination, duration: self.moveDuration)
     }
     
     /** Animate the node's dissappearance at the destination point. */
