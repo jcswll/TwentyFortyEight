@@ -59,27 +59,9 @@ func TFEMoveNodes(grid: [TFENode?], inDirection direction: TFENodeDirection) -> 
         
         moves = moves ?? []
         
-        for (destination, slidNode) in zip(rowIndexes, slidRow) {
-        
-            let nodeForDestination: TFENode
-        
-            switch slidNode {
-            
-                case .Empty:
-                    continue
-                case let .Solo(node):
-                    nodeForDestination = node
-                    moves?.append(TFEMove(node: node, destination: destination))
-                case let .Combined(firstNode, secondNode):
-                    moves?.append(TFEMove(node: firstNode, destination: destination, isCombination: true))
-                    moves?.append(TFEMove(node: secondNode, destination: destination, isCombination: true))
-                    let comboNode = TFENode(value: firstNode.value * 2)
-                    nodeForDestination = comboNode
-                    moves?.append(TFEMove(node: comboNode, destination: destination, isSpawn: true))
-            }
-        
-            newGrid[destination] = nodeForDestination
-        }
+        let newMoves: [TFEMove]
+        (newMoves, newGrid) = processMoves(forSlidRow: slidRow, rowIndexes: rowIndexes, onGrid: newGrid)
+        moves?.appendContentsOf(newMoves)
     }
     
     return (moves, newGrid)
@@ -162,6 +144,36 @@ private func indexesOfUnoccupiedSquares(grid: [TFENode?]) -> Set<Int>
     }
     
     return set
+}
+
+func processMoves(forSlidRow row: [SlidNode], rowIndexes indexes: [Int], onGrid grid: [TFENode?]) -> ([TFEMove], [TFENode?])
+{
+    var newGrid = grid
+    var moves: [TFEMove] = []
+    
+    for (destination, slidNode) in zip(indexes, row) {
+    
+        let nodeForDestination: TFENode
+    
+        switch slidNode {
+        
+            case .Empty:
+                continue
+            case let .Solo(node):
+                nodeForDestination = node
+                moves.append(TFEMove(node: node, destination: destination))
+            case let .Combined(firstNode, secondNode):
+                moves.append(TFEMove(node: firstNode, destination: destination, isCombination: true))
+                moves.append(TFEMove(node: secondNode, destination: destination, isCombination: true))
+                let comboNode = TFENode(value: firstNode.value * 2)
+                nodeForDestination = comboNode
+                moves.append(TFEMove(node: comboNode, destination: destination, isSpawn: true))
+        }
+    
+        newGrid[destination] = nodeForDestination
+    }
+    
+    return (moves, newGrid)
 }
 
 /**

@@ -33,15 +33,15 @@ class TFEMoveTests : XCTestCase
 
         let movesByDirection: [TFENodeDirection : [TFEMove]] =
             [.Left : [TFEMove(node: node, destination: 8)],
-             .Up : [TFEMove(node: node, destination: 0), TFEMove(node: node, destination: 2)],
+             .Up : [TFEMove(node: node, destination: 12), TFEMove(node: node, destination: 14)],
              .Right : [TFEMove(node: node, destination: 7), TFEMove(node: node, destination: 11)],
-             .Down : [TFEMove(node: node, destination: 12), TFEMove(node: node, destination: 14)]]
+             .Down : [TFEMove(node: node, destination: 0), TFEMove(node: node, destination: 2)]]
 
         let gridsByDirection: [TFENodeDirection : [TFENode?]] =
             [.Left : resetGrid(grid, values: [node, node, nil], atIndexes: [4, 8, 10]),
-             .Up : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 0, 2]),
+             .Up : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 12, 14]),
              .Right : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 7, 11]),
-             .Down : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 12, 14])]
+             .Down : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 0, 2])]
 
 
         for direction in directions {
@@ -65,9 +65,9 @@ class TFEMoveTests : XCTestCase
 
         let expectedDestinations: [TFENodeDirection : [Int]] =
             [.Left : [0, 4, 8, 12],
-             .Up : [0, 1, 2, 3],
+             .Up : [12, 13, 14, 15],
              .Right : [3, 7, 11, 15],
-             .Down : [12, 13, 14, 15]]
+             .Down : [0, 1, 2, 3]]
 
         let (_, grid) = TFEBuildGrid()
         for direction in directions {
@@ -77,7 +77,7 @@ class TFEMoveTests : XCTestCase
                 let expectedDestination = expectedDestinations[direction]![i]
                 let expectedMove = TFEMove(node: node, destination: expectedDestination)
 
-                let (moves, _) = process(slidRow: row, forIndexes: rowIndexes, onGrid: grid)
+                let (moves, _) = processMoves(forSlidRow: row, rowIndexes: rowIndexes, onGrid: grid)
 
                 XCTAssertEqual(moves, [expectedMove], "Failed: \(direction) row: \(i)")
             }
@@ -92,9 +92,9 @@ class TFEMoveTests : XCTestCase
 
         let expectedDestinations: [TFENodeDirection : [(Int, Int)]] =
             [.Left : [(0, 1), (4, 5), (8, 9), (12, 13)],
-             .Up : [(0, 4), (1, 5), (2, 6), (3, 7)],
+             .Up : [(12, 8), (13, 9), (14, 10), (15, 11)],
              .Right : [(3, 2), (7, 6), (11, 10), (15, 14)],
-             .Down : [(12, 8), (13, 9), (14, 10), (15, 11)]]
+             .Down : [(0, 4), (1, 5), (2, 6), (3, 7)]]
 
         let (_, grid) = TFEBuildGrid()
         for direction in directions {
@@ -106,7 +106,7 @@ class TFEMoveTests : XCTestCase
                 let expectedMoves = [TFEMove(node: node, destination: expectedDestination),
                                      TFEMove(node: otherNode, destination: otherExpectedDestination)]
 
-                let (moves, _) = process(slidRow: row, forIndexes: rowIndexes, onGrid: grid)
+                let (moves, _) = processMoves(forSlidRow: row, rowIndexes: rowIndexes, onGrid: grid)
 
                 XCTAssertEqual(moves, expectedMoves, "Failed: \(direction) row: \(i)")
             }
@@ -120,9 +120,9 @@ class TFEMoveTests : XCTestCase
 
         let expectedDestinations: [TFENodeDirection : [[Int]]] =
             [.Left : [[0, 1, 2], [4, 5, 6], [8, 9, 10], [12, 13, 14]],
-             .Up : [[0, 4, 8], [1, 5, 9], [2, 6, 10], [3, 7, 11]],
+             .Up : [[12, 8, 4], [13, 9, 5], [14, 10, 6], [15, 11, 7]],
              .Right : [[3, 2, 1], [7, 6, 5], [11, 10, 9], [15, 14, 13]],
-             .Down : [[12, 8, 4], [13, 9, 5], [14, 10, 6], [15, 11, 7]]]
+             .Down : [[0, 4, 8], [1, 5, 9], [2, 6, 10], [3, 7, 11]]]
 
          let (_, grid) = TFEBuildGrid()
          for direction in directions {
@@ -133,7 +133,7 @@ class TFEMoveTests : XCTestCase
                      return TFEMove(node: $0, destination: $1)
                  })
 
-                 let (moves, _) = process(slidRow: row, forIndexes: rowIndexes, onGrid: grid)
+                 let (moves, _) = processMoves(forSlidRow: row, rowIndexes: rowIndexes, onGrid: grid)
 
                  XCTAssertEqual(moves, expectedMoves, "Failed: \(direction) row: \(i)")
              }
@@ -151,7 +151,7 @@ class TFEMoveTests : XCTestCase
                              TFEMove(node: otherNode, destination: 1, isSpawn: true)]
 
         let (_, grid) = TFEBuildGrid()
-        let (moves, _) = process(slidRow: row, forIndexes: [0, 1, 2, 3], onGrid: grid)
+        let (moves, _) = processMoves(forSlidRow: row, rowIndexes: [0, 1, 2, 3], onGrid: grid)
 
         XCTAssertEqual(moves, expectedMoves)
     }

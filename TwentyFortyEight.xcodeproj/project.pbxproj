@@ -95,10 +95,8 @@
 		038E32281C83A632001EF027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		038E322B1C83A632001EF027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		038E32321C83A632001EF027 /* TwentyFortyEightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwentyFortyEightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		038E32361C83A632001EF027 /* TwentyFortyEightSlideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TwentyFortyEightSlideTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		038E32381C83A632001EF027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		038E329D1C88E449001EF027 /* TODO.taskpaper */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; path = TODO.taskpaper; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
-		038E32A51C8A73AB001EF027 /* TFETestHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFETestHeader.h; sourceTree = "<group>"; };
 		038E32A61C8A740C001EF027 /* TFEScoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEScoreTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,8 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */,
-				038E32A51C8A73AB001EF027 /* TFETestHeader.h */,
-				038E32361C83A632001EF027 /* TwentyFortyEightSlideTests.m */,
 				038E32A61C8A740C001EF027 /* TFEScoreTests.m */,
 				038E32381C83A632001EF027 /* Info.plist */,
 				036EAA721DA6062500193E58 /* TFEMainSceneTests.swift */,
