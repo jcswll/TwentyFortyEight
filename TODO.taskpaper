@@ -21,5 +21,5 @@ Swift:
             return moves
 
         }).isEmpty
-    - Adjust the chance of spawning a value-2 node (should be 90%)
+    - Adjust the chance of spawning a value-2 node (should be 90%) @done
     - Fixup naming (removing TFE prefixes as appropriate) @enhancement @swift

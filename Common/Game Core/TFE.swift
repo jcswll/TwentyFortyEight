@@ -109,7 +109,7 @@ func TFEIsALoser(grid: [TFENode?]) -> Bool
     return true
 }
 
-func TFEScore(forMoves moves: [TFEMove]) -> UInt32
+func TFEScore(forMoves moves: [TFEMove]) -> Int
 {
     return moves.reduce(0, combine: { (score, move) in
         
@@ -126,7 +126,7 @@ func TFEScore(forMoves moves: [TFEMove]) -> UInt32
 /** Array of `Optional<TFENode>.None` representing an empty grid. */
 private func nullGrid() -> [TFENode?]
 {
-    return Array(count: 16, repeatedValue: Optional<TFENode>.None)
+    return Array(count: 16, repeatedValue: nil)
 }
 
 /**
@@ -146,6 +146,13 @@ private func indexesOfUnoccupiedSquares(grid: [TFENode?]) -> Set<Int>
     return set
 }
 
+/** 
+ * Given a list of `SlidNode`s and the grid indexes of the corresponding row,
+ * deconstruct the enums into `TFEMove`s and update the node locations in the
+ * grid, or create new nodes for combinations, as necessary.
+ *
+ * Return the list of moves and the updated grid.
+ */
 func processMoves(forSlidRow row: [SlidNode], rowIndexes indexes: [Int], onGrid grid: [TFENode?]) -> ([TFEMove], [TFENode?])
 {
     var newGrid = grid
@@ -240,7 +247,9 @@ private func spawnNewNode(on grid: [TFENode?], excluding disallowedIndexes: Set<
     let spawnLocation = allowedLocations.randomInt()!
     
     var newGrid = grid
-    let newValue = (arc4random_uniform(2) + 1) * 2
+    // Bias heavily towards new value being a 2
+    let pick = arc4random_uniform(10)
+    let newValue = (pick < 9) ? 2 : 4
     let node = TFENode(value: newValue)
     
     let spawn = TFEMove(node: node, destination: spawnLocation, isSpawn: true)

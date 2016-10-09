@@ -16,8 +16,6 @@ class TFEGameController : TFEViewController
     let scene: TFEMainScene
     private(set) var board: TFEBoard!
     
-    private var _score: UInt32 = 0
-    
     init()
     {
         self.scene = TFEMainScene(size: CGSizeMake(100, 100))
@@ -66,7 +64,7 @@ class TFEGameController : TFEViewController
         self.scene.gameDidEnd(inVictory: victorious)
     }
     
-    func updateScore(to score: UInt32)
+    func updateScore(to score: Int)
     {
         self.scoreLabel.text = String(format: "%d", score)
     }

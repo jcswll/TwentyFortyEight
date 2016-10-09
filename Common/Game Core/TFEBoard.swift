@@ -12,7 +12,7 @@ struct TFEBoard
     private let scene: TFEMainScene
     
     private var grid: [TFENode?]
-    private var score: UInt32
+    private var score: Int
     
     init(controller: TFEGameController, scene: TFEMainScene)
     {

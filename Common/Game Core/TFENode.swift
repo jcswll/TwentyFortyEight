@@ -16,15 +16,15 @@ import SpriteKit
 class TFENode : SKSpriteNode
 {
     /** Create the appropriate `SKTexture` for this value. */
-    private static func textureForValue(value: UInt32) -> SKTexture
+    private static func textureForValue(value: Int) -> SKTexture
     {
         return SKTexture(imageNamed: "\(value)")
     }
     
     /** The node's point value. This is a `TFENode`'s sole feature for purposes of comparison to other nodes. */
-    let value: UInt32
+    let value: Int
     
-    init(value: UInt32)
+    init(value: Int)
     {
         self.value = value
         
