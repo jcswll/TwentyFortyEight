@@ -16,7 +16,7 @@ class TFEAppDelegate : NSObject, UIApplicationDelegate
     
     var gameController: TFEGameController!
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
+    func application(_ _: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey : Any]?) -> Bool
     {
         let window = UIWindow()
         let controller = TFEGameController()

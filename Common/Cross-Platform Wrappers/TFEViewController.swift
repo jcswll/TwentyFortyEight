@@ -17,7 +17,7 @@ class TFEViewController : NSViewController
         self.viewWillAppear(false)
     }
     
-    func viewWillAppear(animated: Bool)
+    func viewWillAppear(_ animated: Bool)
     {
         return
     }

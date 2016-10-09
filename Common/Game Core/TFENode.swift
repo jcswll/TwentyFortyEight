@@ -16,7 +16,7 @@ import SpriteKit
 class TFENode : SKSpriteNode
 {
     /** Create the appropriate `SKTexture` for this value. */
-    private static func textureForValue(value: Int) -> SKTexture
+    private static func texture(forValue value: Int) -> SKTexture
     {
         return SKTexture(imageNamed: "\(value)")
     }
@@ -28,8 +28,8 @@ class TFENode : SKSpriteNode
     {
         self.value = value
         
-        let texture = TFENode.textureForValue(value)
-        super.init(texture: texture, color: SKColor.clearColor(), size: CGSize(width: 100, height: 100))
+        let texture = TFENode.texture(forValue: value)
+        super.init(texture: texture, color: SKColor.clear, size: CGSize(width: 100, height: 100))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -79,18 +79,18 @@ class TFENode : SKSpriteNode
         
         // Grow to full size
         self.setScale(kInitialScale)
-        let grow = SKAction.scaleTo(kUnityScale, duration: thisResizeDuration)
+        let grow = SKAction.scale(to: kUnityScale, duration: thisResizeDuration)
         
         // Do a little size bounce
-        let scaleUp = SKAction.scaleTo(kBounceUpperScale, duration: thisBounceDuration)
-        let scaleDown = SKAction.scaleTo(kBounceLowerScale, duration: thisBounceDuration)
-        let scaleBackUp = SKAction.scaleTo(kUnityScale, duration: thisBounceDuration)
+        let scaleUp = SKAction.scale(to: kBounceUpperScale, duration: thisBounceDuration)
+        let scaleDown = SKAction.scale(to: kBounceLowerScale, duration: thisBounceDuration)
+        let scaleBackUp = SKAction.scale(to: kUnityScale, duration: thisBounceDuration)
         let bounce = SKAction.sequence([scaleUp, scaleDown, scaleBackUp])
         
         let spawn = SKAction.sequence([grow, bounce])
         
         self.position = position
-        self.runAction(spawn)
+        self.run(spawn)
     }
     
     /** Slide the node to the given position. */
@@ -108,36 +108,36 @@ class TFENode : SKSpriteNode
         
         let thisResizeDuration = self.resizeFadeDuration
         
-        let shrink = SKAction.scaleTo(kFinalShrinkScale, duration: thisResizeDuration)
-        let fade = SKAction.fadeOutWithDuration(thisResizeDuration)
+        let shrink = SKAction.scale(to: kFinalShrinkScale, duration: thisResizeDuration)
+        let fade = SKAction.fadeOut(withDuration: thisResizeDuration)
         
         var fadeAndShrink = SKAction.group([shrink, fade])
         
         if isChangingPosition {
             
             let thisMoveDuration = self.moveDuration
-            fadeAndShrink = SKAction.sequence([SKAction.waitForDuration(thisMoveDuration), fadeAndShrink])
+            fadeAndShrink = SKAction.sequence([SKAction.wait(forDuration: thisMoveDuration), fadeAndShrink])
             self.move(toPosition: destination, duration: thisMoveDuration)
         }
         
-        self.runAction(fadeAndShrink, completion: {
+        self.run(fadeAndShrink, completion: {
             
             // Next run loop
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.removeFromParent()
             }
         })
     }
     
     /** Slide the node to the given position over the given duration. */
-    private func move(toPosition destination: CGPoint, duration: NSTimeInterval)
+    private func move(toPosition destination: CGPoint, duration: TimeInterval)
     {
-        let move = SKAction.moveTo(destination, duration: duration)
-        move.timingMode = .EaseInEaseOut
+        let move = SKAction.move(to: destination, duration: duration)
+        move.timingMode = .easeInEaseOut
         
-        dispatch_group_enter(TFENode.movementDispatchGroup)
-        self.runAction(move, completion: {
-            dispatch_group_leave(TFENode.movementDispatchGroup)
+        TFENode.movementDispatchGroup.enter()
+        self.run(move, completion: {
+            TFENode.movementDispatchGroup.leave()
         })
     }
 }
@@ -169,7 +169,7 @@ extension TFENode
      */
     class func waitOnAllNodeMovement()
     {
-        dispatch_group_wait(self.movementDispatchGroup, DISPATCH_TIME_FOREVER)
+        _ = self.movementDispatchGroup.wait(timeout: .distantFuture)
     }
     
     /**
@@ -181,7 +181,7 @@ extension TFENode
     {
         // Return immediately regardless, but signal whether it was because
         // the group is inactive or because of timeout.
-        return 0 != dispatch_group_wait(self.movementDispatchGroup, DISPATCH_TIME_NOW)
+        return .success != self.movementDispatchGroup.wait(timeout: .now())
     }
     
     /**
@@ -190,5 +190,5 @@ extension TFENode
      * starting its animation action, and leaves the group in the action's
      * completion.
      */
-    private static let movementDispatchGroup: dispatch_group_t = dispatch_group_create()
+    fileprivate static let movementDispatchGroup = DispatchGroup()
 }

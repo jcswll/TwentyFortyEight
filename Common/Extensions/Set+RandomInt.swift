@@ -8,14 +8,14 @@
 
 import Foundation
 
-extension Set where Element : IntegerType {
+extension Set where Element : Integer {
     
     /** Return a random element from a set of integers. */
     func randomInt() -> Element?
     {
         var retVal = self.first
         
-        for (i, v) in self.dropFirst().enumerate() {
+        for (i, v) in self.dropFirst().enumerated() {
             if 0 == arc4random_uniform(UInt32(i+2)) {
                 retVal = v
             }

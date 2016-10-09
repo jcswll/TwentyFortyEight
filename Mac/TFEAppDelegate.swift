@@ -17,7 +17,7 @@ class TFEAppDelegate : NSObject, NSApplicationDelegate
     
     var gameController: TFEGameController!
     
-    @objc func applicationDidFinishLaunching(_: NSNotification)
+    @objc func applicationDidFinishLaunching(_: Notification)
     {
         let controller = TFEGameController()
         self.gameController = controller

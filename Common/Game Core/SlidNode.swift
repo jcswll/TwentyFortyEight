@@ -15,23 +15,23 @@
  */
 enum SlidNode
 {
-    case Combined(TFENode, TFENode)
-    case Solo(TFENode)
-    case Empty
+    case combined(TFENode, TFENode)
+    case solo(TFENode)
+    case empty
     
     init(_ node: TFENode? = nil)
     {
         if let soloNode = node {
-            self = .Solo(soloNode)
+            self = .solo(soloNode)
         }
         else {
-            self = .Empty
+            self = .empty
         }
     }
     
     init(_ first: TFENode, _ second: TFENode)
     {
-        self = .Combined(first, second)
+        self = .combined(first, second)
     }
 }
 
@@ -40,11 +40,11 @@ func ==(left: SlidNode, right: SlidNode) -> Bool
 {
     switch (left, right) {
         
-        case let (.Solo(leftNode), .Solo(rightNode)) where leftNode == rightNode:
+        case let (.solo(leftNode), .solo(rightNode)) where leftNode == rightNode:
             return true
-        case let (.Combined(leftNode), .Combined(rightNode)) where leftNode == rightNode:
+        case let (.combined(leftNode), .combined(rightNode)) where leftNode == rightNode:
             return true
-        case (.Empty, .Empty):
+        case (.empty, .empty):
             return true
         default:
             return false

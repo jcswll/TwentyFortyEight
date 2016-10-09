@@ -48,12 +48,12 @@ struct TFEBoard
         self.checkForEndGame()
     }
     
-    func executeSpawn(spawn: TFEMove)
+    func executeSpawn(_ spawn: TFEMove)
     {
-        self.scene.spawnNode(spawn.node, inSquare: spawn.destination)
+        self.scene.spawn(spawn.node, inSquare: spawn.destination)
     }
     
-    func executeMoves(moves: [TFEMove])
+    func executeMoves(_ moves: [TFEMove])
     {
         for spawn in moves.filter({ $0.isSpawn }) {
             self.executeSpawn(spawn)
@@ -63,7 +63,7 @@ struct TFEBoard
         }
     }
     
-    mutating func score(moves: [TFEMove])
+    mutating func score(_ moves: [TFEMove])
     {
         let newPoints = TFEScore(forMoves: moves)
         guard newPoints > 0 else {

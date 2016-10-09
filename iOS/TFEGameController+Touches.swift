@@ -10,7 +10,7 @@ import UIKit
 
 extension TFEGameController
 {
-    func swipe(recognizer: UISwipeGestureRecognizer)
+    func swipe(_ recognizer: UISwipeGestureRecognizer)
     {
         // Don't accept swipe input while movement is taking place. Otherwise nodes get lost.
         guard self.scene.canAcceptInput else {
@@ -22,14 +22,14 @@ extension TFEGameController
         
         switch swipeDirection {
             
-            case UISwipeGestureRecognizerDirection.Left:
-                nodeDirection = .Left
-            case UISwipeGestureRecognizerDirection.Up:
-                nodeDirection = .Up
-            case UISwipeGestureRecognizerDirection.Right:
-                nodeDirection = .Right
-            case UISwipeGestureRecognizerDirection.Down:
-                nodeDirection = .Down
+            case UISwipeGestureRecognizerDirection.left:
+                nodeDirection = .left
+            case UISwipeGestureRecognizerDirection.up:
+                nodeDirection = .up
+            case UISwipeGestureRecognizerDirection.right:
+                nodeDirection = .right
+            case UISwipeGestureRecognizerDirection.down:
+                nodeDirection = .down
             default:
                 return
         }
@@ -37,9 +37,9 @@ extension TFEGameController
         self.userDidInput(nodeDirection)
     }
     
-    func longPress(recognizer: UILongPressGestureRecognizer)
+    func longPress(_ recognizer: UILongPressGestureRecognizer)
     {
-        guard recognizer.state == .Began else {
+        guard recognizer.state == .began else {
             return
         }
         

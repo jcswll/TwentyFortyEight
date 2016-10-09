@@ -18,7 +18,7 @@ class TFEGameController : TFEViewController
     
     init()
     {
-        self.scene = TFEMainScene(size: CGSizeMake(100, 100))
+        self.scene = TFEMainScene(size: CGSize(width: 100, height: 100))
         
         #if os(OSX)
         super.init(nibName: "MainView", bundle: nil)!
@@ -40,7 +40,7 @@ class TFEGameController : TFEViewController
         self.scene.size = self.gameView.bounds.size
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         self.gameView.presentScene(self.scene)
     }
@@ -52,7 +52,7 @@ class TFEGameController : TFEViewController
     
     // Message sent to self from platform-specific user input extensions.
     // This is necessary because `board` is not mutable inside the extensions, and `moveNodes(inDirection:)` is mutating.
-    func userDidInput(direction: TFENodeDirection)
+    func userDidInput(_ direction: TFENodeDirection)
     {
         self.board.moveNodes(inDirection: direction)
     }

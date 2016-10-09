@@ -11,9 +11,9 @@ import XCTest
 
 class TFEMoveTests : XCTestCase
 {
-    let directions: [TFENodeDirection] = [.Left, .Up, .Right, .Down]
+    let directions: [TFENodeDirection] = [.left, .up, .right, .down]
     
-    func resetGrid(grid: [TFENode?], values: [TFENode?], atIndexes indexes: [Int]) -> [TFENode?]
+    func resetGrid(_ grid: [TFENode?], values: [TFENode?], atIndexes indexes: [Int]) -> [TFENode?]
     {
         var newGrid = grid
 
@@ -27,21 +27,21 @@ class TFEMoveTests : XCTestCase
     func testMoveInitialGrid()
     {
         let node = TFENode(value: 2)
-        var grid: [TFENode?] = Array(count: 16, repeatedValue: nil)
+        var grid: [TFENode?] = Array(repeating: nil, count: 16)
         grid[4] = node
         grid[10] = node
 
         let movesByDirection: [TFENodeDirection : [TFEMove]] =
-            [.Left : [TFEMove(node: node, destination: 8)],
-             .Up : [TFEMove(node: node, destination: 12), TFEMove(node: node, destination: 14)],
-             .Right : [TFEMove(node: node, destination: 7), TFEMove(node: node, destination: 11)],
-             .Down : [TFEMove(node: node, destination: 0), TFEMove(node: node, destination: 2)]]
+            [.left : [TFEMove(node: node, destination: 8)],
+             .up : [TFEMove(node: node, destination: 12), TFEMove(node: node, destination: 14)],
+             .right : [TFEMove(node: node, destination: 7), TFEMove(node: node, destination: 11)],
+             .down : [TFEMove(node: node, destination: 0), TFEMove(node: node, destination: 2)]]
 
         let gridsByDirection: [TFENodeDirection : [TFENode?]] =
-            [.Left : resetGrid(grid, values: [node, node, nil], atIndexes: [4, 8, 10]),
-             .Up : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 12, 14]),
-             .Right : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 7, 11]),
-             .Down : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 0, 2])]
+            [.left : resetGrid(grid, values: [node, node, nil], atIndexes: [4, 8, 10]),
+             .up : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 12, 14]),
+             .right : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 7, 11]),
+             .down : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 0, 2])]
 
 
         for direction in directions {
@@ -64,15 +64,15 @@ class TFEMoveTests : XCTestCase
         let row = [SlidNode(node)]
 
         let expectedDestinations: [TFENodeDirection : [Int]] =
-            [.Left : [0, 4, 8, 12],
-             .Up : [12, 13, 14, 15],
-             .Right : [3, 7, 11, 15],
-             .Down : [0, 1, 2, 3]]
+            [.left : [0, 4, 8, 12],
+             .up : [12, 13, 14, 15],
+             .right : [3, 7, 11, 15],
+             .down : [0, 1, 2, 3]]
 
         let (_, grid) = TFEBuildGrid()
         for direction in directions {
 
-            for (i, rowIndexes) in GridIndexes.by(direction).enumerate() {
+            for (i, rowIndexes) in GridIndexes.by(direction).enumerated() {
 
                 let expectedDestination = expectedDestinations[direction]![i]
                 let expectedMove = TFEMove(node: node, destination: expectedDestination)
@@ -91,15 +91,15 @@ class TFEMoveTests : XCTestCase
         let row = [SlidNode(node), SlidNode(otherNode)]
 
         let expectedDestinations: [TFENodeDirection : [(Int, Int)]] =
-            [.Left : [(0, 1), (4, 5), (8, 9), (12, 13)],
-             .Up : [(12, 8), (13, 9), (14, 10), (15, 11)],
-             .Right : [(3, 2), (7, 6), (11, 10), (15, 14)],
-             .Down : [(0, 4), (1, 5), (2, 6), (3, 7)]]
+            [.left : [(0, 1), (4, 5), (8, 9), (12, 13)],
+             .up : [(12, 8), (13, 9), (14, 10), (15, 11)],
+             .right : [(3, 2), (7, 6), (11, 10), (15, 14)],
+             .down : [(0, 4), (1, 5), (2, 6), (3, 7)]]
 
         let (_, grid) = TFEBuildGrid()
         for direction in directions {
 
-            for (i, rowIndexes) in GridIndexes.by(direction).enumerate() {
+            for (i, rowIndexes) in GridIndexes.by(direction).enumerated() {
 
                 let expectedDestination = expectedDestinations[direction]![i].0
                 let otherExpectedDestination = expectedDestinations[direction]![i].1
@@ -119,15 +119,15 @@ class TFEMoveTests : XCTestCase
         let row = nodes.map({ SlidNode($0) })
 
         let expectedDestinations: [TFENodeDirection : [[Int]]] =
-            [.Left : [[0, 1, 2], [4, 5, 6], [8, 9, 10], [12, 13, 14]],
-             .Up : [[12, 8, 4], [13, 9, 5], [14, 10, 6], [15, 11, 7]],
-             .Right : [[3, 2, 1], [7, 6, 5], [11, 10, 9], [15, 14, 13]],
-             .Down : [[0, 4, 8], [1, 5, 9], [2, 6, 10], [3, 7, 11]]]
+            [.left : [[0, 1, 2], [4, 5, 6], [8, 9, 10], [12, 13, 14]],
+             .up : [[12, 8, 4], [13, 9, 5], [14, 10, 6], [15, 11, 7]],
+             .right : [[3, 2, 1], [7, 6, 5], [11, 10, 9], [15, 14, 13]],
+             .down : [[0, 4, 8], [1, 5, 9], [2, 6, 10], [3, 7, 11]]]
 
          let (_, grid) = TFEBuildGrid()
          for direction in directions {
 
-             for (i, rowIndexes) in GridIndexes.by(direction).enumerate() {
+             for (i, rowIndexes) in GridIndexes.by(direction).enumerated() {
 
                  let expectedMoves = zip(nodes, expectedDestinations[direction]![i]).map({
                      return TFEMove(node: $0, destination: $1)
@@ -176,9 +176,9 @@ func ==(lhs: [TFENode?], rhs: [TFENode?]) -> Bool
     for (left, right) in zip(lhs, rhs) {
         
         switch (left, right) {
-            case (.None, .None):
+            case (.none, .none):
                 continue
-            case let (.Some(l), .Some(r)):
+            case let (.some(l), .some(r)):
                 guard l == r else {
                     return false
                 }

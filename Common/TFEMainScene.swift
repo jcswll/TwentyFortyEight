@@ -25,9 +25,9 @@ class TFEMainScene : SKScene
     
     private var fullSpeed: Bool = true
     
-    override func didMoveToView(_: SKView)
+    override func didMove(to _: SKView)
     {
-        self.backgroundColor = self.dynamicType.whiteColor
+        self.backgroundColor = TFEMainScene.whiteColor
         self.calculateNodeSize()
     }
     
@@ -47,7 +47,7 @@ class TFEMainScene : SKScene
     
     //MARK: - Communication from board
     
-    func move(node: TFENode, toSquare square: Int, combining: Bool)
+    func move(_ node: TFENode, toSquare square: Int, combining: Bool)
     {
         let destination = self.center(ofGridSquare: square)
         
@@ -59,21 +59,21 @@ class TFEMainScene : SKScene
         }
     }
     
-    func spawnNode(node: TFENode, inSquare square: Int)
+    func spawn(_ node: TFENode, inSquare square: Int)
     {
-        let wait_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        let ui_queue = dispatch_get_main_queue()
+        let wait_queue = DispatchQueue.global(qos: .default)//dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        let ui_queue = DispatchQueue.main
 
-        dispatch_async(wait_queue, {
+        wait_queue.async {
             
             TFENode.waitOnAllNodeMovement()
-            dispatch_async(ui_queue, {
+            ui_queue.async {
                 
                 self.addChild(node)
                 node.size = CGSize(width: self.nodeSize, height: self.nodeSize)
                 node.spawn(atPosition: self.center(ofGridSquare: square))
-            })
-        })
+            }
+        }
     }
     
     func gameDidEnd(inVictory victorious: Bool)
@@ -81,20 +81,20 @@ class TFEMainScene : SKScene
         let message = victorious ? "You won!" : "Game over"
 
         let label = SKLabelNode(fontNamed: "Krungthep")
-        label.fontColor = self.dynamicType.blackColor
+        label.fontColor = TFEMainScene.blackColor
         label.fontSize = 108
         label.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         label.text = message
         
-        let wait_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        let ui_queue = dispatch_get_main_queue()
+        let wait_queue = DispatchQueue.global(qos: .default)
+        let ui_queue = DispatchQueue.main
 
-        dispatch_async(wait_queue) {
+        wait_queue.async {
             
             TFENode.waitOnAllNodeMovement()
             
-            let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC))
-            dispatch_after(delay, ui_queue) {
+            let delay = DispatchTime.now() + .seconds(1)
+            ui_queue.asyncAfter(deadline: delay) {
                 
                 self.addChild(label)
             }
@@ -114,6 +114,7 @@ class TFEMainScene : SKScene
         self.nodeSize = gridSquareSide - (2 * gridSquareSide / kNodeSizeInsetFactor)
     }
     
+    // Not marked private to allow unit testing raw calculation
     func center(ofGridSquare squareNumber: Int) -> CGPoint
     {
         let minDimension = min(self.size.width, self.size.height)

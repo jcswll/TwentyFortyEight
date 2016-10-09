@@ -12,12 +12,12 @@ import Carbon
 
 extension TFEGameController
 {
-    override func keyDown(theEvent: NSEvent)
+    override func keyDown(with event: NSEvent)
     {
-        let keyCode = Int(theEvent.keyCode)
-        let modifierKeys = theEvent.modifierFlags.intersect(NSDeviceIndependentModifierFlagsMask)
+        let keyCode = Int(event.keyCode)
+        let modifierKeys = event.modifierFlags.intersection(NSDeviceIndependentModifierFlagsMask)
         
-        if NSEventModifierFlags.Control == modifierKeys && kVK_ANSI_S == keyCode {
+        if NSEventModifierFlags.control == modifierKeys && kVK_ANSI_S == keyCode {
             self.scene.toggleSlowForDebug()
             return
         }
@@ -31,13 +31,13 @@ extension TFEGameController
         switch keyCode {
             
             case kVK_ANSI_A, kVK_LeftArrow:
-                direction = .Left;
+                direction = .left;
             case kVK_ANSI_W, kVK_UpArrow:
-                direction = .Up;
+                direction = .up;
             case kVK_ANSI_D, kVK_RightArrow:
-                direction = .Right;
+                direction = .right;
             case kVK_ANSI_S, kVK_DownArrow:
-                direction = .Down;
+                direction = .down;
             default:
                 // No movement for other keys
                 return;

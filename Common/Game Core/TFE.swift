@@ -33,7 +33,7 @@ func TFEBuildGrid() -> ([TFEMove], [TFENode?])
  * Returns an array of `TFEMove`s, or `nil` if nothing moved, and the grid as
  * reconfigured after all movement.
  */
-func TFEMoveNodes(grid: [TFENode?], inDirection direction: TFENodeDirection) -> ([TFEMove]?, [TFENode?])
+func TFEMoveNodes(_ grid: [TFENode?], inDirection direction: TFENodeDirection) -> ([TFEMove]?, [TFENode?])
 {
     var newGrid = nullGrid()
     var moves: [TFEMove]? = nil
@@ -61,7 +61,7 @@ func TFEMoveNodes(grid: [TFENode?], inDirection direction: TFENodeDirection) -> 
         
         let newMoves: [TFEMove]
         (newMoves, newGrid) = processMoves(forSlidRow: slidRow, rowIndexes: rowIndexes, onGrid: newGrid)
-        moves?.appendContentsOf(newMoves)
+        moves?.append(contentsOf: newMoves)
     }
     
     return (moves, newGrid)
@@ -82,12 +82,12 @@ func TFESpawnNewNode(on grid: [TFENode?], excluding direction: TFENodeDirection)
     return spawnNewNode(on: grid, excluding: disallowedIndexes)
 }
 
-func TFEIsAWinner(grid: [TFENode?]) -> Bool
+func TFEIsAWinner(_ grid: [TFENode?]) -> Bool
 {
-    return grid.contains({ $0?.value == 2048 })
+    return grid.contains(where: { $0?.value == 2048 })
 }
 
-func TFEIsALoser(grid: [TFENode?]) -> Bool
+func TFEIsALoser(_ grid: [TFENode?]) -> Bool
 {
     // If the board isn't full, we can't have lost yet
     guard !indexesOfUnoccupiedSquares(grid).isEmpty else {
@@ -95,7 +95,7 @@ func TFEIsALoser(grid: [TFENode?]) -> Bool
     }
     
     // Try moving in all directions
-    let directions: [TFENodeDirection] = [.Left, .Up, .Right, .Down]
+    let directions: [TFENodeDirection] = [.left, .up, .right, .down]
     for direction in directions {
         
         let (moves, _) = TFEMoveNodes(grid, inDirection: direction)
@@ -111,7 +111,7 @@ func TFEIsALoser(grid: [TFENode?]) -> Bool
 
 func TFEScore(forMoves moves: [TFEMove]) -> Int
 {
-    return moves.reduce(0, combine: { (score, move) in
+    return moves.reduce(0, { (score, move) in
         
         guard move.isCombination else {
             return 0
@@ -126,18 +126,18 @@ func TFEScore(forMoves moves: [TFEMove]) -> Int
 /** Array of `Optional<TFENode>.None` representing an empty grid. */
 private func nullGrid() -> [TFENode?]
 {
-    return Array(count: 16, repeatedValue: nil)
+    return Array(repeating: nil, count: 16)
 }
 
 /**
  * Given a list of optional `TFENode`s, representing the game grid, return a set
  * with the indexes of all nil elements.
  */
-private func indexesOfUnoccupiedSquares(grid: [TFENode?]) -> Set<Int>
+private func indexesOfUnoccupiedSquares(_ grid: [TFENode?]) -> Set<Int>
 {
     var set: Set<Int> = []
     
-    for (i, v) in grid.enumerate() {
+    for (i, v) in grid.enumerated() {
         if v == nil {
             set.insert(i)
         }
@@ -146,12 +146,12 @@ private func indexesOfUnoccupiedSquares(grid: [TFENode?]) -> Set<Int>
     return set
 }
 
-/** 
+/**
  * Given a list of `SlidNode`s and the grid indexes of the corresponding row,
  * deconstruct the enums into `TFEMove`s and update the node locations in the
  * grid, or create new nodes for combinations, as necessary.
  *
- * Return the list of moves and the updated grid.
+ * Returns the list of moves and the updated grid.
  */
 func processMoves(forSlidRow row: [SlidNode], rowIndexes indexes: [Int], onGrid grid: [TFENode?]) -> ([TFEMove], [TFENode?])
 {
@@ -164,12 +164,12 @@ func processMoves(forSlidRow row: [SlidNode], rowIndexes indexes: [Int], onGrid 
     
         switch slidNode {
         
-            case .Empty:
+            case .empty:
                 continue
-            case let .Solo(node):
+            case let .solo(node):
                 nodeForDestination = node
                 moves.append(TFEMove(node: node, destination: destination))
-            case let .Combined(firstNode, secondNode):
+            case let .combined(firstNode, secondNode):
                 moves.append(TFEMove(node: firstNode, destination: destination, isCombination: true))
                 moves.append(TFEMove(node: secondNode, destination: destination, isCombination: true))
                 let comboNode = TFENode(value: firstNode.value * 2)
@@ -192,7 +192,7 @@ func processMoves(forSlidRow row: [SlidNode], rowIndexes indexes: [Int], onGrid 
  * Return `nil` if nothing changed, or an array of `SlidNode`s representing the
  * moved nodes for further processing.
  */
-func slideRow(row: [TFENode?]) -> [SlidNode]?
+func slideRow(_ row: [TFENode?]) -> [SlidNode]?    // Not marked private to allow unit testing
 {
     let realNodes: [TFENode] = row.flatMap({ $0 })
     
@@ -211,7 +211,7 @@ func slideRow(row: [TFENode?]) -> [SlidNode]?
     {
         switch accum.last! {
             
-            case let .Solo(last) where last == next:
+            case let .solo(last) where last == next:
                 return accum.dropLast() + [SlidNode(last, next)]
             default:
                 return accum + [SlidNode(next)]
@@ -219,11 +219,11 @@ func slideRow(row: [TFENode?]) -> [SlidNode]?
     }
     
     let (first, rest) = (realNodes.first!, realNodes.dropFirst())
-    let slidRow = rest.reduce([SlidNode(first)], combine: slide)
+    let slidRow = rest.reduce([SlidNode(first)], slide)
     
     // "Fill out" the remainer of the row with SlidNode.Empty values
     let emptiesCount = 4 - slidRow.count
-    let filledOutRow = slidRow + Array(count: emptiesCount, repeatedValue: SlidNode())
+    let filledOutRow = slidRow + Array(repeating: SlidNode(), count: emptiesCount)
     
     // If the slid row after adding empties is equivalent to the original row mapped to
     // SlidNodes, nothing changed.
@@ -243,7 +243,7 @@ func slideRow(row: [TFENode?]) -> [SlidNode]?
 private func spawnNewNode(on grid: [TFENode?], excluding disallowedIndexes: Set<Int> = []) -> (TFEMove, [TFENode?])
 {
     let unoccupiedSquares = indexesOfUnoccupiedSquares(grid)
-    let allowedLocations = unoccupiedSquares.subtract(disallowedIndexes)
+    let allowedLocations = unoccupiedSquares.subtracting(disallowedIndexes)
     let spawnLocation = allowedLocations.randomInt()!
     
     var newGrid = grid
