@@ -6,6 +6,8 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
+import TFE
+
 struct TFEBoard
 {
     private let controller: TFEGameController
@@ -20,8 +22,8 @@ struct TFEBoard
         self.scene = scene
         self.score = 0
         
-        let initialSpawns: [TileMove<TFENode>]
-        (initialSpawns, self.grid) = TFEBuildGrid()
+        let initialSpawns: [TFE.TileMove<TFENode>]
+        (initialSpawns, self.grid) = TFE.buildGrid()
         
         for spawn in initialSpawns {
             self.executeSpawn(spawn)
@@ -30,8 +32,8 @@ struct TFEBoard
     
     mutating func moveNodes(inDirection direction: SlideDirection)
     {
-        let possibleMoves: [TileMove<TFENode>]?
-        (possibleMoves, self.grid) = TFEMoveTiles(self.grid, inDirection: direction)
+        let possibleMoves: [TFE.TileMove<TFENode>]?
+        (possibleMoves, self.grid) = TFE.moveTiles(self.grid, inDirection: direction)
         
         guard let moves = possibleMoves else {
             return
@@ -40,20 +42,20 @@ struct TFEBoard
         self.executeMoves(moves)
         self.score(moves)
         
-        let spawn: TileMove<TFENode>
-        (spawn, self.grid) = TFESpawnNewTile(on: self.grid, excluding: direction)
+        let spawn: TFE.TileMove<TFENode>
+        (spawn, self.grid) = TFE.spawnNewTile(on: self.grid, excluding: direction)
         
         self.executeSpawn(spawn)
         
         self.checkForEndGame()
     }
     
-    func executeSpawn(_ spawn: TileMove<TFENode>)
+    func executeSpawn(_ spawn: TFE.TileMove<TFENode>)
     {
         self.scene.spawn(spawn.tile, inSquare: spawn.destination)
     }
     
-    func executeMoves(_ moves: [TileMove<TFENode>])
+    func executeMoves(_ moves: [TFE.TileMove<TFENode>])
     {
         for spawn in moves.filter({ $0.isSpawn }) {
             self.executeSpawn(spawn)
@@ -63,9 +65,9 @@ struct TFEBoard
         }
     }
     
-    mutating func score(_ moves: [TileMove<TFENode>])
+    mutating func score(_ moves: [TFE.TileMove<TFENode>])
     {
-        let newPoints = TFEScore(forMoves: moves)
+        let newPoints = TFE.score(forMoves: moves)
         guard newPoints > 0 else {
             return
         }
@@ -76,10 +78,10 @@ struct TFEBoard
     
     func checkForEndGame()
     {
-        if TFEIsAWinner(self.grid) {
+        if TFE.isAWinner(self.grid) {
             self.controller.gameDidEnd(inVictory: true)
         }
-        else if TFEIsALoser(self.grid) {
+        else if TFE.isALoser(self.grid) {
             self.controller.gameDidEnd(inVictory: false)
         }
     }

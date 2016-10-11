@@ -7,13 +7,13 @@
 //
 
 import XCTest
-@testable import TwentyFortyEight
+@testable import TFE
 
 class TFEMoveTests : XCTestCase
 {
     let directions: [SlideDirection] = [.left, .up, .right, .down]
     
-    func resetGrid(_ grid: [TFENode?], values: [TFENode?], atIndexes indexes: [Int]) -> [TFENode?]
+    func resetGrid(_ grid: [TestTile?], values: [TestTile?], atIndexes indexes: [Int]) -> [TestTile?]
     {
         var newGrid = grid
 
@@ -26,18 +26,18 @@ class TFEMoveTests : XCTestCase
     
     func testMoveInitialGrid()
     {
-        let node = TFENode(value: 2)
-        var grid: [TFENode?] = Array(repeating: nil, count: 16)
+        let node = TestTile(value: 2)
+        var grid: [TestTile?] = Array(repeating: nil, count: 16)
         grid[4] = node
         grid[10] = node
 
-        let movesByDirection: [SlideDirection : [TileMove<TFENode>]] =
+        let movesByDirection: [SlideDirection : [TileMove<TestTile>]] =
             [.left : [TileMove(tile: node, destination: 8)],
              .up : [TileMove(tile: node, destination: 12), TileMove(tile: node, destination: 14)],
              .right : [TileMove(tile: node, destination: 7), TileMove(tile: node, destination: 11)],
              .down : [TileMove(tile: node, destination: 0), TileMove(tile: node, destination: 2)]]
 
-        let gridsByDirection: [SlideDirection : [TFENode?]] =
+        let gridsByDirection: [SlideDirection : [TestTile?]] =
             [.left : resetGrid(grid, values: [node, node, nil], atIndexes: [4, 8, 10]),
              .up : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 12, 14]),
              .right : resetGrid(grid, values: [nil, nil, node, node], atIndexes: [4, 10, 7, 11]),
@@ -49,7 +49,7 @@ class TFEMoveTests : XCTestCase
             let expectedMoves = movesByDirection[direction]!
             let expectedGrid = gridsByDirection[direction]!
 
-            let (moves, newGrid) = TFEMoveTiles(grid, inDirection: direction)
+            let (moves, newGrid) = TFE.moveTiles(grid, inDirection: direction)
 
             XCTAssertEqual(moves!, expectedMoves, "Failed for \(direction)")
             XCTAssert(newGrid == expectedGrid, "Failed for \(direction)")
@@ -60,7 +60,7 @@ class TFEMoveTests : XCTestCase
     
     func testOneSolo()
     {
-        let node = TFENode(value: 2)
+        let node = TestTile(value: 2)
         let row = [SlidTile(node)]
 
         let expectedDestinations: [SlideDirection : [Int]] =
@@ -69,8 +69,8 @@ class TFEMoveTests : XCTestCase
              .right : [3, 7, 11, 15],
              .down : [0, 1, 2, 3]]
 
-        let grid: [TFENode?]
-        (_, grid) = TFEBuildGrid()
+        let grid: [TestTile?]
+        (_, grid) = TFE.buildGrid()
         for direction in directions {
 
             for (i, rowIndexes) in GridIndexes.by(direction).enumerated() {
@@ -87,8 +87,8 @@ class TFEMoveTests : XCTestCase
 
     func testTwoSolos()
     {
-        let node = TFENode(value: 2)
-        let otherNode = TFENode(value: 4)
+        let node = TestTile(value: 2)
+        let otherNode = TestTile(value: 4)
         let row = [SlidTile(node), SlidTile(otherNode)]
 
         let expectedDestinations: [SlideDirection : [(Int, Int)]] =
@@ -97,8 +97,8 @@ class TFEMoveTests : XCTestCase
              .right : [(3, 2), (7, 6), (11, 10), (15, 14)],
              .down : [(0, 4), (1, 5), (2, 6), (3, 7)]]
 
-        let grid: [TFENode?]
-        (_, grid) = TFEBuildGrid()
+        let grid: [TestTile?]
+        (_, grid) = TFE.buildGrid()
         for direction in directions {
 
             for (i, rowIndexes) in GridIndexes.by(direction).enumerated() {
@@ -117,7 +117,7 @@ class TFEMoveTests : XCTestCase
 
     func testThreeSolos()
     {
-        let nodes = [TFENode(value: 2), TFENode(value: 4), TFENode(value: 8)]
+        let nodes = [TestTile(value: 2), TestTile(value: 4), TestTile(value: 8)]
         let row = nodes.map({ SlidTile($0) })
 
         let expectedDestinations: [SlideDirection : [[Int]]] =
@@ -126,8 +126,8 @@ class TFEMoveTests : XCTestCase
              .right : [[3, 2, 1], [7, 6, 5], [11, 10, 9], [15, 14, 13]],
              .down : [[0, 4, 8], [1, 5, 9], [2, 6, 10], [3, 7, 11]]]
 
-        let grid: [TFENode?]
-        (_, grid) = TFEBuildGrid()
+        let grid: [TestTile?]
+        (_, grid) = TFE.buildGrid()
         for direction in directions {
             
             for (i, rowIndexes) in GridIndexes.by(direction).enumerated() {
@@ -136,7 +136,7 @@ class TFEMoveTests : XCTestCase
                     return TileMove(tile: $0, destination: $1)
                 })
                 
-                let (moves, _) = processMoves(forSlidRow: row, rowIndexes: rowIndexes, onGrid: grid)
+                let (moves, _) = TFE.processMoves(forSlidRow: row, rowIndexes: rowIndexes, onGrid: grid)
                 
                 XCTAssertEqual(moves, expectedMoves, "Failed: \(direction) row: \(i)")
             }
@@ -145,23 +145,23 @@ class TFEMoveTests : XCTestCase
 
     func testSoloAndCombo()
     {
-        let node = TFENode(value: 2)
-        let otherNode = TFENode(value: 4)
-        let row = [SlidTile(TFENode(value: 4)), SlidTile(node, node)]
+        let node = TestTile(value: 2)
+        let otherNode = TestTile(value: 4)
+        let row = [SlidTile(TestTile(value: 4)), SlidTile(node, node)]
         let expectedMoves = [TileMove(tile: otherNode, destination: 0),
                              TileMove(tile: node, destination: 1, isCombination: true),
                              TileMove(tile: node, destination: 1, isCombination: true),
                              TileMove(tile: otherNode, destination: 1, isSpawn: true)]
 
-        let grid: [TFENode?]
-        (_, grid) = TFEBuildGrid()
-        let (moves, _) = processMoves(forSlidRow: row, rowIndexes: [0, 1, 2, 3], onGrid: grid)
+        let grid: [TestTile?]
+        (_, grid) = TFE.buildGrid()
+        let (moves, _) = TFE.processMoves(forSlidRow: row, rowIndexes: [0, 1, 2, 3], onGrid: grid)
 
         XCTAssertEqual(moves, expectedMoves)
     }
 }
 
-func ==<T : Tile>(lhs: TileMove<T>, rhs: TileMove<T>) -> Bool
+public func ==<T : Tile>(lhs: TileMove<T>, rhs: TileMove<T>) -> Bool
 {
     return lhs.tile == rhs.tile &&
            lhs.destination == rhs.destination &&
@@ -171,7 +171,7 @@ func ==<T : Tile>(lhs: TileMove<T>, rhs: TileMove<T>) -> Bool
 
 extension TileMove : Equatable {}
 
-func ==(lhs: [TFENode?], rhs: [TFENode?]) -> Bool
+func ==(lhs: [TestTile?], rhs: [TestTile?]) -> Bool
 {
     guard lhs.count == rhs.count else {
         return false

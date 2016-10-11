@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import enum TFE.SlideDirection
 
 class TFEGameController : TFEViewController
 {
@@ -52,7 +53,7 @@ class TFEGameController : TFEViewController
     
     // Message sent to self from platform-specific user input extensions.
     // This is necessary because `board` is not mutable inside the extensions, and `moveNodes(inDirection:)` is mutating.
-    func userDidInput(_ direction: SlideDirection)
+    func userDidInput(_ direction: TFE.SlideDirection)
     {
         self.board.moveNodes(inDirection: direction)
     }

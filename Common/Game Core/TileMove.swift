@@ -11,16 +11,16 @@
  * it records the destination square and whether the move is a tile's spawn
  * or the combination of two tiles into one.
  */
-struct TileMove<T : Tile>
+public struct TileMove<T : Tile>
 {
     /** The `Tile` that is moving. */
-    let tile: T
+    public let tile: T
     /** The grid square where the tile is heading or spawning on. */
-    let destination: Int
+    public let destination: Int
     /** If `true`, this move involves two tiles colliding and combining. */
-    let isCombination: Bool
+    public let isCombination: Bool
     /** If `true`, the tile is being created at the destination rather than moving from somewhere else. */
-    let isSpawn: Bool
+    public let isSpawn: Bool
     
     init(tile: T, destination: Int, isCombination: Bool = false, isSpawn: Bool = false)
     {

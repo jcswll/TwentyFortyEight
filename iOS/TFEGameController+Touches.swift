@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import enum TFE.SlideDirection
 
 extension TFEGameController
 {
@@ -18,7 +19,7 @@ extension TFEGameController
         }
         
         let swipeDirection = recognizer.direction
-        let nodeDirection: SlideDirection
+        let nodeDirection: TFE.SlideDirection
         
         switch swipeDirection {
             

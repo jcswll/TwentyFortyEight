@@ -7,13 +7,14 @@
 //
 
 import SpriteKit
+import protocol TFE.Tile
 
 /**
  * TFENodes are the sprites representing the tiles on the game board. They configure their appearance
  * and perform necessary animations. They also hold their point value, which the game engine uses to
  * calculate combinations.
  */
-class TFENode : SKSpriteNode, Tile
+class TFENode : SKSpriteNode, TFE.Tile
 {
     /** Create the appropriate `SKTexture` for this value. */
     private static func texture(forValue value: Int) -> SKTexture

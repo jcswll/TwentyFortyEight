@@ -14,7 +14,7 @@ import Foundation
  *
  * Returns an array of `TileMove`s describing the spawns, and the new grid.
  */
-func TFEBuildGrid<T : Tile>() -> ([TileMove<T>], [T?])
+public func buildGrid<T : Tile>() -> ([TileMove<T>], [T?])
 {
     var grid: [T?] = nullGrid()
     
@@ -33,7 +33,7 @@ func TFEBuildGrid<T : Tile>() -> ([TileMove<T>], [T?])
  * Returns an array of `TileMove`s, or `nil` if nothing moved, and the grid as
  * reconfigured after all movement.
  */
-func TFEMoveTiles<T : Tile>(_ grid: [T?], inDirection direction: SlideDirection) -> ([TileMove<T>]?, [T?])
+public func moveTiles<T : Tile>(_ grid: [T?], inDirection direction: SlideDirection) -> ([TileMove<T>]?, [T?])
 {
     var newGrid: [T?] = nullGrid()
     var moves: [TileMove<T>]? = nil
@@ -76,18 +76,18 @@ func TFEMoveTiles<T : Tile>(_ grid: [T?], inDirection direction: SlideDirection)
  * Returns a `TileMove` object describing the spawn and the grid with the
  * new tile added.
  */
-func TFESpawnNewTile<T : Tile>(on grid: [T?], excluding direction: SlideDirection) -> (TileMove<T>, [T?])
+public func spawnNewTile<T : Tile>(on grid: [T?], excluding direction: SlideDirection) -> (TileMove<T>, [T?])
 {
     let disallowedIndexes = TrailingSquares.awayFrom(direction)
     return spawnNewTile(on: grid, excluding: disallowedIndexes)
 }
 
-func TFEIsAWinner<T : Tile>(_ grid: [T?]) -> Bool
+public func isAWinner<T : Tile>(_ grid: [T?]) -> Bool
 {
     return grid.contains(where: { $0?.value == 2048 })
 }
 
-func TFEIsALoser<T : Tile>(_ grid: [T?]) -> Bool
+public func isALoser<T : Tile>(_ grid: [T?]) -> Bool
 {
     // If the board isn't full, we can't have lost yet
     guard !indexesOfUnoccupiedSquares(grid).isEmpty else {
@@ -98,7 +98,7 @@ func TFEIsALoser<T : Tile>(_ grid: [T?]) -> Bool
     let directions: [SlideDirection] = [.left, .up, .right, .down]
     for direction in directions {
         
-        let (moves, _) = TFEMoveTiles(grid, inDirection: direction)
+        let (moves, _) = moveTiles(grid, inDirection: direction)
         
         // If movement is possible in _any_ direction, we haven't lost
         guard moves == nil else {
@@ -109,7 +109,7 @@ func TFEIsALoser<T : Tile>(_ grid: [T?]) -> Bool
     return true
 }
 
-func TFEScore<T : Tile>(forMoves moves: [TileMove<T>]) -> Int
+public func score<T : Tile>(forMoves moves: [TileMove<T>]) -> Int
 {
     return moves.reduce(0, { (score, move) in
         
@@ -124,7 +124,7 @@ func TFEScore<T : Tile>(forMoves moves: [TileMove<T>]) -> Int
 //MARK: - Internal functions
 
 /** Array of `Optional<T>.None` representing an empty grid. */
-private func nullGrid<T : Tile>() -> [T?]
+func nullGrid<T : Tile>() -> [T?]
 {
     return Array(repeating: nil, count: 16)
 }
@@ -133,7 +133,7 @@ private func nullGrid<T : Tile>() -> [T?]
  * Given a list of optional `Tile`s, representing the game grid, return a set
  * with the indexes of all nil elements.
  */
-private func indexesOfUnoccupiedSquares<T : Tile>(_ grid: [T?]) -> Set<Int>
+func indexesOfUnoccupiedSquares<T : Tile>(_ grid: [T?]) -> Set<Int>
 {
     var set: Set<Int> = []
     
@@ -240,7 +240,7 @@ func slideRow<T : Tile>(_ row: [T?]) -> [SlidTile<T>]?
  * Given the grid and a set of positions that are invalid, add a square with
  * value either 2 or 4 to any empty and valid square, then return the new grid.
  */
-private func spawnNewTile<T : Tile>(on grid: [T?], excluding disallowedIndexes: Set<Int> = []) -> (TileMove<T>, [T?])
+func spawnNewTile<T : Tile>(on grid: [T?], excluding disallowedIndexes: Set<Int> = []) -> (TileMove<T>, [T?])
 {
     let unoccupiedSquares = indexesOfUnoccupiedSquares(grid)
     let allowedLocations = unoccupiedSquares.subtracting(disallowedIndexes)

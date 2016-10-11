@@ -6,7 +6,7 @@
 //  Copyright © 2016 Josh Caswell. All rights reserved.
 //
 
-enum SlideDirection
+public enum SlideDirection
 {
     case left, up, right, down
 }

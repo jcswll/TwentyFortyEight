@@ -25,32 +25,46 @@
 		036EAA2D1DA3068600193E58 /* TFEGameController+Touches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA2B1DA3056600193E58 /* TFEGameController+Touches.swift */; };
 		036EAA511DA32E6300193E58 /* TFEMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA501DA32E6300193E58 /* TFEMainScene.swift */; };
 		036EAA521DA32E6300193E58 /* TFEMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA501DA32E6300193E58 /* TFEMainScene.swift */; };
-		036EAA541DA35B3E00193E58 /* SlideDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA531DA35B3E00193E58 /* SlideDirection.swift */; };
-		036EAA551DA35B3E00193E58 /* SlideDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA531DA35B3E00193E58 /* SlideDirection.swift */; };
-		036EAA571DA35B8000193E58 /* TileMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA561DA35B8000193E58 /* TileMove.swift */; };
-		036EAA581DA35B8000193E58 /* TileMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA561DA35B8000193E58 /* TileMove.swift */; };
 		036EAA5D1DA35C2900193E58 /* TFENode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA5C1DA35C2900193E58 /* TFENode.swift */; };
 		036EAA5E1DA35C2900193E58 /* TFENode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA5C1DA35C2900193E58 /* TFENode.swift */; };
-		036EAA601DA48CBF00193E58 /* SlidTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA5F1DA48CBF00193E58 /* SlidTile.swift */; };
-		036EAA611DA48CBF00193E58 /* SlidTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA5F1DA48CBF00193E58 /* SlidTile.swift */; };
 		036EAA631DA4916E00193E58 /* RandomOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA621DA4916E00193E58 /* RandomOffset.swift */; };
 		036EAA641DA4916E00193E58 /* RandomOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA621DA4916E00193E58 /* RandomOffset.swift */; };
-		036EAA671DA4933C00193E58 /* Array+ElementsAtIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA651DA4933C00193E58 /* Array+ElementsAtIndexes.swift */; };
-		036EAA681DA4933C00193E58 /* Array+ElementsAtIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA651DA4933C00193E58 /* Array+ElementsAtIndexes.swift */; };
-		036EAA691DA4933C00193E58 /* Set+RandomInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA661DA4933C00193E58 /* Set+RandomInt.swift */; };
-		036EAA6A1DA4933C00193E58 /* Set+RandomInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA661DA4933C00193E58 /* Set+RandomInt.swift */; };
-		036EAA6D1DA4958E00193E58 /* GridSquarePositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */; };
-		036EAA6E1DA4958E00193E58 /* GridSquarePositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */; };
-		036EAA701DA49AF900193E58 /* TFE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6F1DA49AF900193E58 /* TFE.swift */; };
-		036EAA711DA49AF900193E58 /* TFE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6F1DA49AF900193E58 /* TFE.swift */; };
 		036EAA731DA6062500193E58 /* TFEMainSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA721DA6062500193E58 /* TFEMainSceneTests.swift */; };
-		036EAA751DA6101500193E58 /* TFESlideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA741DA6101500193E58 /* TFESlideTests.swift */; };
 		036EAA771DA6122400193E58 /* XCTestCase+StopFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */; };
-		036EAA791DA619C700193E58 /* TFEMoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA781DA619C700193E58 /* TFEMoveTests.swift */; };
 		038E32291C83A632001EF027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038E32281C83A632001EF027 /* Assets.xcassets */; };
 		038E322C1C83A632001EF027 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038E322A1C83A632001EF027 /* MainMenu.xib */; };
-		03F1FEC81DAC289100A081A1 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1FEC71DAC289100A081A1 /* Tile.swift */; };
-		03F1FEC91DAC289100A081A1 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1FEC71DAC289100A081A1 /* Tile.swift */; };
+		03F1FED81DAC779E00A081A1 /* TFE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F1FECF1DAC779D00A081A1 /* TFE.framework */; };
+		03F1FEE11DAC779E00A081A1 /* TFE.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F1FED11DAC779D00A081A1 /* TFE.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03F1FEE41DAC779E00A081A1 /* TFE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F1FECF1DAC779D00A081A1 /* TFE.framework */; };
+		03F1FEE61DAC779E00A081A1 /* TFE.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F1FECF1DAC779D00A081A1 /* TFE.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03F1FEED1DAC77CF00A081A1 /* SlideDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA531DA35B3E00193E58 /* SlideDirection.swift */; };
+		03F1FEEE1DAC77D100A081A1 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1FEC71DAC289100A081A1 /* Tile.swift */; };
+		03F1FEEF1DAC77D300A081A1 /* TileMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA561DA35B8000193E58 /* TileMove.swift */; };
+		03F1FEF01DAC77D500A081A1 /* SlidTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA5F1DA48CBF00193E58 /* SlidTile.swift */; };
+		03F1FEF11DAC77D800A081A1 /* GridSquarePositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */; };
+		03F1FEF21DAC77DB00A081A1 /* TFE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6F1DA49AF900193E58 /* TFE.swift */; };
+		03F1FEF41DAC781D00A081A1 /* Array+ElementsAtIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA651DA4933C00193E58 /* Array+ElementsAtIndexes.swift */; };
+		03F1FEF51DAC782000A081A1 /* Set+RandomInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA661DA4933C00193E58 /* Set+RandomInt.swift */; };
+		03F1FEF61DAC7B7C00A081A1 /* XCTestCase+StopFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */; };
+		03F1FEF71DAC7B7E00A081A1 /* TFESlideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA741DA6101500193E58 /* TFESlideTests.swift */; };
+		03F1FEF81DAC7B8000A081A1 /* TFEMoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA781DA619C700193E58 /* TFEMoveTests.swift */; };
+		03F1FEFA1DAC7B8900A081A1 /* TestTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1FEF91DAC7B8900A081A1 /* TestTile.swift */; };
+		03F1FF091DAC7D6500A081A1 /* TFE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F1FF001DAC7D6500A081A1 /* TFE.framework */; };
+		03F1FF121DAC7D6500A081A1 /* TFE-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F1FF021DAC7D6500A081A1 /* TFE-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03F1FF151DAC7D6500A081A1 /* TFE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F1FF001DAC7D6500A081A1 /* TFE.framework */; };
+		03F1FF161DAC7D6500A081A1 /* TFE.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F1FF001DAC7D6500A081A1 /* TFE.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03F1FF211DAC7DD700A081A1 /* SlideDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA531DA35B3E00193E58 /* SlideDirection.swift */; };
+		03F1FF221DAC7DE000A081A1 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1FEC71DAC289100A081A1 /* Tile.swift */; };
+		03F1FF231DAC7DE000A081A1 /* TileMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA561DA35B8000193E58 /* TileMove.swift */; };
+		03F1FF241DAC7DE000A081A1 /* SlidTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA5F1DA48CBF00193E58 /* SlidTile.swift */; };
+		03F1FF251DAC7DE000A081A1 /* GridSquarePositions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */; };
+		03F1FF261DAC7DE000A081A1 /* TFE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA6F1DA49AF900193E58 /* TFE.swift */; };
+		03F1FF271DAC7DEB00A081A1 /* XCTestCase+StopFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */; };
+		03F1FF281DAC7DEB00A081A1 /* TestTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F1FEF91DAC7B8900A081A1 /* TestTile.swift */; };
+		03F1FF291DAC7DEB00A081A1 /* TFESlideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA741DA6101500193E58 /* TFESlideTests.swift */; };
+		03F1FF2A1DAC7DEB00A081A1 /* TFEMoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA781DA619C700193E58 /* TFEMoveTests.swift */; };
+		03F1FF2B1DAC7ECD00A081A1 /* Array+ElementsAtIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA651DA4933C00193E58 /* Array+ElementsAtIndexes.swift */; };
+		03F1FF2C1DAC7ECF00A081A1 /* Set+RandomInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036EAA661DA4933C00193E58 /* Set+RandomInt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +75,60 @@
 			remoteGlobalIDString = 038E32191C83A632001EF027;
 			remoteInfo = TwentyFortyEight;
 		};
+		03F1FED91DAC779E00A081A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 038E32121C83A632001EF027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03F1FECE1DAC779D00A081A1;
+			remoteInfo = TFE;
+		};
+		03F1FEE21DAC779E00A081A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 038E32121C83A632001EF027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03F1FECE1DAC779D00A081A1;
+			remoteInfo = TFE;
+		};
+		03F1FF0A1DAC7D6500A081A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 038E32121C83A632001EF027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03F1FEFF1DAC7D6500A081A1;
+			remoteInfo = "TFE-iOS";
+		};
+		03F1FF131DAC7D6500A081A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 038E32121C83A632001EF027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03F1FEFF1DAC7D6500A081A1;
+			remoteInfo = "TFE-iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		03F1FEE51DAC779E00A081A1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03F1FEE61DAC779E00A081A1 /* TFE.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FF1A1DAC7D6500A081A1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03F1FF161DAC7D6500A081A1 /* TFE.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		036EA9B11D9E03C900193E58 /* TwentyFortyEight-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TwentyFortyEight-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,14 +152,14 @@
 		036EAA5C1DA35C2900193E58 /* TFENode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TFENode.swift; path = "Game Core/TFENode.swift"; sourceTree = "<group>"; };
 		036EAA5F1DA48CBF00193E58 /* SlidTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlidTile.swift; path = "Game Core/SlidTile.swift"; sourceTree = "<group>"; };
 		036EAA621DA4916E00193E58 /* RandomOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomOffset.swift; path = "Game Core/RandomOffset.swift"; sourceTree = "<group>"; };
-		036EAA651DA4933C00193E58 /* Array+ElementsAtIndexes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+ElementsAtIndexes.swift"; path = "Extensions/Array+ElementsAtIndexes.swift"; sourceTree = "<group>"; };
-		036EAA661DA4933C00193E58 /* Set+RandomInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Set+RandomInt.swift"; path = "Extensions/Set+RandomInt.swift"; sourceTree = "<group>"; };
+		036EAA651DA4933C00193E58 /* Array+ElementsAtIndexes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+ElementsAtIndexes.swift"; path = "../Common/Extensions/Array+ElementsAtIndexes.swift"; sourceTree = "<group>"; };
+		036EAA661DA4933C00193E58 /* Set+RandomInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Set+RandomInt.swift"; path = "../Common/Extensions/Set+RandomInt.swift"; sourceTree = "<group>"; };
 		036EAA6C1DA4958E00193E58 /* GridSquarePositions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridSquarePositions.swift; path = "Game Core/GridSquarePositions.swift"; sourceTree = "<group>"; };
 		036EAA6F1DA49AF900193E58 /* TFE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TFE.swift; path = "Game Core/TFE.swift"; sourceTree = "<group>"; };
 		036EAA721DA6062500193E58 /* TFEMainSceneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFEMainSceneTests.swift; sourceTree = "<group>"; };
-		036EAA741DA6101500193E58 /* TFESlideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFESlideTests.swift; sourceTree = "<group>"; };
-		036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+StopFailure.swift"; sourceTree = "<group>"; };
-		036EAA781DA619C700193E58 /* TFEMoveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFEMoveTests.swift; sourceTree = "<group>"; };
+		036EAA741DA6101500193E58 /* TFESlideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TFESlideTests.swift; path = ../Tests/TFESlideTests.swift; sourceTree = "<group>"; };
+		036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCTestCase+StopFailure.swift"; path = "../Tests/XCTestCase+StopFailure.swift"; sourceTree = "<group>"; };
+		036EAA781DA619C700193E58 /* TFEMoveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TFEMoveTests.swift; path = ../Tests/TFEMoveTests.swift; sourceTree = "<group>"; };
 		038E321A1C83A632001EF027 /* TwentyFortyEight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwentyFortyEight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		038E32281C83A632001EF027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		038E322B1C83A632001EF027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -101,6 +168,17 @@
 		038E329D1C88E449001EF027 /* TODO.taskpaper */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; lineEnding = 0; path = TODO.taskpaper; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
 		038E32A61C8A740C001EF027 /* TFEScoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFEScoreTests.m; sourceTree = "<group>"; };
 		03F1FEC71DAC289100A081A1 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tile.swift; path = "Game Core/Tile.swift"; sourceTree = "<group>"; };
+		03F1FECF1DAC779D00A081A1 /* TFE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TFE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03F1FED11DAC779D00A081A1 /* TFE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFE.h; sourceTree = "<group>"; };
+		03F1FED21DAC779D00A081A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03F1FED71DAC779E00A081A1 /* TFETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03F1FEE01DAC779E00A081A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03F1FEF91DAC7B8900A081A1 /* TestTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTile.swift; sourceTree = "<group>"; };
+		03F1FF001DAC7D6500A081A1 /* TFE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TFE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03F1FF021DAC7D6500A081A1 /* TFE-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TFE-iOS.h"; sourceTree = "<group>"; };
+		03F1FF031DAC7D6500A081A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03F1FF081DAC7D6500A081A1 /* TFE_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFE_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03F1FF111DAC7D6500A081A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../TFE-iOSTests/Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F1FF151DAC7D6500A081A1 /* TFE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F1FEE41DAC779E00A081A1 /* TFE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +202,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FECB1DAC779D00A081A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FED41DAC779E00A081A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F1FED81DAC779E00A081A1 /* TFE.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FEFC1DAC7D6500A081A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FF051DAC7D6500A081A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F1FF091DAC7D6500A081A1 /* TFE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +269,6 @@
 				036EAA5C1DA35C2900193E58 /* TFENode.swift */,
 				036EAA201DA2163400193E58 /* TFEBoard.swift */,
 				036EAA501DA32E6300193E58 /* TFEMainScene.swift */,
-				03F1FEC61DAC279500A081A1 /* Game Core */,
 				038E32281C83A632001EF027 /* Assets.xcassets */,
 			);
 			path = Common;
@@ -168,8 +277,6 @@
 		036EAA6B1DA4934400193E58 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				036EAA651DA4933C00193E58 /* Array+ElementsAtIndexes.swift */,
-				036EAA661DA4933C00193E58 /* Set+RandomInt.swift */,
 				036EAA621DA4916E00193E58 /* RandomOffset.swift */,
 			);
 			name = Support;
@@ -183,6 +290,8 @@
 				038E321C1C83A632001EF027 /* Mac */,
 				036EA9B21D9E03C900193E58 /* iOS */,
 				038E32351C83A632001EF027 /* Tests */,
+				03F1FED01DAC779D00A081A1 /* TFE Framework */,
+				03F1FEDD1DAC779E00A081A1 /* TFETests */,
 				038E321B1C83A632001EF027 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -193,6 +302,10 @@
 				038E321A1C83A632001EF027 /* TwentyFortyEight.app */,
 				038E32321C83A632001EF027 /* TwentyFortyEightTests.xctest */,
 				036EA9B11D9E03C900193E58 /* TwentyFortyEight-iOS.app */,
+				03F1FECF1DAC779D00A081A1 /* TFE.framework */,
+				03F1FED71DAC779E00A081A1 /* TFETests.xctest */,
+				03F1FF001DAC7D6500A081A1 /* TFE.framework */,
+				03F1FF081DAC7D6500A081A1 /* TFE_iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,12 +334,9 @@
 		038E32351C83A632001EF027 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */,
 				038E32A61C8A740C001EF027 /* TFEScoreTests.m */,
 				038E32381C83A632001EF027 /* Info.plist */,
 				036EAA721DA6062500193E58 /* TFEMainSceneTests.swift */,
-				036EAA741DA6101500193E58 /* TFESlideTests.swift */,
-				036EAA781DA619C700193E58 /* TFEMoveTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -242,9 +352,98 @@
 				036EAA6F1DA49AF900193E58 /* TFE.swift */,
 			);
 			name = "Game Core";
+			path = ../Common;
+			sourceTree = "<group>";
+		};
+		03F1FED01DAC779D00A081A1 /* TFE Framework */ = {
+			isa = PBXGroup;
+			children = (
+				03F1FEF31DAC780F00A081A1 /* Support */,
+				03F1FEC61DAC279500A081A1 /* Game Core */,
+				03F1FF011DAC7D6500A081A1 /* iOS */,
+				03F1FF1E1DAC7D8F00A081A1 /* Mac */,
+			);
+			name = "TFE Framework";
+			path = TFE;
+			sourceTree = "<group>";
+		};
+		03F1FEDD1DAC779E00A081A1 /* TFETests */ = {
+			isa = PBXGroup;
+			children = (
+				03F1FF201DAC7DBE00A081A1 /* iOS */,
+				03F1FF1F1DAC7DB400A081A1 /* Mac */,
+				036EAA761DA6122400193E58 /* XCTestCase+StopFailure.swift */,
+				03F1FEF91DAC7B8900A081A1 /* TestTile.swift */,
+				036EAA741DA6101500193E58 /* TFESlideTests.swift */,
+				036EAA781DA619C700193E58 /* TFEMoveTests.swift */,
+			);
+			path = TFETests;
+			sourceTree = "<group>";
+		};
+		03F1FEF31DAC780F00A081A1 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				036EAA651DA4933C00193E58 /* Array+ElementsAtIndexes.swift */,
+				036EAA661DA4933C00193E58 /* Set+RandomInt.swift */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		03F1FF011DAC7D6500A081A1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				03F1FF021DAC7D6500A081A1 /* TFE-iOS.h */,
+				03F1FF031DAC7D6500A081A1 /* Info.plist */,
+			);
+			name = iOS;
+			path = "TFE-iOS";
+			sourceTree = SOURCE_ROOT;
+		};
+		03F1FF1E1DAC7D8F00A081A1 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				03F1FED11DAC779D00A081A1 /* TFE.h */,
+				03F1FED21DAC779D00A081A1 /* Info.plist */,
+			);
+			name = Mac;
+			sourceTree = "<group>";
+		};
+		03F1FF1F1DAC7DB400A081A1 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				03F1FEE01DAC779E00A081A1 /* Info.plist */,
+			);
+			name = Mac;
+			sourceTree = "<group>";
+		};
+		03F1FF201DAC7DBE00A081A1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				03F1FF111DAC7D6500A081A1 /* Info.plist */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		03F1FECC1DAC779D00A081A1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F1FEE11DAC779E00A081A1 /* TFE.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FEFD1DAC7D6500A081A1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F1FF121DAC7D6500A081A1 /* TFE-iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		036EA9B01D9E03C900193E58 /* TwentyFortyEight-iOS */ = {
@@ -254,10 +453,12 @@
 				036EA9AD1D9E03C900193E58 /* Sources */,
 				036EA9AE1D9E03C900193E58 /* Frameworks */,
 				036EA9AF1D9E03C900193E58 /* Resources */,
+				03F1FF1A1DAC7D6500A081A1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				03F1FF141DAC7D6500A081A1 /* PBXTargetDependency */,
 			);
 			name = "TwentyFortyEight-iOS";
 			productName = "TwentyFortyEight-iOS";
@@ -271,10 +472,12 @@
 				038E32161C83A632001EF027 /* Sources */,
 				038E32171C83A632001EF027 /* Frameworks */,
 				038E32181C83A632001EF027 /* Resources */,
+				03F1FEE51DAC779E00A081A1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				03F1FEE31DAC779E00A081A1 /* PBXTargetDependency */,
 			);
 			name = TwentyFortyEight;
 			productName = TwentyFortyEight;
@@ -299,6 +502,78 @@
 			productReference = 038E32321C83A632001EF027 /* TwentyFortyEightTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		03F1FECE1DAC779D00A081A1 /* TFE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03F1FEEB1DAC779E00A081A1 /* Build configuration list for PBXNativeTarget "TFE" */;
+			buildPhases = (
+				03F1FECA1DAC779D00A081A1 /* Sources */,
+				03F1FECB1DAC779D00A081A1 /* Frameworks */,
+				03F1FECC1DAC779D00A081A1 /* Headers */,
+				03F1FECD1DAC779D00A081A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TFE;
+			productName = TFE;
+			productReference = 03F1FECF1DAC779D00A081A1 /* TFE.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		03F1FED61DAC779E00A081A1 /* TFETests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03F1FEEC1DAC779E00A081A1 /* Build configuration list for PBXNativeTarget "TFETests" */;
+			buildPhases = (
+				03F1FED31DAC779E00A081A1 /* Sources */,
+				03F1FED41DAC779E00A081A1 /* Frameworks */,
+				03F1FED51DAC779E00A081A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03F1FEDA1DAC779E00A081A1 /* PBXTargetDependency */,
+			);
+			name = TFETests;
+			productName = TFETests;
+			productReference = 03F1FED71DAC779E00A081A1 /* TFETests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		03F1FEFF1DAC7D6500A081A1 /* TFE_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03F1FF171DAC7D6500A081A1 /* Build configuration list for PBXNativeTarget "TFE_iOS" */;
+			buildPhases = (
+				03F1FEFB1DAC7D6500A081A1 /* Sources */,
+				03F1FEFC1DAC7D6500A081A1 /* Frameworks */,
+				03F1FEFD1DAC7D6500A081A1 /* Headers */,
+				03F1FEFE1DAC7D6500A081A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TFE_iOS;
+			productName = "TFE-iOS";
+			productReference = 03F1FF001DAC7D6500A081A1 /* TFE.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		03F1FF071DAC7D6500A081A1 /* TFE_iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03F1FF1B1DAC7D6500A081A1 /* Build configuration list for PBXNativeTarget "TFE_iOSTests" */;
+			buildPhases = (
+				03F1FF041DAC7D6500A081A1 /* Sources */,
+				03F1FF051DAC7D6500A081A1 /* Frameworks */,
+				03F1FF061DAC7D6500A081A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03F1FF0B1DAC7D6500A081A1 /* PBXTargetDependency */,
+			);
+			name = TFE_iOSTests;
+			productName = "TFE-iOSTests";
+			productReference = 03F1FF081DAC7D6500A081A1 /* TFE_iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -306,6 +581,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TFE;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Josh Caswell";
 				TargetAttributes = {
@@ -323,6 +599,27 @@
 						CreatedOnToolsVersion = 7.2;
 						LastSwiftMigration = 0800;
 						TestTargetID = 038E32191C83A632001EF027;
+					};
+					03F1FECE1DAC779D00A081A1 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					03F1FED61DAC779E00A081A1 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = F655DJ76U3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 038E32191C83A632001EF027;
+					};
+					03F1FEFF1DAC7D6500A081A1 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = F655DJ76U3;
+						ProvisioningStyle = Automatic;
+					};
+					03F1FF071DAC7D6500A081A1 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = F655DJ76U3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 036EA9B01D9E03C900193E58;
 					};
 				};
 			};
@@ -342,6 +639,10 @@
 				038E32191C83A632001EF027 /* TwentyFortyEight */,
 				038E32311C83A632001EF027 /* TwentyFortyEightTests */,
 				036EA9B01D9E03C900193E58 /* TwentyFortyEight-iOS */,
+				03F1FECE1DAC779D00A081A1 /* TFE */,
+				03F1FED61DAC779E00A081A1 /* TFETests */,
+				03F1FEFF1DAC7D6500A081A1 /* TFE_iOS */,
+				03F1FF071DAC7D6500A081A1 /* TFE_iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -374,6 +675,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03F1FECD1DAC779D00A081A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FED51DAC779E00A081A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FEFE1DAC7D6500A081A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FF061DAC7D6500A081A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -381,23 +710,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03F1FEC91DAC289100A081A1 /* Tile.swift in Sources */,
 				036EAA521DA32E6300193E58 /* TFEMainScene.swift in Sources */,
-				036EAA6A1DA4933C00193E58 /* Set+RandomInt.swift in Sources */,
 				036EAA641DA4916E00193E58 /* RandomOffset.swift in Sources */,
 				036EAA0E1DA0A58B00193E58 /* TFEViewController.swift in Sources */,
-				036EAA681DA4933C00193E58 /* Array+ElementsAtIndexes.swift in Sources */,
 				036EAA101DA0A58B00193E58 /* TFEGameController.swift in Sources */,
 				036EAA041DA0942200193E58 /* TFEAppDelegate.swift in Sources */,
 				036EAA2D1DA3068600193E58 /* TFEGameController+Touches.swift in Sources */,
-				036EAA711DA49AF900193E58 /* TFE.swift in Sources */,
-				036EAA611DA48CBF00193E58 /* SlidTile.swift in Sources */,
 				036EAA0F1DA0A58B00193E58 /* TFELabel.swift in Sources */,
-				036EAA581DA35B8000193E58 /* TileMove.swift in Sources */,
-				036EAA6E1DA4958E00193E58 /* GridSquarePositions.swift in Sources */,
 				036EAA5E1DA35C2900193E58 /* TFENode.swift in Sources */,
 				036EAA221DA2187B00193E58 /* TFEBoard.swift in Sources */,
-				036EAA551DA35B3E00193E58 /* SlideDirection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,21 +726,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03F1FEC81DAC289100A081A1 /* Tile.swift in Sources */,
 				036EAA2A1DA3052900193E58 /* TFEGameController+Keyboard.swift in Sources */,
 				036EAA511DA32E6300193E58 /* TFEMainScene.swift in Sources */,
-				036EAA691DA4933C00193E58 /* Set+RandomInt.swift in Sources */,
 				036EAA631DA4916E00193E58 /* RandomOffset.swift in Sources */,
-				036EAA671DA4933C00193E58 /* Array+ElementsAtIndexes.swift in Sources */,
 				036EAA091DA09C7C00193E58 /* TFEViewController.swift in Sources */,
 				036EAA0B1DA09FBA00193E58 /* TFELabel.swift in Sources */,
-				036EAA701DA49AF900193E58 /* TFE.swift in Sources */,
-				036EAA571DA35B8000193E58 /* TileMove.swift in Sources */,
-				036EAA601DA48CBF00193E58 /* SlidTile.swift in Sources */,
 				036EAA011DA08F9E00193E58 /* TFEAppDelegate.swift in Sources */,
 				036EAA5D1DA35C2900193E58 /* TFENode.swift in Sources */,
-				036EAA6D1DA4958E00193E58 /* GridSquarePositions.swift in Sources */,
-				036EAA541DA35B3E00193E58 /* SlideDirection.swift in Sources */,
 				036EAA211DA2163400193E58 /* TFEBoard.swift in Sources */,
 				036EAA0D1DA09FE400193E58 /* TFEGameController.swift in Sources */,
 			);
@@ -431,8 +744,58 @@
 			files = (
 				036EAA771DA6122400193E58 /* XCTestCase+StopFailure.swift in Sources */,
 				036EAA731DA6062500193E58 /* TFEMainSceneTests.swift in Sources */,
-				036EAA791DA619C700193E58 /* TFEMoveTests.swift in Sources */,
-				036EAA751DA6101500193E58 /* TFESlideTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FECA1DAC779D00A081A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F1FEF11DAC77D800A081A1 /* GridSquarePositions.swift in Sources */,
+				03F1FEED1DAC77CF00A081A1 /* SlideDirection.swift in Sources */,
+				03F1FEEE1DAC77D100A081A1 /* Tile.swift in Sources */,
+				03F1FEEF1DAC77D300A081A1 /* TileMove.swift in Sources */,
+				03F1FEF01DAC77D500A081A1 /* SlidTile.swift in Sources */,
+				03F1FEF21DAC77DB00A081A1 /* TFE.swift in Sources */,
+				03F1FEF41DAC781D00A081A1 /* Array+ElementsAtIndexes.swift in Sources */,
+				03F1FEF51DAC782000A081A1 /* Set+RandomInt.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FED31DAC779E00A081A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F1FEF61DAC7B7C00A081A1 /* XCTestCase+StopFailure.swift in Sources */,
+				03F1FEF71DAC7B7E00A081A1 /* TFESlideTests.swift in Sources */,
+				03F1FEF81DAC7B8000A081A1 /* TFEMoveTests.swift in Sources */,
+				03F1FEFA1DAC7B8900A081A1 /* TestTile.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FEFB1DAC7D6500A081A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F1FF221DAC7DE000A081A1 /* Tile.swift in Sources */,
+				03F1FF231DAC7DE000A081A1 /* TileMove.swift in Sources */,
+				03F1FF241DAC7DE000A081A1 /* SlidTile.swift in Sources */,
+				03F1FF251DAC7DE000A081A1 /* GridSquarePositions.swift in Sources */,
+				03F1FF261DAC7DE000A081A1 /* TFE.swift in Sources */,
+				03F1FF211DAC7DD700A081A1 /* SlideDirection.swift in Sources */,
+				03F1FF2B1DAC7ECD00A081A1 /* Array+ElementsAtIndexes.swift in Sources */,
+				03F1FF2C1DAC7ECF00A081A1 /* Set+RandomInt.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F1FF041DAC7D6500A081A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03F1FF271DAC7DEB00A081A1 /* XCTestCase+StopFailure.swift in Sources */,
+				03F1FF281DAC7DEB00A081A1 /* TestTile.swift in Sources */,
+				03F1FF291DAC7DEB00A081A1 /* TFESlideTests.swift in Sources */,
+				03F1FF2A1DAC7DEB00A081A1 /* TFEMoveTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +806,26 @@
 			isa = PBXTargetDependency;
 			target = 038E32191C83A632001EF027 /* TwentyFortyEight */;
 			targetProxy = 038E32331C83A632001EF027 /* PBXContainerItemProxy */;
+		};
+		03F1FEDA1DAC779E00A081A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03F1FECE1DAC779D00A081A1 /* TFE */;
+			targetProxy = 03F1FED91DAC779E00A081A1 /* PBXContainerItemProxy */;
+		};
+		03F1FEE31DAC779E00A081A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03F1FECE1DAC779D00A081A1 /* TFE */;
+			targetProxy = 03F1FEE21DAC779E00A081A1 /* PBXContainerItemProxy */;
+		};
+		03F1FF0B1DAC7D6500A081A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03F1FEFF1DAC7D6500A081A1 /* TFE_iOS */;
+			targetProxy = 03F1FF0A1DAC7D6500A081A1 /* PBXContainerItemProxy */;
+		};
+		03F1FF141DAC7D6500A081A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03F1FEFF1DAC7D6500A081A1 /* TFE_iOS */;
+			targetProxy = 03F1FF131DAC7D6500A081A1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -470,6 +853,7 @@
 		036EA9CC1D9E03C900193E58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -498,6 +882,7 @@
 		036EA9CD1D9E03C900193E58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -604,6 +989,7 @@
 		038E323C1C83A632001EF027 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -621,6 +1007,7 @@
 		038E323D1C83A632001EF027 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -668,6 +1055,218 @@
 			};
 			name = Release;
 		};
+		03F1FEE71DAC779E00A081A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = TFE/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TFE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		03F1FEE81DAC779E00A081A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = TFE/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TFE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		03F1FEE91DAC779E00A081A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = F655DJ76U3;
+				INFOPLIST_FILE = TFETests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TFETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwentyFortyEight.app/Contents/MacOS/TwentyFortyEight";
+			};
+			name = Debug;
+		};
+		03F1FEEA1DAC779E00A081A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = F655DJ76U3;
+				INFOPLIST_FILE = TFETests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WoolSweaterSoft.TFETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwentyFortyEight.app/Contents/MacOS/TwentyFortyEight";
+			};
+			name = Release;
+		};
+		03F1FF181DAC7D6500A081A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F655DJ76U3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "TFE-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WoolSweaterSoft.TFE-iOS";
+				PRODUCT_NAME = TFE;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		03F1FF191DAC7D6500A081A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F655DJ76U3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "TFE-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WoolSweaterSoft.TFE-iOS";
+				PRODUCT_NAME = TFE;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		03F1FF1C1DAC7D6500A081A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = F655DJ76U3;
+				INFOPLIST_FILE = "TFE-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WoolSweaterSoft.TFE-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwentyFortyEight-iOS.app/TwentyFortyEight-iOS";
+			};
+			name = Debug;
+		};
+		03F1FF1D1DAC7D6500A081A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = F655DJ76U3;
+				INFOPLIST_FILE = "TFE-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "WoolSweaterSoft.TFE-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwentyFortyEight-iOS.app/TwentyFortyEight-iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -706,6 +1305,38 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		03F1FEEB1DAC779E00A081A1 /* Build configuration list for PBXNativeTarget "TFE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03F1FEE71DAC779E00A081A1 /* Debug */,
+				03F1FEE81DAC779E00A081A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03F1FEEC1DAC779E00A081A1 /* Build configuration list for PBXNativeTarget "TFETests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03F1FEE91DAC779E00A081A1 /* Debug */,
+				03F1FEEA1DAC779E00A081A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03F1FF171DAC7D6500A081A1 /* Build configuration list for PBXNativeTarget "TFE_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03F1FF181DAC7D6500A081A1 /* Debug */,
+				03F1FF191DAC7D6500A081A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03F1FF1B1DAC7D6500A081A1 /* Build configuration list for PBXNativeTarget "TFE_iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03F1FF1C1DAC7D6500A081A1 /* Debug */,
+				03F1FF1D1DAC7D6500A081A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

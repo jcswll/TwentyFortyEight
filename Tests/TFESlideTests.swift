@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import TwentyFortyEight
+@testable import TFE
 
 class TFESlideTests : XCTestCase
 {
@@ -15,7 +15,7 @@ class TFESlideTests : XCTestCase
     
     func testEmptyRow()
     {
-        let row: [TFENode?] = [nil, nil, nil, nil]
+        let row: [TestTile?] = [nil, nil, nil, nil]
         
         let slid = slideRow(row)
         
@@ -24,7 +24,7 @@ class TFESlideTests : XCTestCase
     
     func testBackwards()
     {
-        let row: [TFENode?] = [TFENode(value: 2), TFENode(value: 4), TFENode(value: 8), TFENode(value: 16)]
+        let row: [TestTile?] = [TestTile(value: 2), TestTile(value: 4), TestTile(value: 8), TestTile(value: 16)]
         
         let slid = slideRow(row)
         
@@ -33,7 +33,7 @@ class TFESlideTests : XCTestCase
     
     func testForwards()
     {
-        let row: [TFENode?] = [TFENode(value: 16), TFENode(value: 8), TFENode(value: 4), TFENode(value: 2)]
+        let row: [TestTile?] = [TestTile(value: 16), TestTile(value: 8), TestTile(value: 4), TestTile(value: 2)]
         
         let slid = slideRow(row)
         
@@ -44,8 +44,8 @@ class TFESlideTests : XCTestCase
     
     func testSplitWithTailerCombo()
     {
-        let node = TFENode(value: 2)
-        let row: [TFENode?] = [node, nil, node, node]
+        let node = TestTile(value: 2)
+        let row: [TestTile?] = [node, nil, node, node]
         let expected = [SlidTile(node, node), SlidTile(node)]
         
         let slid = slideRow(row)
@@ -56,8 +56,8 @@ class TFESlideTests : XCTestCase
     
     func testLoneMidCombo()
     {
-        let node = TFENode(value: 2)
-        let row: [TFENode?] = [nil, node, node, nil]
+        let node = TestTile(value: 2)
+        let row: [TestTile?] = [nil, node, node, nil]
         let expected = [SlidTile(node, node)]
         
         let slid = slideRow(row)
@@ -68,9 +68,9 @@ class TFESlideTests : XCTestCase
     
     func testEndCapMidCombo()
     {
-        let node = TFENode(value: 2)
-        let largeNode = TFENode(value: 256)
-        let row: [TFENode?] = [largeNode, node, node, nil]
+        let node = TestTile(value: 2)
+        let largeNode = TestTile(value: 256)
+        let row: [TestTile?] = [largeNode, node, node, nil]
         let expected = [SlidTile(largeNode), SlidTile(node, node)]
         
         let slid = slideRow(row)
@@ -81,8 +81,8 @@ class TFESlideTests : XCTestCase
     
     func testFarEndCombo()
     {
-        let node = TFENode(value: 2)
-        let row: [TFENode?] = [nil, nil, node, node]
+        let node = TestTile(value: 2)
+        let row: [TestTile?] = [nil, nil, node, node]
         let expected = [SlidTile(node, node)]
         
         let slid = slideRow(row)
@@ -93,9 +93,9 @@ class TFESlideTests : XCTestCase
     
     func testDoubleHeaderCombo()
     {
-        let node = TFENode(value: 4)
-        let largeNode = TFENode(value: 8)
-        let row: [TFENode?] = [node, node, largeNode, node]
+        let node = TestTile(value: 4)
+        let largeNode = TestTile(value: 8)
+        let row: [TestTile?] = [node, node, largeNode, node]
         let expected = [SlidTile(node, node), SlidTile(largeNode), SlidTile(node)]
         
         let slid = slideRow(row)
@@ -106,9 +106,9 @@ class TFESlideTests : XCTestCase
     
     func testDoubleDoubleCombo()
     {
-        let node = TFENode(value: 2)
-        let largeNode = TFENode(value: 8)
-        let row: [TFENode?] = [node, node, largeNode, largeNode]
+        let node = TestTile(value: 2)
+        let largeNode = TestTile(value: 8)
+        let row: [TestTile?] = [node, node, largeNode, largeNode]
         let expected = [SlidTile(node, node), SlidTile(largeNode, largeNode)]
         
         let slid = slideRow(row)
@@ -119,8 +119,8 @@ class TFESlideTests : XCTestCase
     
     func testQuadCombo()
     {
-        let node = TFENode(value: 4)
-        let row: [TFENode?] = [node, node, node, node]
+        let node = TestTile(value: 4)
+        let row: [TestTile?] = [node, node, node, node]
         let expected = [SlidTile(node, node), SlidTile(node, node)]
         
         let slid = slideRow(row)
@@ -133,9 +133,9 @@ class TFESlideTests : XCTestCase
     
     func testMiddleSlide()
     {
-        let node = TFENode(value: 2)
-        let largeNode = TFENode(value: 4)
-        let row: [TFENode?] = [nil, node, largeNode, nil]
+        let node = TestTile(value: 2)
+        let largeNode = TestTile(value: 4)
+        let row: [TestTile?] = [nil, node, largeNode, nil]
         let expected = [SlidTile(node), SlidTile(largeNode)]
         
         let slid = slideRow(row)
@@ -146,9 +146,9 @@ class TFESlideTests : XCTestCase
     
     func testForwardSplitSlide()
     {
-        let node = TFENode(value: 2)
-        let largeNode = TFENode(value: 4)
-        let row: [TFENode?] = [node, nil, largeNode, nil]
+        let node = TestTile(value: 2)
+        let largeNode = TestTile(value: 4)
+        let row: [TestTile?] = [node, nil, largeNode, nil]
         let expected = [SlidTile(node), SlidTile(largeNode)]
         
         let slid = slideRow(row)
@@ -159,9 +159,9 @@ class TFESlideTests : XCTestCase
     
     func testRearwardSplitSlide()
     {
-        let node = TFENode(value: 2)
-        let largeNode = TFENode(value: 4)
-        let row: [TFENode?] = [nil, node, nil, largeNode]
+        let node = TestTile(value: 2)
+        let largeNode = TestTile(value: 4)
+        let row: [TestTile?] = [nil, node, nil, largeNode]
         let expected = [SlidTile(node), SlidTile(largeNode)]
         
         let slid = slideRow(row)
@@ -172,9 +172,9 @@ class TFESlideTests : XCTestCase
     
     func testRearwardSlide()
     {
-        let node = TFENode(value: 2)
-        let largeNode = TFENode(value: 4)
-        let row: [TFENode?] = [nil, nil, node, largeNode]
+        let node = TestTile(value: 2)
+        let largeNode = TestTile(value: 4)
+        let row: [TestTile?] = [nil, nil, node, largeNode]
         let expected = [SlidTile(node), SlidTile(largeNode)]
         
         let slid = slideRow(row)
@@ -185,10 +185,10 @@ class TFESlideTests : XCTestCase
     
     func testThreeRearwardSlide()
     {
-        let node = TFENode(value: 2)
-        let largeNode = TFENode(value: 256)
-        let otherNode = TFENode(value: 4)
-        let row: [TFENode?] = [nil, largeNode, node, otherNode]
+        let node = TestTile(value: 2)
+        let largeNode = TestTile(value: 256)
+        let otherNode = TestTile(value: 4)
+        let row: [TestTile?] = [nil, largeNode, node, otherNode]
         let expected = [SlidTile(largeNode), SlidTile(node), SlidTile(otherNode)]
         
         let slid = slideRow(row)
@@ -199,10 +199,10 @@ class TFESlideTests : XCTestCase
     
     func testThreeSplitSlide()
     {
-        let node = TFENode(value: 2)
-        let largeNode = TFENode(value: 256)
-        let otherNode = TFENode(value: 4)
-        let row: [TFENode?] = [largeNode, nil, node, otherNode]
+        let node = TestTile(value: 2)
+        let largeNode = TestTile(value: 256)
+        let otherNode = TestTile(value: 4)
+        let row: [TestTile?] = [largeNode, nil, node, otherNode]
         let expected = [SlidTile(largeNode), SlidTile(node), SlidTile(otherNode)]
         
         let slid = slideRow(row)

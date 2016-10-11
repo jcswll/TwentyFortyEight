@@ -11,7 +11,7 @@
  * is its value, which represents its score and is used to compare it to
  * other `Tile`s.
  */
-protocol Tile : Equatable
+public protocol Tile : Equatable
 {
     /** The point value of this `Tile`. */
     var value: Int { get }

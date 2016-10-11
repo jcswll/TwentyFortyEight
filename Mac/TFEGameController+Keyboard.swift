@@ -9,6 +9,7 @@
 import Cocoa
 // Include Carbon for key code enum
 import Carbon
+import enum TFE.SlideDirection
 
 extension TFEGameController
 {
@@ -27,7 +28,7 @@ extension TFEGameController
             return
         }
         
-        let direction: SlideDirection
+        let direction: TFE.SlideDirection
         switch keyCode {
             
             case kVK_ANSI_A, kVK_LeftArrow:
