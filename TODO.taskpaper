@@ -15,9 +15,9 @@
 Swift:
     - Grid-modifying functions can probably use `inout` @swift @enhancement
     - Redo TFEGridIsALoser() with a `flatMap` @swift
-        return [.Left, .Up, .Right, .Down].flatMap({ (direction: TFENodeDirection) in
+        return [.Left, .Up, .Right, .Down].flatMap({ (direction: SlideDirection) in
 
-            let (moves, _) = TFEMove(nodes: grid, inDirection: direction)
+            let (moves, _) = TileMove(nodes: grid, inDirection: direction)
             return moves
 
         }).isEmpty

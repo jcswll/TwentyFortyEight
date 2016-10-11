@@ -131,3 +131,9 @@ Subclassing SKSpriteNode was a headache. (Aside from the usual stupidity with `i
 Before I found the solution, there was some wrestling with an error about a constant property apparently not being settable inside a convenience initializer.
 
 `textureForValue:` would be translated according to new Swift naming guidelines as `texture(forValue:)`, but since parameter names are not part of the function signature, that makes the natural `let texture = texture(forValue: value)` produce "error: variable used within its own initial value". The compiler can't figure out that the second `texture` is a function invocation for some reason.
+
+---
+
+Some weirdness when the `Tile`s protocol was introduced. The engine functions became generic; nodes inside them are types only as `Tile`s. This changed the way that equality worked for some reason.
+
+`Tile` conforms to `Equatable`, as did/does `TFENode` (via `Comparable`). The `==` comparison in the sliding function called `==(_:TFENode,_:TFENode)` as expected. But when `Tile` was added, `SKSpriteNode.isEqual(_:)` was called instead. This appears to be dynamic dispatch through the protocol's `Self` (which is `TFENode`). Overriding `isEqual(_:)` in `TFENode` resolved it.

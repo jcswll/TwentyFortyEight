@@ -10,7 +10,7 @@
 #import "TFE.h"
 #import "TFETestHeader.h"
 #import "TFENode.h"
-#import "TFEMove.h"
+#import "TileMove.h"
 
 @interface TFEScoreTests : XCTestCase
 
@@ -28,11 +28,11 @@
 
 - (void)testComboFours
 {
-    NSArray * moves = @[[TFEMove moveForNode:[TFENode nodeWithValue:4]
+    NSArray * moves = @[[TileMove moveForNode:[TFENode nodeWithValue:4]
                                     toSquare:0
                                    combining:YES
                                     spawning:NO],
-                        [TFEMove moveForNode:[TFENode nodeWithValue:4]
+                        [TileMove moveForNode:[TFENode nodeWithValue:4]
                                     toSquare:0
                                    combining:YES
                                     spawning:NO]];
@@ -43,7 +43,7 @@
 
 - (void)testOnlySpawn
 {
-    NSArray * moves = @[[TFEMove moveForNode:[TFENode nodeWithValue:1024]
+    NSArray * moves = @[[TileMove moveForNode:[TFENode nodeWithValue:1024]
                                     toSquare:0
                                    combining:NO
                                     spawning:YES]];
@@ -54,19 +54,19 @@
 
 - (void)testDoubleCombo
 {
-    NSArray * moves = @[[TFEMove moveForNode:[TFENode nodeWithValue:4]
+    NSArray * moves = @[[TileMove moveForNode:[TFENode nodeWithValue:4]
                                     toSquare:0
                                    combining:YES
                                     spawning:NO],
-                        [TFEMove moveForNode:[TFENode nodeWithValue:4]
+                        [TileMove moveForNode:[TFENode nodeWithValue:4]
                                     toSquare:0
                                    combining:YES
                                     spawning:NO],
-                        [TFEMove moveForNode:[TFENode nodeWithValue:8]
+                        [TileMove moveForNode:[TFENode nodeWithValue:8]
                                     toSquare:0
                                    combining:YES
                                     spawning:NO],
-                        [TFEMove moveForNode:[TFENode nodeWithValue:8]
+                        [TileMove moveForNode:[TFENode nodeWithValue:8]
                                     toSquare:0
                                    combining:YES
                                     spawning:NO]];
@@ -77,15 +77,15 @@
 
 - (void)testNoCombos
 {
-    NSArray * moves = @[[TFEMove moveForNode:[TFENode nodeWithValue:1204]
+    NSArray * moves = @[[TileMove moveForNode:[TFENode nodeWithValue:1204]
                                     toSquare:0
                                    combining:NO
                                     spawning:NO],
-                        [TFEMove moveForNode:[TFENode nodeWithValue:32]
+                        [TileMove moveForNode:[TFENode nodeWithValue:32]
                                     toSquare:1
                                    combining:NO
                                     spawning:NO],
-                        [TFEMove moveForNode:[TFENode nodeWithValue:64]
+                        [TileMove moveForNode:[TFENode nodeWithValue:64]
                                     toSquare:2
                                    combining:NO
                                     spawning:NO]];

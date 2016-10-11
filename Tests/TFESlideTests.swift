@@ -46,7 +46,7 @@ class TFESlideTests : XCTestCase
     {
         let node = TFENode(value: 2)
         let row: [TFENode?] = [node, nil, node, node]
-        let expected = [SlidNode(node, node), SlidNode(node)]
+        let expected = [SlidTile(node, node), SlidTile(node)]
         
         let slid = slideRow(row)
         
@@ -58,7 +58,7 @@ class TFESlideTests : XCTestCase
     {
         let node = TFENode(value: 2)
         let row: [TFENode?] = [nil, node, node, nil]
-        let expected = [SlidNode(node, node)]
+        let expected = [SlidTile(node, node)]
         
         let slid = slideRow(row)
         
@@ -71,7 +71,7 @@ class TFESlideTests : XCTestCase
         let node = TFENode(value: 2)
         let largeNode = TFENode(value: 256)
         let row: [TFENode?] = [largeNode, node, node, nil]
-        let expected = [SlidNode(largeNode), SlidNode(node, node)]
+        let expected = [SlidTile(largeNode), SlidTile(node, node)]
         
         let slid = slideRow(row)
         
@@ -83,7 +83,7 @@ class TFESlideTests : XCTestCase
     {
         let node = TFENode(value: 2)
         let row: [TFENode?] = [nil, nil, node, node]
-        let expected = [SlidNode(node, node)]
+        let expected = [SlidTile(node, node)]
         
         let slid = slideRow(row)
         
@@ -96,7 +96,7 @@ class TFESlideTests : XCTestCase
         let node = TFENode(value: 4)
         let largeNode = TFENode(value: 8)
         let row: [TFENode?] = [node, node, largeNode, node]
-        let expected = [SlidNode(node, node), SlidNode(largeNode), SlidNode(node)]
+        let expected = [SlidTile(node, node), SlidTile(largeNode), SlidTile(node)]
         
         let slid = slideRow(row)
         
@@ -109,7 +109,7 @@ class TFESlideTests : XCTestCase
         let node = TFENode(value: 2)
         let largeNode = TFENode(value: 8)
         let row: [TFENode?] = [node, node, largeNode, largeNode]
-        let expected = [SlidNode(node, node), SlidNode(largeNode, largeNode)]
+        let expected = [SlidTile(node, node), SlidTile(largeNode, largeNode)]
         
         let slid = slideRow(row)
         
@@ -121,7 +121,7 @@ class TFESlideTests : XCTestCase
     {
         let node = TFENode(value: 4)
         let row: [TFENode?] = [node, node, node, node]
-        let expected = [SlidNode(node, node), SlidNode(node, node)]
+        let expected = [SlidTile(node, node), SlidTile(node, node)]
         
         let slid = slideRow(row)
         
@@ -136,7 +136,7 @@ class TFESlideTests : XCTestCase
         let node = TFENode(value: 2)
         let largeNode = TFENode(value: 4)
         let row: [TFENode?] = [nil, node, largeNode, nil]
-        let expected = [SlidNode(node), SlidNode(largeNode)]
+        let expected = [SlidTile(node), SlidTile(largeNode)]
         
         let slid = slideRow(row)
         
@@ -149,7 +149,7 @@ class TFESlideTests : XCTestCase
         let node = TFENode(value: 2)
         let largeNode = TFENode(value: 4)
         let row: [TFENode?] = [node, nil, largeNode, nil]
-        let expected = [SlidNode(node), SlidNode(largeNode)]
+        let expected = [SlidTile(node), SlidTile(largeNode)]
         
         let slid = slideRow(row)
         
@@ -162,7 +162,7 @@ class TFESlideTests : XCTestCase
         let node = TFENode(value: 2)
         let largeNode = TFENode(value: 4)
         let row: [TFENode?] = [nil, node, nil, largeNode]
-        let expected = [SlidNode(node), SlidNode(largeNode)]
+        let expected = [SlidTile(node), SlidTile(largeNode)]
         
         let slid = slideRow(row)
         
@@ -175,7 +175,7 @@ class TFESlideTests : XCTestCase
         let node = TFENode(value: 2)
         let largeNode = TFENode(value: 4)
         let row: [TFENode?] = [nil, nil, node, largeNode]
-        let expected = [SlidNode(node), SlidNode(largeNode)]
+        let expected = [SlidTile(node), SlidTile(largeNode)]
         
         let slid = slideRow(row)
         
@@ -189,7 +189,7 @@ class TFESlideTests : XCTestCase
         let largeNode = TFENode(value: 256)
         let otherNode = TFENode(value: 4)
         let row: [TFENode?] = [nil, largeNode, node, otherNode]
-        let expected = [SlidNode(largeNode), SlidNode(node), SlidNode(otherNode)]
+        let expected = [SlidTile(largeNode), SlidTile(node), SlidTile(otherNode)]
         
         let slid = slideRow(row)
         
@@ -203,7 +203,7 @@ class TFESlideTests : XCTestCase
         let largeNode = TFENode(value: 256)
         let otherNode = TFENode(value: 4)
         let row: [TFENode?] = [largeNode, nil, node, otherNode]
-        let expected = [SlidNode(largeNode), SlidNode(node), SlidNode(otherNode)]
+        let expected = [SlidTile(largeNode), SlidTile(node), SlidTile(otherNode)]
         
         let slid = slideRow(row)
         

@@ -18,7 +18,7 @@ extension TFEGameController
         }
         
         let swipeDirection = recognizer.direction
-        let nodeDirection: TFENodeDirection
+        let nodeDirection: SlideDirection
         
         switch swipeDirection {
             

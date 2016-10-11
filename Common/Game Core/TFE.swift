@@ -9,34 +9,34 @@
 import Foundation
 
 /**
- * Construct a starting grid; the grid is empty except for two nodes created
- * by spawnNewNode(on:)
+ * Construct a starting grid; the grid is empty except for two tiles created
+ * by spawnNewTile(on:)
  *
- * Returns an array of `TFEMove`s describing the spawns, and the new grid.
+ * Returns an array of `TileMove`s describing the spawns, and the new grid.
  */
-func TFEBuildGrid() -> ([TFEMove], [TFENode?])
+func TFEBuildGrid<T : Tile>() -> ([TileMove<T>], [T?])
 {
-    var grid = nullGrid()
+    var grid: [T?] = nullGrid()
     
-    let firstSpawn: TFEMove
-    let secondSpawn: TFEMove
+    let firstSpawn: TileMove<T>
+    let secondSpawn: TileMove<T>
     
-    (firstSpawn, grid) = spawnNewNode(on: grid)
-    (secondSpawn, grid) = spawnNewNode(on: grid)
+    (firstSpawn, grid) = spawnNewTile(on: grid)
+    (secondSpawn, grid) = spawnNewTile(on: grid)
     
     return ([firstSpawn, secondSpawn], grid)
 }
 
 /**
- * Attempt to slide all the nodes towards the given direction.
+ * Attempt to slide all the tiles towards the given direction.
  *
- * Returns an array of `TFEMove`s, or `nil` if nothing moved, and the grid as
+ * Returns an array of `TileMove`s, or `nil` if nothing moved, and the grid as
  * reconfigured after all movement.
  */
-func TFEMoveNodes(_ grid: [TFENode?], inDirection direction: TFENodeDirection) -> ([TFEMove]?, [TFENode?])
+func TFEMoveTiles<T : Tile>(_ grid: [T?], inDirection direction: SlideDirection) -> ([TileMove<T>]?, [T?])
 {
-    var newGrid = nullGrid()
-    var moves: [TFEMove]? = nil
+    var newGrid: [T?] = nullGrid()
+    var moves: [TileMove<T>]? = nil
     
     // The by-row and intra-row traversal orders depend on the direction
     // of movement. GridIndexes holds the square positions in the
@@ -47,7 +47,7 @@ func TFEMoveNodes(_ grid: [TFENode?], inDirection direction: TFENodeDirection) -
         
         let slid = slideRow(row)
         
-        // No movement, just copy nodes over and continue with the next row.
+        // No movement, just copy tiles over and continue with the next row.
         guard let slidRow = slid else {
             
             for index in rowIndexes {
@@ -59,7 +59,7 @@ func TFEMoveNodes(_ grid: [TFENode?], inDirection direction: TFENodeDirection) -
         
         moves = moves ?? []
         
-        let newMoves: [TFEMove]
+        let newMoves: [TileMove<T>]
         (newMoves, newGrid) = processMoves(forSlidRow: slidRow, rowIndexes: rowIndexes, onGrid: newGrid)
         moves?.append(contentsOf: newMoves)
     }
@@ -69,25 +69,25 @@ func TFEMoveNodes(_ grid: [TFENode?], inDirection direction: TFENodeDirection) -
 
 
 /**
- * Create a new node at a random index selected from those that are both
+ * Create a new tile at a random index selected from those that are both
  * unoccupied and not in the line furthest in the disallowed direction.
- * The node has value 2 or 4, chosen at random.
+ * The tile has value 2 or 4, chosen at random.
  *
- * Returns a `TFEMove` object describing the spawn and the grid with the
- * new node added.
+ * Returns a `TileMove` object describing the spawn and the grid with the
+ * new tile added.
  */
-func TFESpawnNewNode(on grid: [TFENode?], excluding direction: TFENodeDirection) -> (TFEMove, [TFENode?])
+func TFESpawnNewTile<T : Tile>(on grid: [T?], excluding direction: SlideDirection) -> (TileMove<T>, [T?])
 {
     let disallowedIndexes = TrailingSquares.awayFrom(direction)
-    return spawnNewNode(on: grid, excluding: disallowedIndexes)
+    return spawnNewTile(on: grid, excluding: disallowedIndexes)
 }
 
-func TFEIsAWinner(_ grid: [TFENode?]) -> Bool
+func TFEIsAWinner<T : Tile>(_ grid: [T?]) -> Bool
 {
     return grid.contains(where: { $0?.value == 2048 })
 }
 
-func TFEIsALoser(_ grid: [TFENode?]) -> Bool
+func TFEIsALoser<T : Tile>(_ grid: [T?]) -> Bool
 {
     // If the board isn't full, we can't have lost yet
     guard !indexesOfUnoccupiedSquares(grid).isEmpty else {
@@ -95,10 +95,10 @@ func TFEIsALoser(_ grid: [TFENode?]) -> Bool
     }
     
     // Try moving in all directions
-    let directions: [TFENodeDirection] = [.left, .up, .right, .down]
+    let directions: [SlideDirection] = [.left, .up, .right, .down]
     for direction in directions {
         
-        let (moves, _) = TFEMoveNodes(grid, inDirection: direction)
+        let (moves, _) = TFEMoveTiles(grid, inDirection: direction)
         
         // If movement is possible in _any_ direction, we haven't lost
         guard moves == nil else {
@@ -109,7 +109,7 @@ func TFEIsALoser(_ grid: [TFENode?]) -> Bool
     return true
 }
 
-func TFEScore(forMoves moves: [TFEMove]) -> Int
+func TFEScore<T : Tile>(forMoves moves: [TileMove<T>]) -> Int
 {
     return moves.reduce(0, { (score, move) in
         
@@ -117,23 +117,23 @@ func TFEScore(forMoves moves: [TFEMove]) -> Int
             return 0
         }
         
-        return score + move.node.value
+        return score + move.tile.value
     })
 }
 
 //MARK: - Internal functions
 
-/** Array of `Optional<TFENode>.None` representing an empty grid. */
-private func nullGrid() -> [TFENode?]
+/** Array of `Optional<T>.None` representing an empty grid. */
+private func nullGrid<T : Tile>() -> [T?]
 {
     return Array(repeating: nil, count: 16)
 }
 
 /**
- * Given a list of optional `TFENode`s, representing the game grid, return a set
+ * Given a list of optional `Tile`s, representing the game grid, return a set
  * with the indexes of all nil elements.
  */
-private func indexesOfUnoccupiedSquares(_ grid: [TFENode?]) -> Set<Int>
+private func indexesOfUnoccupiedSquares<T : Tile>(_ grid: [T?]) -> Set<Int>
 {
     var set: Set<Int> = []
     
@@ -147,100 +147,100 @@ private func indexesOfUnoccupiedSquares(_ grid: [TFENode?]) -> Set<Int>
 }
 
 /**
- * Given a list of `SlidNode`s and the grid indexes of the corresponding row,
- * deconstruct the enums into `TFEMove`s and update the node locations in the
- * grid, or create new nodes for combinations, as necessary.
+ * Given a list of `SlidTile`s and the grid indexes of the corresponding row,
+ * deconstruct the enums into `TileMove`s and update the tile locations in the
+ * grid, or create new tiles for combinations, as necessary.
  *
  * Returns the list of moves and the updated grid.
  */
-func processMoves(forSlidRow row: [SlidNode], rowIndexes indexes: [Int], onGrid grid: [TFENode?]) -> ([TFEMove], [TFENode?])
+func processMoves<T : Tile>(forSlidRow row: [SlidTile<T>], rowIndexes indexes: [Int], onGrid grid: [T?]) -> ([TileMove<T>], [T?])
 {
     var newGrid = grid
-    var moves: [TFEMove] = []
+    var moves: [TileMove<T>] = []
     
-    for (destination, slidNode) in zip(indexes, row) {
+    for (destination, slidTile) in zip(indexes, row) {
     
-        let nodeForDestination: TFENode
+        let tileForDestination: T
     
-        switch slidNode {
+        switch slidTile {
         
             case .empty:
                 continue
-            case let .solo(node):
-                nodeForDestination = node
-                moves.append(TFEMove(node: node, destination: destination))
-            case let .combined(firstNode, secondNode):
-                moves.append(TFEMove(node: firstNode, destination: destination, isCombination: true))
-                moves.append(TFEMove(node: secondNode, destination: destination, isCombination: true))
-                let comboNode = TFENode(value: firstNode.value * 2)
-                nodeForDestination = comboNode
-                moves.append(TFEMove(node: comboNode, destination: destination, isSpawn: true))
+            case let .solo(tile):
+                tileForDestination = tile
+                moves.append(TileMove(tile: tile, destination: destination))
+            case let .combined(firstTile, secondTile):
+                moves.append(TileMove(tile: firstTile, destination: destination, isCombination: true))
+                moves.append(TileMove(tile: secondTile, destination: destination, isCombination: true))
+                let comboTile = T(value: firstTile.value * 2)
+                tileForDestination = comboTile
+                moves.append(TileMove(tile: comboTile, destination: destination, isSpawn: true))
         }
     
-        newGrid[destination] = nodeForDestination
+        newGrid[destination] = tileForDestination
     }
     
     return (moves, newGrid)
 }
 
 /**
- * Given an array of optional `TFENode`s representing a grid row, move the values
- * leftwards (towards the beginning of the array), allowing nodes that contain
- * values to skip over empty squares and combining adjacent nodes that have the
+ * Given an array of optional `Tile`s representing a grid row, move the values
+ * leftwards (towards the beginning of the array), allowing tiles that contain
+ * values to skip over empty squares and combining adjacent tiles that have the
  * same value.
  *
- * Return `nil` if nothing changed, or an array of `SlidNode`s representing the
- * moved nodes for further processing.
+ * Return `nil` if nothing changed, or an array of `SlidTile`s representing the
+ * moved tiles for further processing.
  */
-func slideRow(_ row: [TFENode?]) -> [SlidNode]?    // Not marked private to allow unit testing
+func slideRow<T : Tile>(_ row: [T?]) -> [SlidTile<T>]?
 {
-    let realNodes: [TFENode] = row.flatMap({ $0 })
+    let realTiles: [T] = row.flatMap({ $0 })
     
-    guard !realNodes.isEmpty else {
+    guard !realTiles.isEmpty else {
         return nil
     }
     
     /**
-     * Perform the combinations of adjacent nodes as a left fold:
-     * `accum` initially holds the first element of the row as a `SlidNode`,
-     * then collects each new element as it is processed. When two `.Solo` nodes
+     * Perform the combinations of adjacent tiles as a left fold:
+     * `accum` initially holds the first element of the row as a `SlidTile`,
+     * then collects each new element as it is processed. When two `.Solo` tiles
      * are moved into one another, they create a single `.Combined`, with the
      * same associated value.
      */
-    func slide(accum: [SlidNode], next: TFENode) -> [SlidNode]
+    func slide(accum: [SlidTile<T>], next: T) -> [SlidTile<T>]
     {
         switch accum.last! {
             
             case let .solo(last) where last == next:
-                return accum.dropLast() + [SlidNode(last, next)]
+                return accum.dropLast() + [SlidTile(last, next)]
             default:
-                return accum + [SlidNode(next)]
+                return accum + [SlidTile(next)]
         }
     }
     
-    let (first, rest) = (realNodes.first!, realNodes.dropFirst())
-    let slidRow = rest.reduce([SlidNode(first)], slide)
+    let (first, rest) = (realTiles.first!, realTiles.dropFirst())
+    let slidRow = rest.reduce([SlidTile(first)], slide)
     
-    // "Fill out" the remainer of the row with SlidNode.Empty values
+    // "Fill out" the remainer of the row with SlidTile.Empty values
     let emptiesCount = 4 - slidRow.count
-    let filledOutRow = slidRow + Array(repeating: SlidNode(), count: emptiesCount)
+    let filledOutRow = slidRow + Array(repeating: SlidTile(), count: emptiesCount)
     
     // If the slid row after adding empties is equivalent to the original row mapped to
-    // SlidNodes, nothing changed.
-    let wrappedOriginalRow = row.map({ SlidNode($0) })
+    // SlidTiles, nothing changed.
+    let wrappedOriginalRow = row.map({ SlidTile<T>($0) })
     let didMove = (filledOutRow != wrappedOriginalRow)
     
     return didMove ? slidRow : nil
 }
 
 /**
- * Does the actual work for the public function `TFESpawnNewNode(on:excluding:)`,
+ * Does the actual work for the public function `TFESpawnNewTile(on:excluding:)`,
  * which will pass in the disallowed directions.
  *
  * Given the grid and a set of positions that are invalid, add a square with
  * value either 2 or 4 to any empty and valid square, then return the new grid.
  */
-private func spawnNewNode(on grid: [TFENode?], excluding disallowedIndexes: Set<Int> = []) -> (TFEMove, [TFENode?])
+private func spawnNewTile<T : Tile>(on grid: [T?], excluding disallowedIndexes: Set<Int> = []) -> (TileMove<T>, [T?])
 {
     let unoccupiedSquares = indexesOfUnoccupiedSquares(grid)
     let allowedLocations = unoccupiedSquares.subtracting(disallowedIndexes)
@@ -250,10 +250,10 @@ private func spawnNewNode(on grid: [TFENode?], excluding disallowedIndexes: Set<
     // Bias heavily towards new value being a 2
     let pick = arc4random_uniform(10)
     let newValue = (pick < 9) ? 2 : 4
-    let node = TFENode(value: newValue)
+    let tile = T(value: newValue)
     
-    let spawn = TFEMove(node: node, destination: spawnLocation, isSpawn: true)
-    newGrid[spawnLocation] = node
+    let spawn = TileMove(tile: tile, destination: spawnLocation, isSpawn: true)
+    newGrid[spawnLocation] = tile
     
     return (spawn, newGrid)
 }

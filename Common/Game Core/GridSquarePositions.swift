@@ -16,7 +16,7 @@ struct TrailingSquares
     private static let right: Set<Int> = [15, 11, 7, 3]
     private static let down: Set<Int> = [0, 1, 2, 3]
     
-    static func awayFrom(_ direction: TFENodeDirection) -> Set<Int>
+    static func awayFrom(_ direction: SlideDirection) -> Set<Int>
     {
         switch direction {
             
@@ -50,7 +50,7 @@ struct GridIndexes
 
     private static let down = [[0, 4, 8, 12], [1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15]]
         
-    static func by(_ direction: TFENodeDirection) -> [[Int]]
+    static func by(_ direction: SlideDirection) -> [[Int]]
     {
         switch direction {
             

@@ -20,7 +20,7 @@ struct TFEBoard
         self.scene = scene
         self.score = 0
         
-        let initialSpawns: [TFEMove]
+        let initialSpawns: [TileMove<TFENode>]
         (initialSpawns, self.grid) = TFEBuildGrid()
         
         for spawn in initialSpawns {
@@ -28,10 +28,10 @@ struct TFEBoard
         }
     }
     
-    mutating func moveNodes(inDirection direction: TFENodeDirection)
-    {        
-        let possibleMoves: [TFEMove]?
-        (possibleMoves, self.grid) = TFEMoveNodes(self.grid, inDirection: direction)
+    mutating func moveNodes(inDirection direction: SlideDirection)
+    {
+        let possibleMoves: [TileMove<TFENode>]?
+        (possibleMoves, self.grid) = TFEMoveTiles(self.grid, inDirection: direction)
         
         guard let moves = possibleMoves else {
             return
@@ -40,30 +40,30 @@ struct TFEBoard
         self.executeMoves(moves)
         self.score(moves)
         
-        let spawn: TFEMove
-        (spawn, self.grid) = TFESpawnNewNode(on: self.grid, excluding: direction)
+        let spawn: TileMove<TFENode>
+        (spawn, self.grid) = TFESpawnNewTile(on: self.grid, excluding: direction)
         
         self.executeSpawn(spawn)
         
         self.checkForEndGame()
     }
     
-    func executeSpawn(_ spawn: TFEMove)
+    func executeSpawn(_ spawn: TileMove<TFENode>)
     {
-        self.scene.spawn(spawn.node, inSquare: spawn.destination)
+        self.scene.spawn(spawn.tile, inSquare: spawn.destination)
     }
     
-    func executeMoves(_ moves: [TFEMove])
+    func executeMoves(_ moves: [TileMove<TFENode>])
     {
         for spawn in moves.filter({ $0.isSpawn }) {
             self.executeSpawn(spawn)
         }
         for move in moves.filter({ !$0.isSpawn }) {
-            self.scene.move(move.node, toSquare: move.destination, combining: move.isCombination)
+            self.scene.move(move.tile, toSquare: move.destination, combining: move.isCombination)
         }
     }
     
-    mutating func score(_ moves: [TFEMove])
+    mutating func score(_ moves: [TileMove<TFENode>])
     {
         let newPoints = TFEScore(forMoves: moves)
         guard newPoints > 0 else {

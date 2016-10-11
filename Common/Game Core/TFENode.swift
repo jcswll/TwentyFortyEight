@@ -13,7 +13,7 @@ import SpriteKit
  * and perform necessary animations. They also hold their point value, which the game engine uses to
  * calculate combinations.
  */
-class TFENode : SKSpriteNode
+class TFENode : SKSpriteNode, Tile
 {
     /** Create the appropriate `SKTexture` for this value. */
     private static func texture(forValue value: Int) -> SKTexture
@@ -24,7 +24,7 @@ class TFENode : SKSpriteNode
     /** The node's point value. This is a `TFENode`'s sole feature for purposes of comparison to other nodes. */
     let value: Int
     
-    init(value: Int)
+    required init(value: Int)
     {
         self.value = value
         
@@ -156,6 +156,17 @@ func <(lhs: TFENode, rhs: TFENode) -> Bool
 extension TFENode : Comparable
 {
     override var hashValue: Int { return super.hashValue << Int(self.value) }
+    
+    override var hash: Int { return self.hashValue }
+    
+    override func isEqual(_ object: Any?) -> Bool
+    {
+        guard let other = object as? TFENode else {
+            return false
+        }
+        
+        return self == other
+    }
 }
 
 //MARK: - Node movement tracking

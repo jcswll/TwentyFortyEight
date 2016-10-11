@@ -27,7 +27,7 @@ extension TFEGameController
             return
         }
         
-        let direction: TFENodeDirection
+        let direction: SlideDirection
         switch keyCode {
             
             case kVK_ANSI_A, kVK_LeftArrow:
